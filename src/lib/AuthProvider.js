@@ -54,9 +54,9 @@ class AuthProvider extends Component {
   }
 
   signup = user => {
-    const { username, password } = user;
+    const { email, username, password, isAdmin, flatAttribute } = user;
     auth
-      .signup({ username, password })
+      .signup({ email, username, password, isAdmin, flatAttribute })
       .then(user => {
         this.setState({
           isLoggedin: true,

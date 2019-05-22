@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 class Navbar extends Component {
   render() {
@@ -11,12 +10,8 @@ class Navbar extends Component {
             <p>username: {user.username}</p>
             <button onClick={logout}>Logout</button>
           </>
-        ) : (
-          <>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
-          </>
-        )}
+        ) : null
+        }
       </div>
     );
   }

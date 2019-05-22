@@ -3,14 +3,18 @@ import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 class Signup extends Component {
   state = {
+    email: "",
     username: "",
-    password: ""
+    password: "",
+    isAdmin: false,
+    flatAttribute: ""
+
   };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { username, password } = this.state;
-    this.props.signup({ username, password });
+    const { email, username, password, isAdmin, flatAttribute } = this.state;
+    this.props.signup({ email, username, password, isAdmin, flatAttribute });
   };
 
   handleChange = event => {
@@ -18,11 +22,27 @@ class Signup extends Component {
     this.setState({ [name]: value });
   };
 
+  handleSelect = event => {
+    event.preventDefault();
+    const { name, value } = event.target;
+    this.setState({[name]: value}, () => {
+
+      console.log(this.state.isAdmin)
+    })
+  }
+
   render() {
-    const { username, password } = this.state;
+    const { username, password, email, flatAttribute} = this.state;
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
+          <label>Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+            />
           <label>Username:</label>
           <input
             type="text"
@@ -37,6 +57,34 @@ class Signup extends Component {
             value={password}
             onChange={this.handleChange}
           />
+          <select name="isAdmin" onChange={this.handleSelect}>
+            <option value={false}>Join</option>
+            <option value={true}>Create</option> 
+          </select>
+
+          { this.state.isAdmin ? 
+          <div>
+           <label>Flatname:</label>
+          <input
+            type="text"
+            name="flatAttribute"
+            value={flatAttribute}
+            onChange={this.handleChange}
+          />
+          </div>
+            :
+          <div>
+           <label>Invitation Code:</label>
+          <input
+            type="text"
+            name="flatAttribute"
+            value={flatAttribute}
+            onChange={this.handleChange}
+          />
+          </div>
+            
+            }
+
           <input type="submit" value="Signup" />
         </form>
         <p>
