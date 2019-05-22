@@ -4,10 +4,10 @@ import { withAuth } from "../../lib/AuthProvider";
 
 
 
-class PopupShopping extends Component {
+class EditShopping extends Component {
   state = {
-    name: '',
-    amount: ''
+    name: this.props.name,
+    amount: this.props.amount
   }
 
   handleChange = (event) => {
@@ -18,24 +18,26 @@ class PopupShopping extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-      let flatID = this.props.user.flat
-      let item = this.state
-      console.log(flatID)
-      console.log(this.state)
-      axios.post('http://localhost:5000/user/shopping/new', {flatID, item})
-        .then(response => {
-          console.log(response)
-          this.props.getAllFlats()
-        });
-      this.setState({ name: '', amount: '' })
+    let flatID = this.props.user.flat
+    let itemName = this.props.name
+    let {name, amount} = this.state
+    console.log(flatID)
+    console.log(this.state)
+    axios.put('http://localhost:5000/user/shopping/edit', { flatID, itemName, name, amount })
+      .then(response => {
+        console.log(response)
+        this.props.getAllFlats()
+      });
+    
    }
 
   render() {
+    console.log('edit')
     return (
       <div>
       <form onSubmit={this.handleFormSubmit}>
           <div>
-            <label>Item</label>
+            <label>ItemShopp</label>
             <input value={this.state.name} type="text" name="name" onChange={this.handleChange} />
           </div>
           <div>
@@ -53,4 +55,4 @@ class PopupShopping extends Component {
   }
 }
 
-export default withAuth(PopupShopping);
+export default withAuth(EditShopping);

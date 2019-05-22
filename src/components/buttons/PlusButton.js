@@ -20,10 +20,12 @@ class PlusButton extends Component {
   }
 
   render() {
+
+    console.log(this.props)
     return (
       <div>
         {this.state.isClicked && this.state.path === 'todo' ? <PopupToDo /> : null}
-        {this.state.isClicked && this.state.path === 'shopping' ? <PopupShopping /> : null}
+        {this.state.isClicked && this.state.path === 'shopping' ? <PopupShopping getAllFlats={this.props.getAllFlats} /> : null}
         {this.state.isClicked && this.state.path === 'bill' ? <PopupBill /> : null}
 
         <div>

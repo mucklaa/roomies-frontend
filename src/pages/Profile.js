@@ -48,7 +48,6 @@ class Profile extends Component {
         <h3>Your Flat</h3>
         {
           users.map((element, index) => {
-            console.log(element)
             return (
               <div key={index}>
                 <img src={element.image} width="100px" alt=""/>
