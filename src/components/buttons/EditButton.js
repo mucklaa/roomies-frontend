@@ -28,7 +28,11 @@ class EditButton extends Component {
         {this.state.isClicked && this.state.path === 'bill' ? <EditBill /> : null}
 
         <div>
-          <button onClick={this.handleOnClick}>Edit</button> 
+          {
+            !this.state.isClicked ? <button onClick={this.handleOnClick}>Edit</button>  : <button onClick={this.handleOnClick}>X</button>
+          }
+          
+          
         </div>
       </div>
 
