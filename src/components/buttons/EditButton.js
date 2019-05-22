@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import EditToDo from "./../popups/PopupToDo"
+import EditToDo from "./../edits/EditToDo"
 import EditShopping from "./../edits/EditShopping"
-import EditBill from "./../popups/PopupBill"
+import EditBill from "./../edits/EditBill"
 import { withAuth } from "../../lib/AuthProvider";
 
 
@@ -23,7 +23,7 @@ class EditButton extends Component {
     console.log('editButton',this.props.pathPage)
     return (
       <div>
-        {this.state.isClicked && this.state.path === 'todo' ? <EditToDo /> : null}
+        {this.state.isClicked && this.state.path === 'todo' ? <EditToDo getAllFlats={this.props.getAllFlats} name={this.props.name} user={this.props.user}/> : null}
         {this.state.isClicked && this.state.path === 'shopping' ? <EditShopping getAllFlats={this.props.getAllFlats} amount={this.props.amount} name={this.props.name} /> : null}
         {this.state.isClicked && this.state.path === 'bill' ? <EditBill /> : null}
 

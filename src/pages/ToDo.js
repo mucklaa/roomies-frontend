@@ -1,20 +1,51 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter"
+import shoppingAuth from "./../lib/shopping-services";
+import EditButton from "./../components/buttons/EditButton";
+
+
 import PlusButton from "./../components/buttons/PlusButton"
 
 class ToDo extends Component {
   state = {
-    todoArray: this.props,
-    pathPage: "todo"
+    flat: {},
+    pathPage: "todo",
+    toDoList: []
+  }
+
+  getAllFlats = () =>{
+    shoppingAuth.getFlat(this.props.user.flat)
+    .then((apiResponse) => this.setState({ 
+      flat: apiResponse.data,
+      pathPage: 'todo',
+      toDoList: apiResponse.data.toDoList
+    }))
+  }
+
+  componentDidMount() {
+    this.getAllFlats()
   }
 
   render() {
     return (
       <div>
         <h1>To-Do's</h1>
+
+        {
+          this.state.toDoList.map((toDoItem, index) => {
+            return (
+              <div key={index}> 
+                <h3>{toDoItem.name}</h3>
+                <h3>{toDoItem.user}</h3>
+                <EditButton getAllFlats={this.getAllFlats} name={toDoItem.name} user={toDoItem.user} pathPage="todo" />
+                <button onClick={this.handleDeleteSubmit} value={toDoItem.name}  type="submit">Delete</button>
+              </div>
+            )
+          })
+        }
        
-        <PlusButton pathPage={this.state.pathPage} />
+        <PlusButton getAllFlats={this.getAllFlats}  pathPage={this.state.pathPage} />
         <NavbarFooter />
       </div>
 
