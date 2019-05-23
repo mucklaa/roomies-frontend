@@ -1,26 +1,43 @@
 import React, { Component } from "react";
+import axios from "axios";
+import { withAuth } from "../../lib/AuthProvider";
 
 class PopupBill extends Component {
   state = {
     name: '',
     price: '',
-    image: ''
+    currency: '€',
+    user: this.props.user.username
   }
 
   handleChange = (event) => {
     event.preventDefault();
+    console.log(event.target)
     let { name, value } = event.target;
     this.setState( { [name]: value } )
   }
 
-  // handleFormSubmit = (event) => {
-  //   let todo = this.state
-  //   axios.post('/endpoint', {todo})
-  //     .then(response => {
-  //       console.log(response)
-  //     });
-  //   this.setState({ job: '', username: '' })
-  // }
+  handleSelect = event => {
+    event.preventDefault();
+    event.persist()
+    const { name, value } = event.target;
+    this.setState({[name]: value}, () => {
+      console.log(event.target.value)
+    })
+  }
+
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+      let flatID = this.props.user.flat
+      let item = this.state
+      console.log(item)
+      axios.post('http://localhost:5000/user/bills/new', {flatID, item})
+        .then(response => {
+          console.log(response)
+          this.props.getAllFlats()
+        });
+      this.setState({ name: '', price: '', currency: this.state.currency })
+   }
 
   render() {
     return (
@@ -34,9 +51,10 @@ class PopupBill extends Component {
             <label>Price</label>
             <input value={this.state.price} type="number" name="price" onChange={this.handleChange} />
           </div>
-          <div>
-            <input class="input btn" type='file' name='image' />
-          </div>
+          <select name="currency" onChange={this.handleSelect}>
+            <option value="€">€</option>
+            <option value="$">$</option>
+          </select>          
           <div>
             <input type="submit" value="Add"/>
           </div>
@@ -48,4 +66,4 @@ class PopupBill extends Component {
   }
 }
 
-export default PopupBill;
+export default withAuth(PopupBill);

@@ -2,12 +2,9 @@ import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter";
 import PlusButton from "./../components/buttons/PlusButton";
-import shoppingAuth from "./../lib/shopping-services";
 import EditButton from "./../components/buttons/EditButton";
+import shoppingAuth from "./../lib/shopping-services";
 import axios from "axios";
-
-
-
 
 class Shopping extends Component {
   state = {
@@ -28,13 +25,10 @@ class Shopping extends Component {
   handleDeleteSubmit = (event) => {
     event.preventDefault();
       let itemID = event.target.value
-      console.log(itemID)
-      console.log(event.target.value)
       axios.delete('http://localhost:5000/user/shopping/delete', {data: {itemID}})
         .then(response => {
           console.log(response)
           this.setState({state: this.getAllFlats()})
-          // this.setState({shoppingList: response})
         });
    }
   

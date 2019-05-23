@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter"
-import shoppingAuth from "./../lib/shopping-services";
+import PlusButton from "./../components/buttons/PlusButton"
 import EditButton from "./../components/buttons/EditButton";
+import toDoAuth from "./../lib/todo-services";
 import axios from "axios";
 
+<<<<<<< HEAD
 import PlusButton from "./../components/buttons/PlusButton"
 
+=======
+>>>>>>> db7ac1420d36310777efd67c7bf2a46a8599d8cb
 class ToDo extends Component {
   state = {
     flat: {},
@@ -15,35 +19,45 @@ class ToDo extends Component {
   }
 
   getAllFlats = () =>{
-    shoppingAuth.getFlat(this.props.user.flat)
-    .then((apiResponse) => {
-      console.log("Api response:" , apiResponse.data)
-      this.setState({ 
-      flat: apiResponse.data,
-      pathPage: 'todo',
-      toDoList: apiResponse.data.toDoList
-    })})
+    const flatID = this.props.user.flat
+    toDoAuth.getFlat(flatID)
+      .then((apiResponse) => {
+          this.setState({ 
+            flat: apiResponse.data,
+            pathPage: 'todo',
+            toDoList: apiResponse.data.toDoList
+        })
+    })
   }
+
+  handleDeleteSubmit = (event) => {
+    event.preventDefault();
+      let itemID = event.target.value
+      axios.delete('http://localhost:5000/user/to-do/delete', {data: {itemID}})
+        .then(response => {
+          console.log(response)
+          this.setState({state: this.getAllFlats()})
+        });
+   }
 
   componentDidMount() {
     this.getAllFlats()
   }
 
   render() {
-    console.log("BLA", this.state.flat)
+    console.log("BLA", this.state.toDoList)
     return (
       <div>
         <h1>To-Do's</h1>
-
+        
         {
           this.state.toDoList.map((toDoItem, index) => {
             return (
               <div key={index}>
-                <h1>{toDoItem}</h1> 
-                <h3>{toDoItem.name}</h3>
-                <h3>{toDoItem.user}</h3>
-                <EditButton getAllFlats={this.getAllFlats} name={toDoItem.name} user={toDoItem.user} pathPage="todo" />
-                <button onClick={this.handleDeleteSubmit} value={toDoItem.name}  type="submit">Delete</button>
+                <h3>Job: {toDoItem.name}</h3>
+                <h3>Responsibility: {toDoItem.user}</h3>
+                <EditButton getAllFlats={this.getAllFlats} id={toDoItem._id} name={toDoItem.name} user={toDoItem.user} pathPage="todo" />
+                <button onClick={this.handleDeleteSubmit} value={toDoItem._id}  type="submit">Delete</button>
               </div>
             )
           })

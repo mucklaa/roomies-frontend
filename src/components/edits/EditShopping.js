@@ -27,7 +27,6 @@ class EditShopping extends Component {
         console.log(response)
         this.props.getAllFlats()
       });
-    
    }
 
   render() {

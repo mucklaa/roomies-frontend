@@ -19,8 +19,6 @@ class PopupToDo extends Component {
     event.preventDefault();
       let flatID = this.props.user.flat
       let item = this.state
-      console.log(flatID)
-      console.log(this.state)
       axios.post('http://localhost:5000/user/to-do/new', {flatID, item})
         .then(response => {
           console.log(response)
@@ -35,11 +33,11 @@ class PopupToDo extends Component {
       <div>
       <form onSubmit={this.handleFormSubmit}>
           <div>
-            <label>Name</label>
+            <label>Job</label>
             <input value={this.state.name} type="text" name="name" onChange={this.handleChange} />
           </div>
           <div>
-            <label>User</label>
+            <label>Responsibility</label>
             <input value={this.state.user} type="text" name="user" onChange={this.handleChange} />
           </div>
           <div>

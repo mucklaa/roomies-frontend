@@ -6,29 +6,13 @@ class ShoppingAuth {
       baseURL: "http://localhost:5000/user/shopping",
       withCredentials: true
     });
-    this.todo = axios.create({
-      baseURL: "http://localhost:5000/user/to-do",
-      withCredentials: true
-    });
   }
 
-
-  getFlat(user){
+  getFlat(flatID){
     return this.shopping
-      .get(`/${user}`)
+      .get(`/${flatID}`)
         .then((apiResponse) => apiResponse)
   }
-
-  getFlatToDo(user){
-    return this.todo
-      .get(`/${user}`)
-        .then((apiResponse) => apiResponse)
-  }
-
-  // addShoppingItem(){
-  //   return this.shopping
-  //     .post('/new')
-  // }
 }
   
 

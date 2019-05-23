@@ -18,17 +18,15 @@ class EditToDo extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    let flatID = this.props.user.flat
-    let itemName = this.props.name
-    let {user, name} = this.state
-    console.log(flatID)
+    let itemID = this.props.id
+    let item = this.state
+    console.log(item)
     console.log(this.state)
-    axios.put('http://localhost:5000/user/shopping/edit', { flatID, itemName, name, user })
+    axios.put('http://localhost:5000/user/to-do/edit', { itemID, item })
       .then(response => {
         console.log(response)
         this.props.getAllFlats()
       });
-    
    }
 
   render() {
@@ -37,12 +35,12 @@ class EditToDo extends Component {
       <div>
       <form onSubmit={this.handleFormSubmit}>
           <div>
-            <label>User</label>
-            <input value={this.state.user} type="text" name="user" onChange={this.handleChange} />
+            <label>Job</label>
+            <input value={this.state.name} type="text" name="name" onChange={this.handleChange} />
           </div>
           <div>
-            <label>Amount</label>
-            <input value={this.state.name} type="number" name="name" onChange={this.handleChange} />
+            <label>Responsibility</label>
+            <input value={this.state.user} type="text" name="user" onChange={this.handleChange} />
           </div>
           <div>
             <input type="submit" value="Add"/>

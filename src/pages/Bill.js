@@ -2,32 +2,65 @@ import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter"
 import PlusButton from "./../components/buttons/PlusButton"
+import EditButton from "./../components/buttons/EditButton";
+import billAuth from "./../lib/bill-services";
+import axios from "axios";
 
 
-class ToDo extends Component {
+class Bill extends Component {
   state = {
-    billsArray: this.props,
-    pathPage: 'bill'
+    flat: {},
+    pathPage: 'bill',
+    billList: []
+  }
+
+
+  getAllFlats = () =>{
+    const flatID = this.props.user.flat
+    billAuth.getFlat(flatID)
+      .then((apiResponse) => {
+          this.setState({ 
+            flat: apiResponse.data,
+            pathPage: 'bill',
+            billList: apiResponse.data.billsList
+        })
+    })
+  }
+
+  handleDeleteSubmit = (event) => {
+    event.preventDefault();
+      let itemID = event.target.value
+      axios.delete('http://localhost:5000/user/bills/delete', {data: {itemID}})
+        .then(response => {
+          console.log(response)
+          this.setState({state: this.getAllFlats()})
+        });
+   }
+
+
+  componentDidMount() {
+    this.getAllFlats()
   }
 
   render() {
     return (
       <div>
         <h1>Expenses</h1>
-        {/* {
-          this.state.billsArray.map((billItem) => {
+        {
+          this.state.billList.map((billItem, index) => {
             return (
-              <div>
-                <h3>{billItem.name}</h3>
-                <h3>{billItem.price}</h3>
-                <h3>{billItem.user.username}</h3>
-                <button>Edit</button>
-                <button>Delete</button>
+              <div key={index}>
+                <h3>Name: {billItem.name}</h3>
+                <h3>Price: {billItem.price}</h3>
+                <h3>Currency: {billItem.currency}</h3>
+                <h3>Currency: {billItem.user}</h3>
+                <EditButton getAllFlats={this.getAllFlats} id={billItem._id} currency={billItem.currency} user={billItem.user} name={billItem.name} price={billItem.price} pathPage="bill" />
+                <button onClick={this.handleDeleteSubmit} value={billItem._id}  type="submit">Delete</button>
               </div>
             )
           })
-        } */}
-        <PlusButton pathPage={this.state.pathPage} />
+        }
+        <PlusButton getAllFlats={this.getAllFlats}  pathPage={this.state.pathPage} />
         <NavbarFooter />
       </div>
 
@@ -35,4 +68,4 @@ class ToDo extends Component {
   }
 }
 
-export default withAuth(ToDo);
+export default withAuth(Bill);
