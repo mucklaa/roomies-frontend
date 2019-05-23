@@ -5,7 +5,6 @@ import shoppingAuth from "./../lib/shopping-services";
 import EditButton from "./../components/buttons/EditButton";
 import axios from "axios";
 
-
 import PlusButton from "./../components/buttons/PlusButton"
 
 class ToDo extends Component {
