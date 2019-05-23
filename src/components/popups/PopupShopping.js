@@ -7,7 +7,8 @@ import { withAuth } from "../../lib/AuthProvider";
 class PopupShopping extends Component {
   state = {
     name: '',
-    amount: ''
+    amount: '',
+    isClicked: false
   }
 
   handleChange = (event) => {
@@ -16,19 +17,31 @@ class PopupShopping extends Component {
     this.setState( { [name]: value } )
   }
 
+//how can we put this into parent to close popup if item was added?
+  handleClick = (event) => {
+    event.preventDefault();
+    this.setState( { isClicked: !this.state.isClicked } )
+  }
+
+
   handleFormSubmit = (event) => {
     event.preventDefault();
       let flatID = this.props.user.flat
       let item = this.state
+      console.log("formsubmit")
       axios.post('http://localhost:5000/user/shopping/new', {flatID, item})
         .then(response => {
           this.props.getAllFlats()
         });
-      this.setState({ name: '', amount: '' })
+        //isClicked is true --> but now i have to click + twice to open popup?
+      this.setState({ name: '', amount: '', isClicked: true })
    }
 
+
   render() {
+    console.log(this.state.isClicked)
     return (
+      this.state.isClicked ? null : 
       <div>
       <form onSubmit={this.handleFormSubmit}>
           <div>
@@ -40,7 +53,8 @@ class PopupShopping extends Component {
             <input value={this.state.amount} type="number" name="amount" onChange={this.handleChange} />
           </div>
           <div>
-            <input type="submit" value="Add"/>
+            {/* butto onClick --> handleClick but then onsubmit isnt working anymore --> popup close in parent? */}
+            <button type="submit" value="Add">Add</button>
           </div>
       </form>
 

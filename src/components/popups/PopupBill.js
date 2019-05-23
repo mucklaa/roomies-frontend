@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withAuth } from "../../lib/AuthProvider";
+import profileAuth from "./../../lib/profile-services";
+
 
 class PopupBill extends Component {
   state = {
     name: '',
     price: '',
     currency: '€',
-    user: this.props.user.username
+    user: ''
   }
 
   handleChange = (event) => {
@@ -31,8 +33,19 @@ class PopupBill extends Component {
         .then(response => {
           this.props.getAllFlats()
         });
-      this.setState({ name: '', price: '', currency: this.state.currency })
+      this.setState({ name: '', price: '', currency: this.state.currency, user: '' })
    }
+
+//to get new username if user changes his name --> otherwise this.props.user (not updated) and used profileAuth so we dont have to write another service
+   componentDidMount() {
+    profileAuth.getUser(this.props.user._id)
+      .then((apiResponse) => {
+        console.log("api response user", apiResponse)
+        this.setState({ 
+        user: apiResponse.data.username, 
+        })}
+      )
+  }
 
   render() {
     return (

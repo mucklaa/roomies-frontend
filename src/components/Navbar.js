@@ -1,13 +1,30 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
+import profileAuth from "./../lib/profile-services";
+
+//profileAuth for getting User
 class Navbar extends Component {
+  state = {
+    user: ''
+  }
+
+  componentDidMount() {
+    profileAuth.getUser(this.props.user._id)
+      .then((apiResponse) => {
+        console.log("api response user", apiResponse)
+        this.setState({ 
+        user: apiResponse.data, 
+        })}
+      )
+  }
+
   render() {
-    const { user, logout, isLoggedin } = this.props;
+    const { logout, isLoggedin } = this.props;
     return (
       <div>
         {isLoggedin ? (
           <>
-            <p>username: {user.username}</p>
+            <p>username: {this.state.user.username}</p>
             <button onClick={logout}>Logout</button>
           </>
         ) : null

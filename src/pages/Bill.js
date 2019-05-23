@@ -52,6 +52,7 @@ class Bill extends Component {
                 <h3>Name: {billItem.name}</h3>
                 <h3>Price: {billItem.price}</h3>
                 <h3>Currency: {billItem.currency}</h3>
+                <h3>User: {billItem.user}</h3>
                 <EditButton getAllFlats={this.getAllFlats} id={billItem._id} currency={billItem.currency} user={billItem.user} name={billItem.name} price={billItem.price} pathPage="bill" />
                 <button onClick={this.handleDeleteSubmit} value={billItem._id}  type="submit">Delete</button>
               </div>
