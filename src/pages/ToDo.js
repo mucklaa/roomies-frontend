@@ -6,11 +6,6 @@ import EditButton from "./../components/buttons/EditButton";
 import toDoAuth from "./../lib/todo-services";
 import axios from "axios";
 
-<<<<<<< HEAD
-import PlusButton from "./../components/buttons/PlusButton"
-
-=======
->>>>>>> db7ac1420d36310777efd67c7bf2a46a8599d8cb
 class ToDo extends Component {
   state = {
     flat: {},
