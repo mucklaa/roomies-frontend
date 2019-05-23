@@ -19,8 +19,6 @@ class PopupToDo extends Component {
     event.preventDefault();
       let flatID = this.props.user.flat
       let item = this.state
-      console.log(flatID)
-      console.log(this.state)
       axios.post('http://localhost:5000/user/to-do/new', {flatID, item})
         .then(response => {
           console.log(response)

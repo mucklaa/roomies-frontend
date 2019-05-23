@@ -26,7 +26,7 @@ class PlusButton extends Component {
       <div>
         {this.state.isClicked && this.state.path === 'todo' ? <PopupToDo getAllFlats={this.props.getAllFlats} /> : null}
         {this.state.isClicked && this.state.path === 'shopping' ? <PopupShopping getAllFlats={this.props.getAllFlats} /> : null}
-        {this.state.isClicked && this.state.path === 'bill' ? <PopupBill /> : null}
+        {this.state.isClicked && this.state.path === 'bill' ? <PopupBill getAllFlats={this.props.getAllFlats}  /> : null}
 
         <div>
           <button onClick={this.handleOnClick}>+</button> 
