@@ -21,7 +21,7 @@ class PopupShopping extends Component {
       let flatID = this.props.user.flat
       let item = this.state
       console.log(flatID)
-      console.log(this.state)
+      console.log(item)
       axios.post('http://localhost:5000/user/shopping/new', {flatID, item})
         .then(response => {
           console.log(response)

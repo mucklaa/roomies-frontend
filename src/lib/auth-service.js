@@ -13,7 +13,10 @@ class Auth {
     console.log(user)
     return this.auth
       .post("/auth/signup", { email, username, password, isAdmin, flatAttribute })
-      .then(({ data }) => data);
+      .then(({ data }) => {
+        console.log(data)
+        return data
+      });
   }
 
   login(user) {

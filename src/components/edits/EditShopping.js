@@ -18,12 +18,11 @@ class EditShopping extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    let flatID = this.props.user.flat
-    let itemName = this.props.name
+    let itemID = this.props.id
     let {name, amount} = this.state
-    console.log(flatID)
+    console.log(itemID)
     console.log(this.state)
-    axios.put('http://localhost:5000/user/shopping/edit', { flatID, itemName, name, amount })
+    axios.put('http://localhost:5000/user/shopping/edit', { itemID, name, amount })
       .then(response => {
         console.log(response)
         this.props.getAllFlats()

@@ -27,11 +27,10 @@ class Shopping extends Component {
 
   handleDeleteSubmit = (event) => {
     event.preventDefault();
-      let flatID = this.props.user.flat
-      let itemName = event.target.value
-      console.log(flatID)
+      let itemID = event.target.value
+      console.log(itemID)
       console.log(event.target.value)
-      axios.delete('http://localhost:5000/user/shopping/delete', {data: {flatID, itemName}})
+      axios.delete('http://localhost:5000/user/shopping/delete', {data: {itemID}})
         .then(response => {
           console.log(response)
           this.setState({state: this.getAllFlats()})
@@ -55,8 +54,8 @@ class Shopping extends Component {
               <div key={index}> 
                 <h3>{shoppingItem.amount}</h3>
                 <h3>{shoppingItem.name}</h3>
-                <EditButton getAllFlats={this.getAllFlats} amount={shoppingItem.amount} name={shoppingItem.name} pathPage="shopping" />
-                <button onClick={this.handleDeleteSubmit} value={shoppingItem.name}  type="submit">Delete</button>
+                <EditButton getAllFlats={this.getAllFlats} id={shoppingItem._id} amount={shoppingItem.amount} name={shoppingItem.name} pathPage="shopping" />
+                <button onClick={this.handleDeleteSubmit} value={shoppingItem._id}  type="submit">Delete</button>
               </div>
             )
           })
