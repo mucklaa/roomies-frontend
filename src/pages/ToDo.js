@@ -30,7 +30,6 @@ class ToDo extends Component {
       let itemID = event.target.value
       axios.delete('http://localhost:5000/user/to-do/delete', {data: {itemID}})
         .then(response => {
-          console.log(response)
           this.setState({state: this.getAllFlats()})
         });
    }
@@ -40,7 +39,6 @@ class ToDo extends Component {
   }
 
   render() {
-    console.log("BLA", this.state.toDoList)
     return (
       <div>
         <h1>To-Do's</h1>

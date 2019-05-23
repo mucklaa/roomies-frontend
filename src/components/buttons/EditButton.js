@@ -20,7 +20,6 @@ class EditButton extends Component {
   }
 
   render() {
-    console.log('editButton',this.props.pathPage)
     return (
       <div>
         {this.state.isClicked && this.state.path === 'todo' ? <EditToDo getAllFlats={this.props.getAllFlats} name={this.props.name} id={this.props.id} user={this.props.user}/> : null}

@@ -20,8 +20,6 @@ class PlusButton extends Component {
   }
 
   render() {
-
-    console.log(this.props)
     return (
       <div>
         {this.state.isClicked && this.state.path === 'todo' ? <PopupToDo getAllFlats={this.props.getAllFlats} /> : null}

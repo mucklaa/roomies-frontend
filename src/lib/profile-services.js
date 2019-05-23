@@ -10,7 +10,6 @@ class ProfileAuth {
 
 
   getFlat(user){
-    //console.log(user)
     return this.profile
       .get(`/${user}`)
         .then((apiResponse) => apiResponse)

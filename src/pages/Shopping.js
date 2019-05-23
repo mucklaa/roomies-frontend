@@ -27,7 +27,6 @@ class Shopping extends Component {
       let itemID = event.target.value
       axios.delete('http://localhost:5000/user/shopping/delete', {data: {itemID}})
         .then(response => {
-          console.log(response)
           this.setState({state: this.getAllFlats()})
         });
    }
@@ -41,7 +40,6 @@ class Shopping extends Component {
     return (
       <div>
         <h1>Shopping</h1>
-        <h2>{this.state.flat.flatCode}</h2>
         {
           this.state.shoppingList.map((shoppingItem, index) => {
             return (

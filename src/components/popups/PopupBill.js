@@ -12,7 +12,6 @@ class PopupBill extends Component {
 
   handleChange = (event) => {
     event.preventDefault();
-    console.log(event.target)
     let { name, value } = event.target;
     this.setState( { [name]: value } )
   }
@@ -21,19 +20,15 @@ class PopupBill extends Component {
     event.preventDefault();
     event.persist()
     const { name, value } = event.target;
-    this.setState({[name]: value}, () => {
-      console.log(event.target.value)
-    })
+    this.setState({[name]: value})
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
       let flatID = this.props.user.flat
       let item = this.state
-      console.log(item)
       axios.post('http://localhost:5000/user/bills/new', {flatID, item})
         .then(response => {
-          console.log(response)
           this.props.getAllFlats()
         });
       this.setState({ name: '', price: '', currency: this.state.currency })

@@ -20,17 +20,13 @@ class EditShopping extends Component {
     event.preventDefault();
     let itemID = this.props.id
     let {name, amount} = this.state
-    console.log(itemID)
-    console.log(this.state)
     axios.put('http://localhost:5000/user/shopping/edit', { itemID, name, amount })
       .then(response => {
-        console.log(response)
         this.props.getAllFlats()
       });
    }
 
   render() {
-    console.log('edit')
     return (
       <div>
       <form onSubmit={this.handleFormSubmit}>

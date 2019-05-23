@@ -21,7 +21,6 @@ class PopupToDo extends Component {
       let item = this.state
       axios.post('http://localhost:5000/user/to-do/new', {flatID, item})
         .then(response => {
-          console.log(response)
           this.props.getAllFlats()
         });
       this.setState({ name: '', user: '' })

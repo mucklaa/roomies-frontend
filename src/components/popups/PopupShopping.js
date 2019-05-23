@@ -20,11 +20,8 @@ class PopupShopping extends Component {
     event.preventDefault();
       let flatID = this.props.user.flat
       let item = this.state
-      console.log(flatID)
-      console.log(item)
       axios.post('http://localhost:5000/user/shopping/new', {flatID, item})
         .then(response => {
-          console.log(response)
           this.props.getAllFlats()
         });
       this.setState({ name: '', amount: '' })

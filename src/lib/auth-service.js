@@ -10,11 +10,9 @@ class Auth {
 
   signup(user) {
     const { email, username, password, isAdmin, flatAttribute } = user;
-    console.log(user)
     return this.auth
       .post("/auth/signup", { email, username, password, isAdmin, flatAttribute })
       .then(({ data }) => {
-        console.log(data)
         return data
       });
   }

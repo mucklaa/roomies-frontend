@@ -26,8 +26,6 @@ class Signup extends Component {
     event.preventDefault();
     const { name, value } = event.target;
     this.setState({[name]: value}, () => {
-
-      console.log(this.state.isAdmin)
     })
   }
 
@@ -35,6 +33,7 @@ class Signup extends Component {
     const { username, password, email, flatAttribute} = this.state;
     return (
       <div>
+        <Link to={"/login"}>back</Link>
         <form onSubmit={this.handleFormSubmit}>
           <label>Email:</label>
             <input

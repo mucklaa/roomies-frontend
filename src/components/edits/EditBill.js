@@ -22,26 +22,20 @@ class EditBill extends Component {
     event.preventDefault();
     event.persist()
     const { name, value } = event.target;
-    this.setState({[name]: value}, () => {
-      console.log(event.target.value)
-    })
+    this.setState({[name]: value})
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
     let itemID = this.props.id
     let item = this.state
-    console.log('itemID', itemID)
-    console.log(this.state)
     axios.put('http://localhost:5000/user/bills/edit', { itemID, item })
       .then(response => {
-        console.log(response)
         this.props.getAllFlats()
       });
    }
 
   render() {
-    console.log('edit')
     return (
       <div>
       <form onSubmit={this.handleFormSubmit}>
