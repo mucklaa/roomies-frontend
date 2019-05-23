@@ -35,11 +35,11 @@ class PopupToDo extends Component {
       <div>
       <form onSubmit={this.handleFormSubmit}>
           <div>
-            <label>Name</label>
+            <label>Job</label>
             <input value={this.state.name} type="text" name="name" onChange={this.handleChange} />
           </div>
           <div>
-            <label>User</label>
+            <label>Responsibility</label>
             <input value={this.state.user} type="text" name="user" onChange={this.handleChange} />
           </div>
           <div>

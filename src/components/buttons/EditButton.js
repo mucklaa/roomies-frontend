@@ -23,7 +23,7 @@ class EditButton extends Component {
     console.log('editButton',this.props.pathPage)
     return (
       <div>
-        {this.state.isClicked && this.state.path === 'todo' ? <EditToDo getAllFlats={this.props.getAllFlats} name={this.props.name} user={this.props.user}/> : null}
+        {this.state.isClicked && this.state.path === 'todo' ? <EditToDo getAllFlats={this.props.getAllFlats} name={this.props.name} id={this.props.id} user={this.props.user}/> : null}
         {this.state.isClicked && this.state.path === 'shopping' ? <EditShopping getAllFlats={this.props.getAllFlats} amount={this.props.amount} id={this.props.id} name={this.props.name} /> : null}
         {this.state.isClicked && this.state.path === 'bill' ? <EditBill /> : null}
 
