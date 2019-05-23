@@ -24,7 +24,7 @@ class ProfileAuth {
 
   getUser(userID){
     return this.profile
-      .get(`/test/${userID}`)
+      .get(`/user/${userID}`)
         .then((apiResponse) => apiResponse)
   }
 }
