@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter"
 import PlusButton from "./../components/buttons/PlusButton"
@@ -60,6 +61,7 @@ class Bill extends Component {
           })
         }
         <PlusButton getAllFlats={this.getAllFlats}  pathPage={this.state.pathPage} />
+        <Link to="/overview">See Overview</Link>
         <NavbarFooter />
       </div>
 

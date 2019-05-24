@@ -29,7 +29,7 @@ class EditProfile extends Component {
     console.log('request shoot')
     axios.post(`http://localhost:5000/user/profile/edit/${userID}`, { userID, item })
       .then(response => {
-        console.log(response)
+        console.log("formSubmit", response)
       });
    }
 

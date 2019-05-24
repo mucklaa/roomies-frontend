@@ -9,6 +9,7 @@ import ToDo from "./pages/ToDo";
 import Shopping from "./pages/Shopping";
 import Chat from "./pages/Chat";
 import Bill from "./pages/Bill";
+import Overview from "./pages/Overview";
 
 import PrivateRoute from "./components/PrivateRoute";
 import AnonRoute from "./components/AnonRoute";
@@ -29,6 +30,7 @@ class App extends Component {
             <PrivateRoute exact path="/shopping" component={Shopping} />
             <PrivateRoute exact path="/chat" component={Chat} />
             <PrivateRoute exact path="/bills" component={Bill} />
+            <PrivateRoute exact path="/overview" component={Overview} />
           </Switch>
         </div>
       </AuthProvider>
