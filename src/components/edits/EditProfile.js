@@ -25,11 +25,13 @@ class EditProfile extends Component {
     event.preventDefault();
     let userID = this.props.id
     let item = this.state
-    console.log(item)
+    console.log("userID" , userID)
     console.log('request shoot')
     axios.post(`http://localhost:5000/user/profile/edit/${userID}`, { userID, item })
       .then(response => {
-        console.log("formSubmit", response)
+        console.log("formSubmit", response);
+        this.props.authMe();
+        this.props.updateProfile(this.state.image, this.state.username, this.state.email);
       });
    }
 
@@ -38,6 +40,7 @@ class EditProfile extends Component {
     console.log('file', file)
     const uploadFile = new FormData();
     uploadFile.append('photo', file)
+    console.log("this.props.id", this.props.id)
     profileAuth.imageUpload(this.props.id, uploadFile)
       .then((image) => {
         console.log('image', image)

@@ -9,13 +9,17 @@ class Navbar extends Component {
   }
 
   componentDidMount() {
-    profileAuth.getUser(this.props.user._id)
-      .then((apiResponse) => {
-        console.log("api response user", apiResponse)
-        this.setState({ 
-        user: apiResponse.data, 
-        })}
-      )
+ //comment this if issue with props.user._id
+    //  profileAuth.getUser(this.props.user._id)
+    //    .then((apiResponse) => {
+    //      console.log("api response user", apiResponse)
+    //      this.setState({ 
+    //      user: apiResponse.data, 
+    //      })}
+    //    )
+    this.setState({
+      user: this.props.user
+    })
   }
 
   render() {
@@ -24,7 +28,7 @@ class Navbar extends Component {
       <div>
         {isLoggedin ? (
           <>
-            <p>username: {this.state.user.username}</p>
+            <p>username: {this.props.user.username}</p>
             <button onClick={logout}>Logout</button>
           </>
         ) : null

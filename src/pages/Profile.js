@@ -29,10 +29,45 @@ class Profile extends Component {
         })}
       )
   }
+  
+  updateImage = (image) =>{
+    let newLoggedInUser = this.state.loggedInUser;
+    newLoggedInUser.image = image;
+    this.setState({
+      loggedInUser: newLoggedInUser,
+    })
+  }
+
+  updateProfile = (image, username, email) =>{
+    console.log("testttttt")
+    profileAuth.getFlat(this.props.user.flat)
+      .then((apiResponse) => {
+        console.log("user", this.props.user._id)
+        this.setState({ 
+        flat: apiResponse.data,
+        users: apiResponse.data.users
+        })}
+      )
+
+    profileAuth.getUser(this.props.user._id)
+      .then((apiResponse) => {
+        console.log("api response user", apiResponse)
+        this.setState({ 
+        loggedInUser: apiResponse.data, 
+        })}
+      )
+    // let newLoggedInUser = this.state.loggedInUser;
+    // newLoggedInUser.image = image;
+    // newLoggedInUser.username = username;
+    // newLoggedInUser.email = email;
+    // this.setState({
+    //   loggedInUser: newLoggedInUser,
+    // })
+  }
+
 
   render() {
     const { users } = this.state;
-    console.log(this.state.loggedInUser)
     return (
       <div>
         <h1>Profile</h1>
@@ -40,7 +75,7 @@ class Profile extends Component {
         <p>{this.state.loggedInUser.username}</p>
         <p>{this.state.loggedInUser.email}</p>
         <p>{this.state.loggedInUser.phone}</p>
-        <EditButton id={this.props.user._id} phone={this.state.loggedInUser.phone} image={this.state.loggedInUser.image} username={this.state.loggedInUser.username} email={this.state.loggedInUser.email} pathPage="profile" />
+        <EditButton updateProfile={this.updateProfile} updateImage={this.updateImage} id={this.props.user._id} phone={this.state.loggedInUser.phone} image={this.state.loggedInUser.image} username={this.state.loggedInUser.username} email={this.state.loggedInUser.email} pathPage="profile" />
         {
           this.props.user.isAdmin ? <h3>Invitation Code: {this.props.user.flatCode}</h3> : null
         }
