@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { withAuth } from "../../lib/AuthProvider";
 import profileAuth from "./../../lib/profile-services";
+import billAuth from "./../../lib/bill-services";
 
 
 class PopupBill extends Component {
@@ -9,7 +10,9 @@ class PopupBill extends Component {
     name: '',
     price: '',
     currency: '€',
-    user: ''
+    user: '',
+    image: '',
+    disable: true
   }
 
   handleChange = (event) => {
@@ -33,7 +36,7 @@ class PopupBill extends Component {
         .then(response => {
           this.props.getAllFlats()
         });
-      this.setState({ name: '', price: '', currency: this.state.currency, user: '' })
+      this.setState({ name: '', price: '', currency: this.state.currency, user: '', image: '' })
    }
 
 //to get new username if user changes his name --> otherwise this.props.user (not updated) and used profileAuth so we dont have to write another service
@@ -46,6 +49,23 @@ class PopupBill extends Component {
         })}
       )
   }
+
+  handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    console.log('file', file)
+    const uploadFile = new FormData();
+    uploadFile.append('photo', file)
+    console.log("this.props.id", this.props.id)
+    profileAuth.imageUpload(this.props.id, uploadFile)
+      .then((image) => {
+        console.log('image', image)
+        this.setState({
+          image,
+          disable: false,
+        })
+      })
+      .catch((err) => console.log(err))
+   }
 
   render() {
     return (
@@ -62,7 +82,10 @@ class PopupBill extends Component {
           <select name="currency" onChange={this.handleSelect}>
             <option value="€">€</option>
             <option value="$">$</option>
-          </select>          
+          </select>
+          <label>Image</label>
+          <input type="file" onChange={this.handleImageUpload}></input>
+          <div></div>          
           <div>
             <input type="submit" value="Add"/>
           </div>

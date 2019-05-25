@@ -13,8 +13,17 @@ class BillAuth {
       .get(`/${flatID}`)
         .then((apiResponse) => apiResponse)
   }
+
+  imageUpload(user, file) {
+    console.log(user)
+    return this.bills
+    .post('/edit/image', file)
+      .then(({data}) => data)
+  }
+    
 }
-  
+
+
 
 const billAuth = new BillAuth();
 
