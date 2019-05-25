@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 
 
-
 class BillDetail extends Component {
   constructor(props){
     super(props);
@@ -11,7 +10,6 @@ class BillDetail extends Component {
       }
     }
   
- 
   render() {
     return (
       <div>

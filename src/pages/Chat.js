@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import { withAuth } from '../../src/lib/AuthProvider';
+import chatService from "./../lib/chat-service";
 
 import socketManagerClient from "../socketClient";
 
 class Chat extends Component {
 
   state={
-    message:"",
+    message: '',
     messageList: [],
-    firstGet: true
   }
 
   componentDidMount(){
-    
+    this.handleGetMessages(this.props.user.flat)
+    socketManagerClient.initSocketUser(this.props.user.flat);
+    let socket = socketManagerClient.getSocket();
+    console.log('socket', socket);
+    socket.on('NEW_MESSAGE', () => {
+       this.handleGetMessages();
+    });
   }
 
   handleChange = (event) =>{
@@ -21,37 +27,38 @@ class Chat extends Component {
   }
 
   handleSendMessage = (event) => {
-  
+    event.preventDefault()
+    chatService.sendMessage(this.props.user.flat, this.state.message)
+      .then((apiResponse) => {
+        console.log(apiResponse)
+        this.setState({
+          message: '',
+          messageList: apiResponse.data.history
+        })
+      })
   }
 
   handleGetMessages = () => {
-
-  
+    chatService.getChat(this.props.user.flat)
+      .then((apiResponse) => {
+        this.setState({
+          messageList: apiResponse.data.history
+        })
+      })
   }
 
   render() {
-
-    const formatedMessages = this.state.messageList.map(message => {
-      if(this.props.user.type === message.type){
-        return <div key={''+message.time} className="message-text right-message"><p className="text-message"  >{message.text}</p><div className="arrow-right"></div></div>
-      }else{
-        return <div key={''+message.time} className="message-text left-message"><div className="arrow-left"></div><p className="text-message left"  >{message.text}</p></div>
-      }
-      
+    const formatedMessages = this.state.messageList.map((message, index) => {
+        return (
+          <div key={index}>
+            <p className="text-message">{message.user}: {message.text}</p>
+          </div>
+        )
     })
-
-    
-
     return (
       <div>
         <div>
-          <div  className="message-box">
-          {formatedMessages}
-          <div style={{ float:"left", clear: "both" }}
-             ref={(el) => { this.messagesEnd = el; }}>
-          </div>
-          </div>
-          
+          <div className="message-box">{formatedMessages}</div>
         </div>
         <form onSubmit={this.handleSendMessage} className="message-form">
           <input autoComplete="off" className="input message-input" placeholder="Write a message" type="text" name="message" onChange={this.handleChange} value={this.state.message}/>

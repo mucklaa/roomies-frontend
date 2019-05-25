@@ -63,6 +63,8 @@ class Login extends Component {
           </div>
           <button className="button-login" type="submit" value="Login">Login</button>
         </form>
+
+        {/*<a href="http://localhost:5000/auth/google">Google</a>*/}
       
         {/* <GoogleLogin
           clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"

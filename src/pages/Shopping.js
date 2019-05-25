@@ -24,11 +24,9 @@ class Shopping extends Component {
 
   handleDeleteSubmit = (event) => {
     event.preventDefault();
-      let itemID = event.target.value
-      axios.delete('http://localhost:5000/user/shopping/delete', {data: {itemID}})
-        .then(response => {
-          this.setState({state: this.getAllFlats()})
-        });
+    let itemID = event.target.value
+    axios.delete('http://localhost:5000/user/shopping/delete', {data: {itemID}})
+      .then(() => this.setState( { state: this.getAllFlats() } ));
    }
   
   componentDidMount() {
@@ -54,7 +52,6 @@ class Shopping extends Component {
         <PlusButton getAllFlats={this.getAllFlats} pathPage={this.state.pathPage}/>
         <NavbarFooter />
       </div>
-
     );
   }
 }
