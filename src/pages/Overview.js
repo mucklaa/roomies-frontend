@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter";
@@ -29,6 +30,10 @@ class Overview extends Component {
     isTrue: false
   };
 
+  goToPayPal(amount) {
+    window.location.href = `https://www.paypal.com/myaccount/transfer/send/external/ppme?profile=RiccardoBassanelli&currencyCode=EUR&amount=${amount}&flowType=send`
+  }
+
   componentDidMount() {
     axios.get(`http://localhost:5000/user/bills/${this.props.user.flat}/overview`)
       .then((apiResponse) => {
@@ -58,13 +63,12 @@ class Overview extends Component {
                 {
                   this.state.usersInfo[key].hasToPay ?
                   <div>
-                    <p>Pays:</p>
-                    <p id="user-pays">{this.state.usersInfo[key].amount} </p>
+                    <p id="user-pays">Pays: {this.state.usersInfo[key].amount}</p>
+                    <button onClick={ () => { this.goToPayPal(this.state.usersInfo[key].amount) } }>Pay</button> 
                   </div>
                   :
                   <div>
-                    <p>Gets:</p>
-                    <p id="user-gets">{this.state.usersInfo[key].amount} </p>
+                    <p id="user-gets">Gets: {this.state.usersInfo[key].amount}</p>
                   </div>
                 }
               </div>
