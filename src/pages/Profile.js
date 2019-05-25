@@ -11,10 +11,12 @@ class Profile extends Component {
 
   componentDidMount() {
     profileAuth.getFlat(this.props.user.flat)
-      .then((apiResponse) => this.setState({ 
+      .then((apiResponse) => {
+        console.log(this.props.user)
+        this.setState({ 
         flat: apiResponse.data,
         users: apiResponse.data.users
-        })
+        })}
       )
   }
 
