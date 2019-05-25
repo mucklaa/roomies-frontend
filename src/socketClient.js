@@ -1,19 +1,16 @@
 import io from 'socket.io-client';
 
-const socketURL = 'https://bughunt-website.herokuapp.com';
+const socketURL = 'http://localhost:5000/user/chat';
 class SocketManagerClient {
   constructor(){
     this.socket='';
-    this.socketFile='';
-    this.connectedSocket='';
-    this.uploader='';
+    this.socketFile = '';
+    this.connectedSocket = '';
+    this.uploader = '';
   }
-  getSocket = () => {
-    return this.socket;
-  }
-  initSocketUser = (chatId) => {
-    this.socket = io(socketURL + '/' + chatId);
-  }
+  getSocket = () => this.socket;
+
+  initSocketUser = (chatID) => this.socket = io(`${socketURL}/${chatID}`);
 }
 
 let socketManagerClient = new SocketManagerClient();

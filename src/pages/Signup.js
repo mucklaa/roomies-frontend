@@ -10,7 +10,6 @@ class Signup extends Component {
     password: "",
     isAdmin: false,
     flatAttribute: ""
-
   };
 
   handleFormSubmit = event => {
@@ -81,7 +80,6 @@ class Signup extends Component {
               </div>
 
               { this.state.isAdmin ? 
-
                 <div>
                   <h5 class="signup-h5">Flatname:</h5>
                   <div className="inputLogin">
@@ -96,7 +94,7 @@ class Signup extends Component {
                   </div>
                 </div>
                   :
-                  <div>
+                <div>
                   <h5 class="signup-h5">Invitation Code:</h5>
                   <div className="inputLogin">
                   <label className="labelIcon"><img className="icon-login" src="/house-login.png" height="20px"/></label>
@@ -109,7 +107,6 @@ class Signup extends Component {
                   />
                   </div>
                 </div>
-
                 }
               <button className="button-login" type="submit" value="Signup" >Sign Up</button>
             </form>

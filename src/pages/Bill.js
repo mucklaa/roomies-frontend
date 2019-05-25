@@ -60,8 +60,7 @@ class Bill extends Component {
                 <h3>Currency: {billItem.currency}</h3>
                 <h3>User: {billItem.user}</h3>
                 {
-                  (billItem.image === '') ? null: 
-                    <Link to={{ pathname: '/bills/detail', state: { image: billItem }}}>See Image</Link>
+                  (billItem.image === '') ? null: <Link to={{ pathname: '/bills/detail', state: { image: billItem }}}>See Image</Link>
                 }
                 <EditButton getAllFlats={this.getAllFlats} id={billItem._id} currency={billItem.currency} user={billItem.user} name={billItem.name} price={billItem.price} pathPage="bill" />
                 <button onClick={this.handleDeleteSubmit} value={billItem._id}  type="submit">Delete</button>
@@ -70,10 +69,9 @@ class Bill extends Component {
           })
         }
         <PlusButton getAllFlats={this.getAllFlats}  pathPage={this.state.pathPage} />
-        <Link to="/overview">See Overview</Link>
+        <Link to="bills/overview">See Overview</Link>
         <NavbarFooter />
       </div>
-
     );
   }
 }
