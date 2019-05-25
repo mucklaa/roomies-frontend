@@ -79,7 +79,7 @@ class Profile extends Component {
         <div className="profile-container">
           <div className="profile-inner-container">
             <img src={this.state.loggedInUser.image} width="90px" alt=""/>
-            <EditButton updateProfile={this.updateProfile} updateImage={this.updateImage} id={this.props.user._id} phone={this.state.loggedInUser.phone} image={this.state.loggedInUser.image} username={this.state.loggedInUser.username} email={this.state.loggedInUser.email} pathPage="profile" />
+            <EditButton updateProfile={this.updateProfile} updateImage={this.updateImage} id={this.props.user._id} phone={this.state.loggedInUser.phoneNumber} image={this.state.loggedInUser.image} username={this.state.loggedInUser.username} email={this.state.loggedInUser.email} pathPage="profile" />
           </div>
           <div className="profile-inner-container">
             <div className="profile-icon-container">

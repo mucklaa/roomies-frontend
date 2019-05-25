@@ -30,7 +30,8 @@ class EditButton extends Component {
 
         <div>
           {
-            !this.state.isClicked ? <button onClick={this.handleOnClick}>Edit</button>  : <button onClick={this.handleOnClick}>X</button>
+            //edit or x
+            !this.state.isClicked ? <button onClick={this.handleOnClick}>Edit</button>  : <button onClick={this.handleOnClick}>Edit</button>
           }
           
           

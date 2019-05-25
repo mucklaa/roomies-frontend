@@ -10,6 +10,7 @@ class EditProfile extends Component {
     username: this.props.username,
     email: this.props.email,
     phone: this.props.phone,
+    paypal: this.props.paypal,
     image: this.props.image, 
     disable: true
   }
@@ -31,8 +32,9 @@ class EditProfile extends Component {
       .then(response => {
         console.log("formSubmit", response);
         this.props.authMe();
-        this.props.updateProfile(this.state.image, this.state.username, this.state.email);
+        this.props.updateProfile(this.state.image, this.state.username, this.state.email, this.state.phone);
       });
+      this.setState({ isClicked: true })
    }
 
    handleImageUpload = (event) => {
@@ -54,24 +56,32 @@ class EditProfile extends Component {
 
   render() {
     return (
-      <div>
+      this.state.isClicked ? null : 
+      <div class="edit-profile-popup">
+        <h2>Edit Profile</h2>
       <form onSubmit={this.handleFormSubmit}>
-          <div>
-            <label>Username</label>
-            <input value={this.state.username} type="text" name="username" onChange={this.handleChange} />
+          <div className="inputProfile">
+            <img className="icon-profile-edit" src="/user-profile.png" width="20px" alt="Username:"></img>
+            <input placeholder="Username" className="input-profile" value={this.state.username} type="text" name="username" onChange={this.handleChange} />
+          </div>
+          <div className="inputProfile">
+          <img className="icon-profile-edit" src="/mail-profile.png" width="20px" alt="Email:"></img>
+            <input className="input-profile" value={this.state.email} type="email" name="email" onChange={this.handleChange} />
+          </div>
+          <div className="inputProfile">
+          <img className="icon-profile-edit" src="/phone-profile.png" width="20px" alt="Phone:"></img>
+            <input className="input-profile" value={this.state.phone} type="number" name="phone" onChange={this.handleChange} />
+          </div>
+          <div className="inputProfile">
+          <img className="icon-profile-edit" src="/paypal.png" width="20px" alt="Paypal:"></img>
+            <input className="input-profile" value={this.state.paypal} type="text" name="paypal" onChange={this.handleChange} />
+          </div>
+          <div className="inputProfile">
+            <img className="icon-profile-edit" src="/camera.png" width="20px" alt="Paypal:"></img>
+            <input className="input-profile-file input-profile" type="file" onChange={this.handleImageUpload}></input>
           </div>
           <div>
-            <label>Email</label>
-            <input value={this.state.email} type="email" name="email" onChange={this.handleChange} />
-          </div>
-          <div>
-            <label>Phone</label>
-            <input value={this.state.phone} type="number" name="phone" onChange={this.handleChange} />
-          </div>
-          <label>Image</label>
-          <input type="file" onChange={this.handleImageUpload}></input>
-          <div>
-            <input type="submit" value="Add"/>
+            <button class="update-button" type="submit" value="Add">Update</button>
           </div>
       </form>
       </div>
