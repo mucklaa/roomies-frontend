@@ -146,3 +146,15 @@ body {
 .nav-icon{
   vertical-align: middle;
 }
+
+.update-button{
+  background-color: #86B0D8;
+  height: 30px;
+  width: 80px;
+  margin: 50px;
+  border-radius: 5px;
+  color: white;
+  border: white;
+  font-size: 15px;
+
+}
