@@ -33,7 +33,7 @@ class App extends Component {
             <PrivateRoute exact path="/chat" component={Chat} />
             <PrivateRoute exact path="/bills" component={Bill} />
             <PrivateRoute exact path="/bills/detail" component={BillDetail} />            
-            <PrivateRoute exact path="bills/overview" component={Overview} />
+            <PrivateRoute exact path="/bills/overview" component={Overview} />
           </Switch>
         </div>
       </AuthProvider>

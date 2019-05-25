@@ -20,19 +20,18 @@ class DoughnutParent extends Component {
   }
 
   componentDidMount() {
-    console.log(this.chartReference); // returns a Chart.js instance reference
+    //console.log(this.chartReference); // returns a Chart.js instance reference
     this.setState({})
   }
 
   render() {
-    console.log("dougnut render")
     return (
       <div>
         <Doughnut ref={(reference) => this.chartReference = reference }
           data={{
             labels: this.state.labels,
             datasets: this.state.datasets
-          } }
+          }}
           options={this.state.options}     
         />  
       </div>

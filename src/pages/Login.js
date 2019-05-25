@@ -41,25 +41,25 @@ class Login extends Component {
         <h1 className="login-h1">Join your flat!</h1>
         <form onSubmit={this.handleFormSubmit}>
           <div className="inputLogin">
-          <label className="labelIcon"><img className="icon-login" src="/User_Login.png" height="20px"/></label>
-          <input className="input-login"
-            type="text"
-            name="username"
-            placeholder= "Username"
-            value={username}
-            onChange={this.handleChange}
-          />
+            <label className="labelIcon"><img className="icon-login" src="/User_Login.png" height="20px"/></label>
+            <input className="input-login"
+              type="text"
+              name="username"
+              placeholder= "Username"
+              value={username}
+              onChange={this.handleChange}
+            />
           </div>
           <br />
           <div className="inputLogin">
-          <label className="labelIcon"><img className="icon-login" src="/lock_login.png" height="20px"/></label>
-          <input className="input-login"
-            type="password"
-            name="password"
-            placeholder= "Password"
-            value={password}
-            onChange={this.handleChange}
-          />
+            <label className="labelIcon"><img className="icon-login" src="/lock_login.png" alt="login-icon" height="20px"/></label>
+            <input className="input-login"
+              type="password"
+              name="password"
+              placeholder= "Password"
+              value={password}
+              onChange={this.handleChange}
+            />
           </div>
           <button className="button-login" type="submit" value="Login">Login</button>
         </form>
