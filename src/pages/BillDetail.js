@@ -17,7 +17,6 @@ class BillDetail extends Component {
       <div>
       <img src={this.state.image} alt="img"/>
       </div>
-
     );
   }
 }

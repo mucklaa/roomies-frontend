@@ -30,13 +30,10 @@ class Shopping extends Component {
           this.setState({state: this.getAllFlats()})
         });
    }
-
-
   
   componentDidMount() {
     this.getAllFlats()
   }
-
 
   render() {
     return (

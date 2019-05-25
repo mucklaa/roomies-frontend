@@ -42,7 +42,6 @@ class ToDo extends Component {
     return (
       <div>
         <h1>To-Do's</h1>
-        
         {
           this.state.toDoList.map((toDoItem, index) => {
             return (
@@ -55,11 +54,9 @@ class ToDo extends Component {
             )
           })
         }
-       
         <PlusButton getAllFlats={this.getAllFlats}  pathPage={this.state.pathPage} />
         <NavbarFooter />
       </div>
-
     );
   }
 }

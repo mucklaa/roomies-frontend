@@ -62,28 +62,26 @@ class Signup extends Component {
           </select>
 
           { this.state.isAdmin ? 
-          <div>
-           <label>Flatname:</label>
-          <input
-            type="text"
-            name="flatAttribute"
-            value={flatAttribute}
-            onChange={this.handleChange}
-          />
-          </div>
-            :
-          <div>
-           <label>Invitation Code:</label>
-          <input
-            type="text"
-            name="flatAttribute"
-            value={flatAttribute}
-            onChange={this.handleChange}
-          />
-          </div>
-            
+            <div>
+              <label>Flatname:</label>
+              <input
+                type="text"
+                name="flatAttribute"
+                value={flatAttribute}
+                onChange={this.handleChange}
+              />
+            </div>
+              :
+            <div>
+              <label>Invitation Code:</label>
+              <input
+                type="text"
+                name="flatAttribute"
+                value={flatAttribute}
+                onChange={this.handleChange}
+              />
+            </div>
             }
-
           <input type="submit" value="Signup" />
         </form>
         <p>
