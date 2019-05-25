@@ -36,13 +36,13 @@ class Login extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div>
-        <img className="logo-login" src="/logo4png Kopie.png" alt=""/>
-        <h1>Login</h1>
+      <div id="body-login">
+        <img className="logo-login" src="/logo-login.png" alt=""/>
+        <h1 className="login-h1">Join your flat!</h1>
         <form onSubmit={this.handleFormSubmit}>
           <div className="inputLogin">
           <label className="labelIcon"><img className="icon-login" src="/User_Login.png" height="20px"/></label>
-          <input
+          <input className="input-login"
             type="text"
             name="username"
             placeholder= "Username"
@@ -51,15 +51,17 @@ class Login extends Component {
           />
           </div>
           <br />
-          <label></label>
-          <input
+          <div className="inputLogin">
+          <label className="labelIcon"><img className="icon-login" src="/lock_login.png" height="20px"/></label>
+          <input className="input-login"
             type="password"
             name="password"
             placeholder= "Password"
             value={password}
             onChange={this.handleChange}
           />
-          <button type="submit" value="Login">Login</button>
+          </div>
+          <button className="button-login" type="submit" value="Login">Login</button>
         </form>
       
         {/* <GoogleLogin
@@ -77,9 +79,10 @@ class Login extends Component {
           onClick={componentClicked}
           callback={responseFacebook}
         /> */}
-        
-        <p>Don't have an account?</p>
-        <Link to="/signup">Sign Up</Link>
+        <div class="login-flex-row">
+          <p className="login-p">Don't have an account?</p>
+          <Link className="login-link" to="/signup">Sign Up</Link>
+        </div>
       </div>
     );
   }

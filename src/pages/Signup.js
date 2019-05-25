@@ -34,62 +34,90 @@ class Signup extends Component {
   render() {
     const { username, password, email, flatAttribute} = this.state;
     return (
-      <div>
-        <Link to={"/login"}>back</Link>
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Email:</label>
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={this.handleChange}
-            />
-          <label>Username:</label>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={this.handleChange}
-          />
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-          />
-          <select name="isAdmin" onChange={this.handleSelect}>
-            <option value={false}>Join</option>
-            <option value={true}>Create</option> 
-          </select>
+      <div id="body-signup">
+        <Link to={"/login"}><img src="/back-button.png" alt="back" width="20px"/></Link>
+        <div id="signup-flex-column">
+          <img className="logo-login" src="/logo-login.png" alt=""/>
+          <h1 className="login-h1">Join your flat!</h1>
+            <form onSubmit={this.handleFormSubmit}>
+            <div className="inputLogin">
+              <label className="labelIcon"><img className="icon-login" src="/mail_login.png" height="20px"/></label>
+                <input className="input-login"
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={this.handleChange}
+                  placeholder="Email"
+                />
+              </div>
+              <br />
+              <div className="inputLogin">
+              <label className="labelIcon"><img className="icon-login" src="/User_Login.png" height="20px"/></label>
+              <input className="input-login"
+                type="text"
+                name="username"
+                value={username}
+                onChange={this.handleChange}
+                placeholder="Username"
+              />
+              </div>
+              <br />
+              <div className="inputLogin">
+              <label className="labelIcon"><img className="icon-login" src="/lock_login.png" height="20px"/></label>
+              <input className="input-login"
+                type="password"
+                name="password"
+                value={password}
+                onChange={this.handleChange}
+                placeholder="Password"
+              />
+            </div>
+              <br />
+              <div>
+              <select className="select-signup" name="isAdmin" onChange={this.handleSelect}>
+                <option value={false}>Join a flat</option>
+                <option value={true}>Create a new flat</option> 
+              </select>
+              </div>
 
-          { this.state.isAdmin ? 
-            <div>
-              <label>Flatname:</label>
-              <input
-                type="text"
-                name="flatAttribute"
-                value={flatAttribute}
-                onChange={this.handleChange}
-              />
+              { this.state.isAdmin ? 
+
+                <div>
+                  <h5 class="signup-h5">Flatname:</h5>
+                  <div className="inputLogin">
+                  <label className="labelIcon"><img className="icon-login" src="/house-login.png" height="20px"/></label>
+                  <input className="input-login"
+                    type="text"
+                    name="flatAttribute"
+                    value={flatAttribute}
+                    onChange={this.handleChange}
+                    placeholer="Flatname"
+                  />
+                  </div>
+                </div>
+                  :
+                  <div>
+                  <h5 class="signup-h5">Invitation Code:</h5>
+                  <div className="inputLogin">
+                  <label className="labelIcon"><img className="icon-login" src="/house-login.png" height="20px"/></label>
+                  <input className="input-login"
+                    type="text"
+                    name="flatAttribute"
+                    value={flatAttribute}
+                    onChange={this.handleChange}
+                    placeholer="Invitation Code"
+                  />
+                  </div>
+                </div>
+
+                }
+              <button className="button-login" type="submit" value="Signup" >Sign Up</button>
+            </form>
+            <div class="login-flex-row">
+              <p className="login-p"> Already have account?</p>
+              <Link className="login-link" to={"/login"}> Login</Link>
             </div>
-              :
-            <div>
-              <label>Invitation Code:</label>
-              <input
-                type="text"
-                name="flatAttribute"
-                value={flatAttribute}
-                onChange={this.handleChange}
-              />
-            </div>
-            }
-          <input type="submit" value="Signup" />
-        </form>
-        <p>
-          Already have account?
-          <Link to={"/login"}> Login</Link>
-        </p>
+        </div>
       </div>
     );
   }

@@ -3,4 +3,31 @@
 body {
   background-color: white;
   font-family: 'Comfortaa', cursive;
+  margin: 0
+}
+
+.header{
+  background-image: linear-gradient(to bottom, #87b1d8, #7faad9, #78a3d9, #739cd9, #7094d9, #6d8ed7, #6a88d4, #6882d1, #637dcc, #5e78c7, #5874c3, #536fbe);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 20vh;
+  width: 100vw;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center
+}
+
+.logoutButton{
+  position: absolute
+}
+
+.logout-container{
+  width: 100vw;
+}
+
+.header-h1{
+  width: 100vw
 }

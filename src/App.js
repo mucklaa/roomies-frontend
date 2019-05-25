@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Switch } from "react-router-dom";
 import './css/App.css';
 import Navbar from "./components/Navbar";
+import Logout from "./components/buttons/LogoutButton";
 import Profile from "./pages/Profile"
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -21,7 +22,7 @@ class App extends Component {
     return (
       <AuthProvider>
         <div className="container">
-          <Navbar />
+          {/* <Navbar /> */}
           <Switch>
             <AnonRoute exact path="/" component={Login} />
             <AnonRoute exact path="/signup" component={Signup} />

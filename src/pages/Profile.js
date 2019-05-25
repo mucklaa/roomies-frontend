@@ -3,6 +3,8 @@ import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter";
 import EditButton from "./../components/buttons/EditButton";
 import profileAuth from "./../lib/profile-services";
+import Logout from "./../components/buttons/LogoutButton";
+
 
 class Profile extends Component {
   state = { 
@@ -69,7 +71,10 @@ class Profile extends Component {
     const { users } = this.state;
     return (
       <div>
-        <h1>Profile</h1>
+        <div className="header">
+        <Logout />
+        <h1 className="header-h1">Profile</h1>
+        </div>
         <img src={this.state.loggedInUser.image} width="100px" alt=""/>
         <p>{this.state.loggedInUser.username}</p>
         <p>{this.state.loggedInUser.email}</p>
