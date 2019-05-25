@@ -32,20 +32,20 @@ class Overview extends Component {
   componentDidMount() {
     console.log(this.props.user.flat)
     axios.get(`http://localhost:5000/user/bills/${this.props.user.flat}/overview`)
-    .then((apiResponse) => {
-      console.log("overview api response:", apiResponse.data.totalSpent) 
-      let splitBills = apiResponse.data.usersInfo
-      let totalSum = apiResponse.data.totalSpent
-      this.setState({splitBills: splitBills, totalSum, isTrue: true},
-      (()=>{
-        document.querySelectorAll('#user-debt').forEach((element) => {
-          this.state.datasets[0].data.push(element.innerHTML*1);
-        });
-        document.querySelectorAll('#flatmate').forEach((element) => {
-          this.state.labels.push(element.innerHTML);
-        });
-      }))   
-  })
+      .then((apiResponse) => {
+        console.log("overview api response:", apiResponse.data.totalSpent) 
+        let splitBills = apiResponse.data.usersInfo
+        let totalSum = apiResponse.data.totalSpent
+        this.setState({splitBills: splitBills, totalSum, isTrue: true},
+        (() => {
+          document.querySelectorAll('#user-debt').forEach((element) => {
+            this.state.datasets[0].data.push(element.innerHTML*1);
+          });
+          document.querySelectorAll('#flatmate').forEach((element) => {
+            this.state.labels.push(element.innerHTML);
+          });
+        }))   
+    })
 }
 
   render() {
@@ -59,9 +59,9 @@ class Overview extends Component {
               return <div key={index}><p id="flatmate" >{key}</p>
               {this.state.splitBills[key].hasToPay ?
               <div>
-              <p>To Pay: </p>
-              <p id="user-debt">{this.state.splitBills[key].amount} </p> </div>:
-              <div><p>Gets: </p><p id="user-debt">{this.state.splitBills[key].amount} </p> </div>}
+                <p>To Pay: </p>
+                <p id="user-debt">{this.state.splitBills[key].amount} </p> </div>:
+                <div><p>Gets: </p><p id="user-debt">{this.state.splitBills[key].amount} </p> </div>}
               </div> 
             })
           }

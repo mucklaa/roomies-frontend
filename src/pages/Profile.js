@@ -39,7 +39,6 @@ class Profile extends Component {
   }
 
   updateProfile = (image, username, email) =>{
-    console.log("testttttt")
     profileAuth.getFlat(this.props.user.flat)
       .then((apiResponse) => {
         console.log("user", this.props.user._id)
