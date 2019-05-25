@@ -1,34 +1,81 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter";
+import EditButton from "./../components/buttons/EditButton";
 import profileAuth from "./../lib/profile-services";
 
 class Profile extends Component {
   state = { 
     flat: {},
-    users: []
+    users: [],
+    loggedInUser: '',
   };
 
   componentDidMount() {
     profileAuth.getFlat(this.props.user.flat)
       .then((apiResponse) => {
-        console.log(this.props.user)
+        console.log("user", this.props.user._id)
         this.setState({ 
         flat: apiResponse.data,
         users: apiResponse.data.users
         })}
       )
+
+    profileAuth.getUser(this.props.user._id)
+      .then((apiResponse) => {
+        console.log("api response user", apiResponse)
+        this.setState({ 
+        loggedInUser: apiResponse.data, 
+        })}
+      )
   }
+  
+  updateImage = (image) =>{
+    let newLoggedInUser = this.state.loggedInUser;
+    newLoggedInUser.image = image;
+    this.setState({
+      loggedInUser: newLoggedInUser,
+    })
+  }
+
+  updateProfile = (image, username, email) =>{
+    console.log("testttttt")
+    profileAuth.getFlat(this.props.user.flat)
+      .then((apiResponse) => {
+        console.log("user", this.props.user._id)
+        this.setState({ 
+        flat: apiResponse.data,
+        users: apiResponse.data.users
+        })}
+      )
+
+    profileAuth.getUser(this.props.user._id)
+      .then((apiResponse) => {
+        console.log("api response user", apiResponse)
+        this.setState({ 
+        loggedInUser: apiResponse.data, 
+        })}
+      )
+    // let newLoggedInUser = this.state.loggedInUser;
+    // newLoggedInUser.image = image;
+    // newLoggedInUser.username = username;
+    // newLoggedInUser.email = email;
+    // this.setState({
+    //   loggedInUser: newLoggedInUser,
+    // })
+  }
+
 
   render() {
     const { users } = this.state;
     return (
       <div>
         <h1>Profile</h1>
-        <img src={this.props.user.image} width="100px" alt=""/>
-        <p>{this.props.user.username}</p>
-        <p>{this.props.user.email}</p>
-        <p>{this.props.user.phone}</p>
+        <img src={this.state.loggedInUser.image} width="100px" alt=""/>
+        <p>{this.state.loggedInUser.username}</p>
+        <p>{this.state.loggedInUser.email}</p>
+        <p>{this.state.loggedInUser.phone}</p>
+        <EditButton updateProfile={this.updateProfile} updateImage={this.updateImage} id={this.props.user._id} phone={this.state.loggedInUser.phone} image={this.state.loggedInUser.image} username={this.state.loggedInUser.username} email={this.state.loggedInUser.email} pathPage="profile" />
         {
           this.props.user.isAdmin ? <h3>Invitation Code: {this.props.user.flatCode}</h3> : null
         }

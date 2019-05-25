@@ -14,6 +14,19 @@ class ProfileAuth {
       .get(`/${user}`)
         .then((apiResponse) => apiResponse)
   }
+
+  imageUpload(user, file) {
+    console.log(user)
+    return this.profile
+    .post('/edit/image', file)
+      .then(({data}) => data)
+  }
+
+  getUser(userID){
+    return this.profile
+      .get(`/user/${userID}`)
+        .then((apiResponse) => apiResponse)
+  }
 }
   
 

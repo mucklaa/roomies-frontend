@@ -12,9 +12,10 @@ class BillAuth {
     return this.bills
       .get(`/${flatID}`)
         .then((apiResponse) => apiResponse)
-  }
+  } 
 }
-  
+
+
 
 const billAuth = new BillAuth();
 
