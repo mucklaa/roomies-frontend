@@ -12,7 +12,7 @@ class PopupBill extends Component {
     currency: '€',
     user: '',
     image: '',
-    disable: true
+    disable: false
   }
 
   handleChange = (event) => {
@@ -56,6 +56,7 @@ class PopupBill extends Component {
     const uploadFile = new FormData();
     uploadFile.append('photo', file)
     console.log("this.props.id", this.props.id)
+    this.setState({disable: true})
     profileAuth.imageUpload(this.props.id, uploadFile)
       .then((image) => {
         console.log('image', image)
@@ -87,7 +88,10 @@ class PopupBill extends Component {
           <input type="file" onChange={this.handleImageUpload}></input>
           <div></div>          
           <div>
-            <input type="submit" value="Add"/>
+            {
+              !this.state.disable ?  <input type="submit" value="Add"/> : <input disabled type="submit" value="Add"/> 
+            }
+           
           </div>
       </form>
 

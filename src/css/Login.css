@@ -1,0 +1,53 @@
+body {
+  background-image: linear-gradient(to bottom, #87b1d8, #7faad9, #78a3d9, #739cd9, #7094d9, #6d8ed7, #6a88d4, #6882d1, #637dcc, #5e78c7, #5874c3, #536fbe);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center
+}
+
+.logo-login{
+  width: 40vw
+}
+
+.icon-login{
+  vertical-align: middle;
+}
+
+input {
+  height: 40px;
+  background: #5874c3;
+  border: none;
+  color: white;
+  width: 90vw
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}
+
+.inputLogin{
+  width: 100vw;
+  display: flex;
+  justify-content: space-between
+}
+
+.labelIcon{
+  margin: auto;
+  height: 40px;
+  display: flex;
+  align-items: center}

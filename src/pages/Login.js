@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
+import './../css/Login.css';
+
+
 // import ReactDOM from 'react-dom';
 // import GoogleLogin from 'react-google-login';
 // import FacebookLogin from 'react-facebook-login';
@@ -37,24 +40,29 @@ class Login extends Component {
     const { username, password } = this.state;
     return (
       <div>
-      <img src="/logo4png Kopie.png" alt=""/>
+      <img className="logo-login" src="/logo4png Kopie.png" alt=""/>
       <h1>Login</h1>
       <form onSubmit={this.handleFormSubmit}>
-        <label>Username:</label>
+        <div className="inputLogin">
+        <label className="labelIcon"><img className="icon-login" src="/User_Login.png" height="20px"/></label>
         <input
           type="text"
           name="username"
+          placeholder= "Username"
           value={username}
           onChange={this.handleChange}
         />
-        <label>Password:</label>
+        </div>
+        <br />
+        <label></label>
         <input
           type="password"
           name="password"
+          placeholder= "Password"
           value={password}
           onChange={this.handleChange}
         />
-        <input type="submit" value="Login" />
+        <button type="submit" value="Login">Login</button>
       </form>
      
       {/* <GoogleLogin
