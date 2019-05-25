@@ -4,6 +4,7 @@ import NavbarFooter from "./../components/NavbarFooter";
 import EditButton from "./../components/buttons/EditButton";
 import profileAuth from "./../lib/profile-services";
 import Logout from "./../components/buttons/LogoutButton";
+import "./../css/Profile.css"
 
 
 class Profile extends Component {
@@ -70,27 +71,60 @@ class Profile extends Component {
   render() {
     const { users } = this.state;
     return (
-      <div>
-        <div className="header">
+      <div id="profile-body">
         <Logout />
+        <div className="header">
         <h1 className="header-h1">Profile</h1>
         </div>
-        <img src={this.state.loggedInUser.image} width="100px" alt=""/>
-        <p>{this.state.loggedInUser.username}</p>
-        <p>{this.state.loggedInUser.email}</p>
-        <p>{this.state.loggedInUser.phone}</p>
-        <EditButton updateProfile={this.updateProfile} updateImage={this.updateImage} id={this.props.user._id} phone={this.state.loggedInUser.phone} image={this.state.loggedInUser.image} username={this.state.loggedInUser.username} email={this.state.loggedInUser.email} pathPage="profile" />
+        <div className="profile-container">
+          <div className="profile-inner-container">
+            <img src={this.state.loggedInUser.image} width="90px" alt=""/>
+            <EditButton updateProfile={this.updateProfile} updateImage={this.updateImage} id={this.props.user._id} phone={this.state.loggedInUser.phone} image={this.state.loggedInUser.image} username={this.state.loggedInUser.username} email={this.state.loggedInUser.email} pathPage="profile" />
+          </div>
+          <div className="profile-inner-container">
+            <div className="profile-icon-container">
+              <img className="icon-profile" src="/user-profile.png" width="20px" alt="Username:"></img>
+              <p>{this.state.loggedInUser.username}</p>
+            </div>
+            <div className="profile-inner-container">
+              <div className="profile-icon-container">
+                <img className="icon-profile" src="/mail-profile.png" width="20px" alt="Email:"></img>
+                <p>{this.state.loggedInUser.email}</p>
+              </div>
+            </div>
+            <div className="profile-inner-container">
+              <div className="profile-icon-container">
+                <img className="icon-profile" src="/phone-profile.png" width="20px" alt="Phone:"></img>
+                <p>{this.state.loggedInUser.phoneNumber}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="invitation-div">
+        <h2>Your Flatmates</h2>
         {
-          this.props.user.isAdmin ? <h3>Invitation Code: {this.props.user.flatCode}</h3> : null
+          this.props.user.isAdmin ? <h4 class="profile-container">Invitation Code: {this.props.user.flatCode}</h4> : null
         }
-        <h3>Your Flat</h3>
+        </div>
         {
           users.map((element, index) => {
             return (
               <div key={index}>
-                <img src={element.image} width="100px" alt=""/>
-                <p>Username: {element.username}</p>
-                <p>PhoneNumber: {element.phoneNumber}</p>
+                <div className="profile-container">
+                  <div className="profile-inner-container">
+                    <img src={element.image} width="100px" alt=""/>
+                  </div>
+                  <div className="profile-inner-container">
+                    <div className="profile-icon-container">
+                      <img className="icon-profile" src="/user-profile.png" width="20px" alt="Username:"></img>
+                      <p>{element.username}</p>
+                    </div>
+                    <div className="profile-icon-container">
+                      <img className="icon-profile" src="/phone-profile.png" width="20px" alt="Phone:"></img>
+                      <p>{element.phoneNumber}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
               )
           })

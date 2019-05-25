@@ -1,4 +1,92 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ---- typography ---- */
+
+body {
+  color: #111;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 147%;
+}
+
+h1 {}
+
+h2 {}
+
+h3 {}
+
+p {
+  margin: 0;
+}
+
+
+
+/* ---- layout ---- */
+
+#site-header {
+  padding: 30px 0;
+  color: white;
+  background: #111;
+}
+
+#site-footer {
+  color: white;
+  padding: 60px 0;
+  background: #111;
+}
+
+#site-main {
+  margin-bottom: 60px;
+}
+
+.container {
+  margin: 0
+}
+
+.section {
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+
+
+
+
+
+/* ---- components ---- */
+
+.button {
+  width: 100%;
+  background-color: blue;
+  color: #fff;
+  border: 1px solid #fff
+}
+
+.button-alt {
+  color: blue;
+  background-color: #fff;
+}
+
+/* ---- section ---- */
+
+
+section.testimonials .button {
+  margin-bottom: 10px;
+}
 
 body {
   background-color: white;
@@ -7,9 +95,7 @@ body {
 }
 
 .header{
-  background-image: linear-gradient(to bottom, #87b1d8, #7faad9, #78a3d9, #739cd9, #7094d9, #6d8ed7, #6a88d4, #6882d1, #637dcc, #5e78c7, #5874c3, #536fbe);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-color: #86B0D8;
   height: 20vh;
   width: 100vw;
   color: white;
@@ -21,13 +107,42 @@ body {
 }
 
 .logoutButton{
-  position: absolute
+  position: absolute;
+  background-color: transparent;
+  border:none
 }
 
 .logout-container{
   width: 100vw;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .header-h1{
   width: 100vw
+}
+
+.icon-logout{
+  vertical-align: middle;
+  margin: 10px 7px
+}
+
+#root{
+  margin: 0
+}
+
+.navbar-container{
+  display: flex;
+  justify-content: space-around;
+  background-color: #86B0D8;
+  padding: 10px;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+}
+
+.nav-icon{
+  vertical-align: middle;
 }

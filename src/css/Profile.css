@@ -1,0 +1,45 @@
+#profile-body{
+  text-align: center;
+}
+
+.profile-icon-container{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.profile-container{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 30px;
+  -webkit-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  -moz-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  margin: 10px;
+  border-radius: 5px;
+  margin-left: 20px;
+  background-color: white;
+  color: black;
+}
+
+.profile-inner-container p{
+  padding-left: 15px;
+  overflow: scroll;
+}
+
+.profile-inner-container {
+  margin-right: 30px
+}
+
+.invitation-div{
+  -webkit-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  -moz-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  background-color: #86B0D8;
+  color: white;
+  flex-direction: column;
+  padding: 5px 30px
+}
+
