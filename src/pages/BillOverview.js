@@ -29,8 +29,8 @@ class Overview extends Component {
     isVisible: false
   };
 
-  goToPayPal(payPalMeUsername, amount) {
-    window.location.href = `https://www.paypal.com/myaccount/transfer/send/external/ppme?profile=${payPalMeUsername}&currencyCode=EUR&amount=${amount}&flowType=send`
+  goToPayPal(payPalMeUsername, currency, amount) {
+    window.location.href = `https://www.paypal.com/myaccount/transfer/send/external/ppme?profile=${payPalMeUsername}&currencyCode=${currency}&amount=${amount}&flowType=send`
   }
 
   componentDidMount() {
@@ -56,13 +56,13 @@ class Overview extends Component {
         <h2>{this.state.totalSpent}</h2>
           {
             Object.keys(this.state.usersInfo).map((key, index) => {
-              const { amount, hasToPay, payPalMeUsername } =  this.state.usersInfo[key]
+              const { amount, currency, hasToPay, payPalMeUsername } =  this.state.usersInfo[key]
               return (
               <div key={index}>
                 {
                   hasToPay ?
                   <div>
-                    <p id="user-pays">{key} pays: {amount} { payPalMeUsername ? <button onClick={ () => { this.goToPayPal(payPalMeUsername, amount) } }>Pay</button> : <button disabled>Pay</button> }</p>
+                    <p id="user-pays">{key} pays: {amount} { payPalMeUsername ? <button onClick={ () => { this.goToPayPal(payPalMeUsername, currency, amount) } }>Pay</button> : <button disabled>Pay</button> }</p>
                   </div>
                   :
                   <div>
