@@ -71,14 +71,14 @@ class Profile extends Component {
   render() {
     const { users } = this.state;
     return (
-      <div id="profile-body">
+      <div id="main-body">
         <Logout />
         <div className="header">
         <h1 className="header-h1">Profile</h1>
         </div>
-        <div className="profile-container">
+        <div className="card-container">
           <div className="profile-inner-container">
-            <img src={this.state.loggedInUser.image} width="90px" alt=""/>
+            <img className="profile-image" src={this.state.loggedInUser.image} width="90px" alt=""/>
             <EditButton updateProfile={this.updateProfile} updateImage={this.updateImage} id={this.props.user._id} phone={this.state.loggedInUser.phoneNumber} image={this.state.loggedInUser.image} username={this.state.loggedInUser.username} email={this.state.loggedInUser.email} pathPage="profile" />
           </div>
           <div className="profile-inner-container">
@@ -100,19 +100,19 @@ class Profile extends Component {
             </div>
           </div>
         </div>
-        <div class="invitation-div">
+        <div className="invitation-div">
         <h2>Your Flatmates</h2>
         {
-          this.props.user.isAdmin ? <h4 class="profile-container">Invitation Code: {this.props.user.flatCode}</h4> : null
+          this.props.user.isAdmin ? <h4 className="card-container">Invitation Code: {this.props.user.flatCode}</h4> : null
         }
         </div>
         {
           users.map((element, index) => {
             return (
               <div key={index}>
-                <div className="profile-container">
+                <div className="card-container">
                   <div className="profile-inner-container">
-                    <img src={element.image} width="100px" alt=""/>
+                    <img className="profile-image" src={element.image} width="90px" alt=""/>
                   </div>
                   <div className="profile-inner-container">
                     <div className="profile-icon-container">

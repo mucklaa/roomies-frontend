@@ -27,7 +27,9 @@ class PlusButton extends Component {
         {this.state.isClicked && this.state.path === 'bill' ? <PopupBill getAllFlats={this.props.getAllFlats}  /> : null}
 
         <div>
-          <button onClick={this.handleOnClick}>+</button> 
+          {
+            !this.state.isClicked ? <button className="plus-button" onClick={this.handleOnClick}>+</button> : <button className="plus-button plus-button-activated" onClick={this.handleOnClick}>X</button>
+          }
         </div>
       </div>
 

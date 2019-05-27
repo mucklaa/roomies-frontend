@@ -4,6 +4,7 @@ import NavbarFooter from "./../components/NavbarFooter";
 import PlusButton from "./../components/buttons/PlusButton";
 import EditButton from "./../components/buttons/EditButton";
 import shoppingAuth from "./../lib/shopping-services";
+import Logout from "./../components/buttons/LogoutButton";
 import axios from "axios";
 
 class Shopping extends Component {
@@ -35,16 +36,25 @@ class Shopping extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Shopping</h1>
+      <div id="main-body">
+      <Logout />
+        <div className="header">
+          <h1 className="header-h1">Shopping</h1>
+        </div>
         {
           this.state.shoppingList.map((shoppingItem, index) => {
             return (
-              <div key={index}> 
-                <h3>{shoppingItem.amount}</h3>
-                <h3>{shoppingItem.name}</h3>
-                <EditButton getAllFlats={this.getAllFlats} id={shoppingItem._id} amount={shoppingItem.amount} name={shoppingItem.name} pathPage="shopping" />
-                <button onClick={this.handleDeleteSubmit} value={shoppingItem._id}  type="submit">Delete</button>
+                <div key={index} className="card-container to-do-card-container" key={index}>
+                  <div className="flex-column">
+                    <div className="initials">
+                      <h4>{shoppingItem.amount}</h4>
+                    </div>
+                    <h4>{shoppingItem.name}</h4>
+                  </div>
+                  <div className="flex-column">
+                    <EditButton getAllFlats={this.getAllFlats} id={shoppingItem._id} amount={shoppingItem.amount} name={shoppingItem.name} pathPage="shopping" />
+                    <button onClick={this.handleDeleteSubmit} value={shoppingItem._id}  type="submit">Delete</button>
+                  </div>
               </div>
             )
           })

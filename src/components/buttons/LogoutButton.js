@@ -10,7 +10,7 @@ class Logout extends Component {
     return (
       <div>
         {isLoggedin ? (
-          <div class="logout-container">
+          <div className="logout-container">
             <button className="logoutButton" onClick={logout}><img className="icon-logout" src="/logout-button.png" height="20px"/></button>
           </div>
         ) : null

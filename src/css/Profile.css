@@ -1,7 +1,4 @@
-#profile-body{
-  text-align: center;
-  position: relative;
-}
+
 
 .profile-icon-container{
   display: flex;
@@ -10,7 +7,7 @@
   flex-wrap: nowrap;
 }
 
-.profile-container{
+.card-container{
   display: flex;
   align-items: center;
   justify-content: left;
@@ -79,4 +76,14 @@
 .input-profile-file{
   margin: auto;
   padding-top: 10px;
+}
+
+.profile-image{
+  border-radius: 100px;
+  height: 90px;
+  background-size: cover;
+}
+
+.update-button:disabled{
+  background-color: grey;
 }

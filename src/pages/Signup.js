@@ -81,7 +81,7 @@ class Signup extends Component {
 
               { this.state.isAdmin ? 
                 <div>
-                  <h5 class="signup-h5">Flatname:</h5>
+                  <h5 className="signup-h5">Flatname:</h5>
                   <div className="inputLogin">
                   <label className="labelIcon"><img className="icon-login" src="/house-login.png" height="20px"/></label>
                   <input className="input-login"
@@ -95,7 +95,7 @@ class Signup extends Component {
                 </div>
                   :
                 <div>
-                  <h5 class="signup-h5">Invitation Code:</h5>
+                  <h5 className="signup-h5">Invitation Code:</h5>
                   <div className="inputLogin">
                   <label className="labelIcon"><img className="icon-login" src="/house-login.png" height="20px"/></label>
                   <input className="input-login"
@@ -110,7 +110,7 @@ class Signup extends Component {
                 }
               <button className="button-login" type="submit" value="Signup" >Sign Up</button>
             </form>
-            <div class="login-flex-row">
+            <div className="login-flex-row">
               <p className="login-p"> Already have account?</p>
               <Link className="login-link" to={"/login"}> Login</Link>
             </div>

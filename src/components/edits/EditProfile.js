@@ -12,7 +12,7 @@ class EditProfile extends Component {
     phone: this.props.phone,
     paypal: this.props.paypal,
     image: this.props.image, 
-    disable: true
+    disable: false
   }
 
   handleChange = (event) => {
@@ -43,6 +43,7 @@ class EditProfile extends Component {
     const uploadFile = new FormData();
     uploadFile.append('photo', file)
     console.log("this.props.id", this.props.id)
+    this.setState({disable: true})
     profileAuth.imageUpload(this.props.id, uploadFile)
       .then((image) => {
         console.log('image', image)
@@ -57,7 +58,7 @@ class EditProfile extends Component {
   render() {
     return (
       this.state.isClicked ? null : 
-      <div class="edit-profile-popup">
+      <div className="edit-profile-popup">
         <h2>Edit Profile</h2>
       <form onSubmit={this.handleFormSubmit}>
           <div className="inputProfile">
@@ -81,7 +82,10 @@ class EditProfile extends Component {
             <input className="input-profile-file input-profile" type="file" onChange={this.handleImageUpload}></input>
           </div>
           <div>
-            <button class="update-button" type="submit" value="Add">Update</button>
+          {
+              !this.state.disable ? 
+            <button className="update-button" type="submit" value="Add">Update</button> : <button disabled className="update-button" type="submit" value="Add">Update</button>  
+          }
           </div>
       </form>
       </div>

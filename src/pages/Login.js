@@ -81,7 +81,7 @@ class Login extends Component {
           onClick={componentClicked}
           callback={responseFacebook}
         /> */}
-        <div class="login-flex-row">
+        <div className="login-flex-row">
           <p className="login-p">Don't have an account?</p>
           <Link className="login-link" to="/signup">Sign Up</Link>
         </div>

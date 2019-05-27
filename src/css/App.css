@@ -37,6 +37,7 @@ p {
 
 /* ---- layout ---- */
 
+
 #site-header {
   padding: 30px 0;
   color: white;
@@ -156,5 +157,119 @@ body {
   color: white;
   border: white;
   font-size: 15px;
+}
 
+#main-body{
+  text-align: center;
+  position: relative;
+}
+
+.flex-column-container{
+  flex-direction: column;
+}
+
+.initials{
+  background-color: #86B0D8;
+  border-radius: 100px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto 25px auto 0
+}
+
+div.to-do-card-container{
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.to-do-h4{
+  margin: 0
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: row;
+  align-content: center
+}
+
+.button-transparent{
+  background-color: transparent;
+  border:none
+}
+
+.plus-button{
+  background-color: rgb(123, 209, 123);
+  width: 50px;
+  height: 50px;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  -webkit-box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.75);
+  box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.75);
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+}
+
+button.plus-button-activated{
+  background-color: crimson;
+}
+
+.new-popup{
+  position: fixed;
+  background-color: white;
+  min-height: 60vh;
+  width: 90vw;
+  margin: 0 5vw;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  -moz-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  top: 15%
+}
+
+.input-profile::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: grey;
+  opacity: 1; /* Firefox */
+}
+
+.input-profile:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+.input-profile::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}
+
+.add-button{
+  background-color: rgb(123, 209, 123);
+  border: 1px, solid, transparent;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  -moz-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  color: white;
+  margin-top: 60px;
+  padding: 10px;
+  font-size: 18px
+}
+
+.margin30{
+  margin-top: 50px
+}
+
+.edit-popup{
+  position: fixed;
+  background-color: white;
+  min-height: 60vh;
+  width: 90vw;
+  margin: 0 5vw;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  -moz-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  top: 15%;
+  left: 0%
 }
