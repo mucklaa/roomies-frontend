@@ -354,3 +354,18 @@ a.overview-link{
   color: white;
   text-decoration: none;
 }
+
+.back-button{
+  position: absolute;
+  margin: 10px
+}
+
+.invoice-image{
+  max-width: 80vw;
+  max-height: 70vh;
+  margin: auto
+}
+
+.align-center{
+  text-align: center;
+}

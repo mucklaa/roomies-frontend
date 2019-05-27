@@ -44,7 +44,7 @@ class PopupShopping extends Component {
             </div>
             <div className="margin30 inputProfile">
               <img className="icon-profile-edit" src="/amount.png" width="20px" alt="Amount"></img>
-              <input placeholder="Responsibility" className="input-profile" value={this.state.amount} type="number" name="amount" onChange={this.handleChange} />
+              <input placeholder="Amount" className="input-profile" value={this.state.amount} type="number" name="amount" onChange={this.handleChange} />
             </div>
             <div>
               {/* butto onClick --> handleClick but then onsubmit isnt working anymore --> popup close in parent? */}
