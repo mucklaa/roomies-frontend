@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
 import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter";
 import DoughnutParent from './../components/DoughnutParent';
@@ -32,7 +30,7 @@ class Overview extends Component {
   };
 
   goToPayPal(amount) {
-    window.location.href = `https://www.paypal.com/myaccount/transfer/send/external/ppme?profile=RiccardoBassanelli&currencyCode=EUR&amount=${amount}&flowType=send`
+    window.location.href = `https://www.paypal.com/myaccount/transfer/send/external/ppme?profile=${this.props.user.payPalMeUsername}&currencyCode=EUR&amount=${amount}&flowType=send`
   }
 
   componentDidMount() {

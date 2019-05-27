@@ -11,7 +11,7 @@ import Shopping from "./pages/Shopping";
 import Chat from "./pages/Chat";
 import Bill from "./pages/Bill";
 import BillDetail from "./pages/BillDetail";
-import Overview from "./pages/Overview";
+import BillOverview from "./pages/BillOverview";
 
 import PrivateRoute from "./components/PrivateRoute";
 import AnonRoute from "./components/AnonRoute";
@@ -33,7 +33,7 @@ class App extends Component {
             <PrivateRoute exact path="/chat" component={Chat} />
             <PrivateRoute exact path="/bills" component={Bill} />
             <PrivateRoute exact path="/bills/detail" component={BillDetail} />            
-            <PrivateRoute exact path="/bills/overview" component={Overview} />
+            <PrivateRoute exact path="/bills/overview" component={BillOverview} />
           </Switch>
         </div>
       </AuthProvider>
