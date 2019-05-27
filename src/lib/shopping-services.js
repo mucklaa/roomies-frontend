@@ -14,14 +14,18 @@ class ShoppingAuth {
         .then((apiResponse) => apiResponse)
   }
 
+  newItem(flatID, item){
+    return this.shopping
+      .post('/new', {flatID, item})
+  }
   editItem(itemID, name, amount){
     return this.shopping
-      .put('http://localhost:5000/user/shopping/edit', { itemID, name, amount })
+      .put('/edit', { itemID, name, amount })
   }
 
   deleteItem(itemID){
     return this.shopping
-      .delete('http://localhost:5000/user/shopping/delete', {data: {itemID}})
+      .delete('/delete', {data: {itemID}})
   }
 }
   

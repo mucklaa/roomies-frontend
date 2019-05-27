@@ -8,7 +8,6 @@ class ProfileAuth {
     });
   }
 
-
   getFlat(user){
     return this.profile
       .get(`/${user}`)
@@ -16,7 +15,6 @@ class ProfileAuth {
   }
 
   imageUpload(user, file) {
-    console.log(user)
     return this.profile
     .post('/edit/image', file)
       .then(({data}) => data)

@@ -16,13 +16,18 @@ class BillAuth {
 
   getAllBills(flatID) {
     return this.bills
-      .get(`http://localhost:5000/user/bills/${flatID}/overview`)
+      .get(`/${flatID}/overview`)
         .then((apiResponse) => apiResponse)
+  }
+
+  newBill(flatID, item){
+    return this.bills
+      .post('/new', {flatID, item})
   }
 
   editBill(itemID, item) {
     return this.bills
-      .put('http://localhost:5000/user/bills/edit', { itemID, item })
+      .put('/edit', { itemID, item })
   }
 
   deleteBill(itemID){

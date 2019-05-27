@@ -24,8 +24,6 @@ class EditProfile extends Component {
     event.preventDefault();
     let userID = this.props.id
     let item = this.state
-    console.log("userID" , userID)
-    console.log('request shoot')
     profileService.editUser(userID, item)
       .then(response => {
         console.log("formSubmit", response);

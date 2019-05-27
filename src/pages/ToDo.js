@@ -3,9 +3,8 @@ import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter"
 import PlusButton from "./../components/buttons/PlusButton"
 import EditButton from "./../components/buttons/EditButton";
-import toDoAuth from "./../lib/todo-services";
 import Logout from "./../components/buttons/LogoutButton";
-import todoAuth from "./../lib/todo-services";
+import toDoService from "./../lib/todo-services";
 
 class ToDo extends Component {
   state = {
@@ -16,7 +15,7 @@ class ToDo extends Component {
 
   getAllFlats = () =>{
     const flatID = this.props.user.flat
-    toDoAuth.getFlat(flatID)
+    toDoService.getFlat(flatID)
       .then((apiResponse) => {
           this.setState({ 
             flat: apiResponse.data,
@@ -29,11 +28,10 @@ class ToDo extends Component {
   handleDeleteSubmit = (event) => {
     event.preventDefault();
       const itemID = event.target.value
-      todoAuth.deleteItem(itemID)
+      toDoService.deleteItem(itemID)
         .then(() => this.setState({state: this.getAllFlats()}));
    }
   
-
   componentDidMount() {
     this.getAllFlats()
   }
