@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter";
-import DoughnutParent from './../components/DoughnutParent'
+import DoughnutParent from './../components/DoughnutParent';
+import billService from "./../lib/bill-services";
 
 class Overview extends Component {
   state = { 
@@ -35,7 +36,7 @@ class Overview extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:5000/user/bills/${this.props.user.flat}/overview`)
+    billService.getAllBills(this.props.user.flat)
       .then((apiResponse) => {
         const { usersInfo, totalSpent } = apiResponse.data
         this.setState({ usersInfo, totalSpent, isVisible: true }, () => {

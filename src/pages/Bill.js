@@ -4,8 +4,7 @@ import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter"
 import PlusButton from "./../components/buttons/PlusButton"
 import EditButton from "./../components/buttons/EditButton";
-import billAuth from "./../lib/bill-services";
-import axios from "axios";
+import billService from "./../lib/bill-services";
 
 
 class Bill extends Component {
@@ -19,7 +18,7 @@ class Bill extends Component {
 
   getAllFlats = () =>{
     const flatID = this.props.user.flat
-    billAuth.getFlat(flatID)
+    billService.getFlat(flatID)
       .then((apiResponse) => {
           this.setState({ 
             flat: apiResponse.data,
@@ -31,11 +30,9 @@ class Bill extends Component {
 
   handleDeleteSubmit = (event) => {
     event.preventDefault();
-      let itemID = event.target.value
-      axios.delete('http://localhost:5000/user/bills/delete', {data: {itemID}})
-        .then(response => {
-          this.setState({state: this.getAllFlats()})
-        });
+      const itemID = event.target.value
+      billService.deleteBill(itemID)
+        .then(() => this.setState({state: this.getAllFlats()}));
    }
 
    handleChange = (event) => {

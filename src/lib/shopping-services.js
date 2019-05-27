@@ -13,6 +13,11 @@ class ShoppingAuth {
       .get(`/${flatID}`)
         .then((apiResponse) => apiResponse)
   }
+
+  deleteItem(itemID){
+    return this.shopping
+      .delete('http://localhost:5000/user/shopping/delete', {data: {itemID}})
+  }
 }
   
 

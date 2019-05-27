@@ -3,8 +3,7 @@ import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter";
 import PlusButton from "./../components/buttons/PlusButton";
 import EditButton from "./../components/buttons/EditButton";
-import shoppingAuth from "./../lib/shopping-services";
-import axios from "axios";
+import shoppingService from "./../lib/shopping-services";
 
 class Shopping extends Component {
   state = {
@@ -14,18 +13,20 @@ class Shopping extends Component {
   }
 
   getAllFlats = () =>{
-    shoppingAuth.getFlat(this.props.user.flat)
-    .then((apiResponse) => this.setState({ 
-      flat: apiResponse.data,
-      pathPage: 'shopping',
-      shoppingList: apiResponse.data.shoppingList
-    }))
+    shoppingService.getFlat(this.props.user.flat)
+      .then((apiResponse) => {
+        this.setState({ 
+          flat: apiResponse.data,
+          pathPage: 'shopping',
+          shoppingList: apiResponse.data.shoppingList
+        })
+      })
   }
 
   handleDeleteSubmit = (event) => {
     event.preventDefault();
-    let itemID = event.target.value
-    axios.delete('http://localhost:5000/user/shopping/delete', {data: {itemID}})
+    const itemID = event.target.value
+    shoppingService.deleteItem(itemID)
       .then(() => this.setState( { state: this.getAllFlats() } ));
    }
   

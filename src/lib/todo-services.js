@@ -8,11 +8,16 @@ class ToDoAuth {
     });
   }
 
-  getFlat(flatID){
+  getFlat(flatID) {
     return this.todo
       .get(`/${flatID}`)
         .then((apiResponse) => apiResponse)
   }
+
+  deleteItem(itemID) {
+    return this.todo
+      .delete('http://localhost:5000/user/to-do/delete', {data: {itemID}})
+  } 
 }
   
 

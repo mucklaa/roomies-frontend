@@ -13,9 +13,19 @@ class BillAuth {
       .get(`/${flatID}`)
         .then((apiResponse) => apiResponse)
   } 
+
+  getAllBills(flatID) {
+    return this.bills
+      .get(`http://localhost:5000/user/bills/${flatID}/overview`)
+        .then((apiResponse) => apiResponse)
+  }
+
+  deleteBill(itemID){
+    return this.bills
+      .delete('/delete', {data: {itemID}})
+        .then((apiResponse) => apiResponse)
+  }
 }
-
-
 
 const billAuth = new BillAuth();
 
