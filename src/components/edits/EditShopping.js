@@ -24,25 +24,27 @@ class EditShopping extends Component {
       .then(response => {
         this.props.getAllFlats()
       });
+      this.setState({isClicked: true })
    }
 
   render() {
     return (
-      <div>
-      <form onSubmit={this.handleFormSubmit}>
-          <div>
-            <label>ItemShopp</label>
-            <input value={this.state.name} type="text" name="name" onChange={this.handleChange} />
+      this.state.isClicked ? null : 
+      <div class="edit-popup">
+        <h2>Edit To-Do</h2>
+        <form className="margin30" onSubmit={this.handleFormSubmit}>
+          <div className="margin30 inputProfile">
+            <img className="icon-profile-edit" src="/task.png" width="20px" alt="Task"></img>
+            <input className="input-profile" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
           </div>
-          <div>
-            <label>Amount</label>
-            <input value={this.state.amount} type="number" name="amount" onChange={this.handleChange} />
+          <div className="margin30 inputProfile">
+            <img className="icon-profile-edit" src="/task.png" width="20px" alt="Responsibility"></img>
+            <input className="input-profile" value={this.state.amount} type="number" name="amount" onChange={this.handleChange} />
           </div>
-          <div>
-            <input type="submit" value="Add"/>
-          </div>
-      </form>
-
+            <div>
+              <input className="add-button" type="submit" value="Add"/>
+            </div>
+        </form>
       </div>
 
     );

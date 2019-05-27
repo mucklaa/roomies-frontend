@@ -3,13 +3,8 @@ import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter";
 import PlusButton from "./../components/buttons/PlusButton";
 import EditButton from "./../components/buttons/EditButton";
-<<<<<<< HEAD
-import shoppingAuth from "./../lib/shopping-services";
-import Logout from "./../components/buttons/LogoutButton";
-import axios from "axios";
-=======
 import shoppingService from "./../lib/shopping-services";
->>>>>>> c4e1a994ccdc54972622a0e135dd6f98cd6ccc27
+import Logout from "./../components/buttons/LogoutButton";
 
 class Shopping extends Component {
   state = {

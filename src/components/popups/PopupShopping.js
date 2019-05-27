@@ -46,12 +46,12 @@ class PopupShopping extends Component {
         <h2>New To-Do</h2>
       <form className="margin30" onSubmit={this.handleFormSubmit}>
           <div className="margin30 inputProfile">
-            <img className="icon-profile-edit" src="/shopping.png" width="20px" alt="Item"></img>
-            <input value={this.state.name} type="text" name="name" onChange={this.handleChange} />
+            <img className="icon-profile-edit" src="/shopping-black.png" width="20px" alt="Item"></img>
+            <input placeholder="Item" className="input-profile" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
           </div>
           <div className="margin30 inputProfile">
             <img className="icon-profile-edit" src="/amount.png" width="20px" alt="Amount"></img>
-            <input value={this.state.amount} type="number" name="amount" onChange={this.handleChange} />
+            <input placeholder="Responsibility" className="input-profile" value={this.state.amount} type="number" name="amount" onChange={this.handleChange} />
           </div>
           <div>
             {/* butto onClick --> handleClick but then onsubmit isnt working anymore --> popup close in parent? */}
