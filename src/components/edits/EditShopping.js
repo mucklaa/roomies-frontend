@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withAuth } from "../../lib/AuthProvider";
-
+import shoppingService from '../../lib/shopping-services'
 
 
 class EditShopping extends Component {
@@ -20,11 +20,8 @@ class EditShopping extends Component {
     event.preventDefault();
     let itemID = this.props.id
     let {name, amount} = this.state
-    axios.put('http://localhost:5000/user/shopping/edit', { itemID, name, amount })
-      .then(response => {
-        this.props.getAllFlats()
-      });
-      this.setState({isClicked: true })
+    shoppingService.editItem(itemID, name, amount)
+      .then(() => this.props.getAllFlats());
    }
 
   render() {

@@ -11,12 +11,16 @@ class ToDoAuth {
   getFlat(flatID) {
     return this.todo
       .get(`/${flatID}`)
-        .then((apiResponse) => apiResponse)
+  }
+
+  editItem(itemID, item){
+    return this.todo
+      .put('/edit', { itemID, item })
   }
 
   deleteItem(itemID) {
     return this.todo
-      .delete('http://localhost:5000/user/to-do/delete', {data: {itemID}})
+      .delete('/delete', {data: {itemID}})
   } 
 }
   
