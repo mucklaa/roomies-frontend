@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 import { withAuth } from '../../src/lib/AuthProvider';
 import chatService from "./../lib/chat-service";
-
-import socketManagerClient from "../socketClient";
+import io from 'socket.io-client';
 
 class Chat extends Component {
 
-  state={
+  state = {
     message: '',
     messageList: [],
+    socket: io('http://localhost:5000/user/chat/'+this.props.user.flat)
   }
 
   componentDidMount(){
     this.handleGetMessages(this.props.user.flat)
-    socketManagerClient.initSocketUser(this.props.user.flat);
-    let socket = socketManagerClient.getSocket();
-    console.log('socket', socket);
-    socket.on('NEW_MESSAGE', () => {
+    console.log('socket', this.state.socket);
+    this.state.socket.on('NEW_MESSAGE', () => {
        this.handleGetMessages();
     });
+  }
+
+  componentWillUnmount(){
+    this.state.socket.disconnect()
   }
 
   handleChange = (event) =>{
@@ -49,11 +51,19 @@ class Chat extends Component {
 
   render() {
     const formatedMessages = this.state.messageList.map((message, index) => {
+      if (message.user === this.props.user.username) {
         return (
           <div key={index}>
-            <p className="text-message">{message.user}: {message.text}</p>
+            <p className="right-message">{message.user}: {message.text}</p>
           </div>
         )
+      } else {
+        return (
+          <div key={index}>
+            <p className="left-message">{message.user}: {message.text}</p>
+          </div>
+        )
+      }
     })
     return (
       <div>

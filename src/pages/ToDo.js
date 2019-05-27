@@ -6,6 +6,7 @@ import EditButton from "./../components/buttons/EditButton";
 import toDoAuth from "./../lib/todo-services";
 import Logout from "./../components/buttons/LogoutButton";
 import axios from "axios";
+import todoAuth from "./../lib/todo-services";
 
 class ToDo extends Component {
   state = {
@@ -28,11 +29,9 @@ class ToDo extends Component {
 
   handleDeleteSubmit = (event) => {
     event.preventDefault();
-      let itemID = event.target.value
-      axios.delete('http://localhost:5000/user/to-do/delete', {data: {itemID}})
-        .then(response => {
-          this.setState({state: this.getAllFlats()})
-        });
+      const itemID = event.target.value
+      todoAuth.deleteItem(itemID)
+        .then(() => this.setState({state: this.getAllFlats()}));
    }
   
 
