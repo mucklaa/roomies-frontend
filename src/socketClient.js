@@ -3,10 +3,7 @@ import io from 'socket.io-client';
 const socketURL = 'http://localhost:5000/user/chat';
 class SocketManagerClient {
   constructor(){
-    this.socket='';
-    this.socketFile = '';
-    this.connectedSocket = '';
-    this.uploader = '';
+    this.socket = '';
   }
   getSocket = () => this.socket;
 

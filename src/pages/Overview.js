@@ -27,7 +27,7 @@ class Overview extends Component {
         'rgb(175, 64, 255)'
       ]
     }],
-    isTrue: false
+    isVisible: false
   };
 
   goToPayPal(amount) {
@@ -38,7 +38,7 @@ class Overview extends Component {
     axios.get(`http://localhost:5000/user/bills/${this.props.user.flat}/overview`)
       .then((apiResponse) => {
         const { usersInfo, totalSpent } = apiResponse.data
-        this.setState({ usersInfo, totalSpent, isTrue: true }, () => {
+        this.setState({ usersInfo, totalSpent, isVisible: true }, () => {
           Object.keys(usersInfo).forEach((element) => {
             if (usersInfo[element].paid > 0) {
               this.state.labels.push(element);
@@ -75,14 +75,11 @@ class Overview extends Component {
               ) 
             })
           }
-        { this.state.isTrue ? <DoughnutParent datasets={this.state.datasets} labels={this.state.labels} /> : null }
+        { this.state.isVisible ? <DoughnutParent datasets={this.state.datasets} labels={this.state.labels} /> : null }
         <NavbarFooter />
       </div>
     );
   }
 }
 
-
-
 export default withAuth(Overview);
-
