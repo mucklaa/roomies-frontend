@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withAuth } from "../../lib/AuthProvider";
-
+import shoppingService from '../../lib/shopping-services'
 
 
 class PopupShopping extends Component {
@@ -23,42 +23,34 @@ class PopupShopping extends Component {
     this.setState( { isClicked: !this.state.isClicked } )
   }
 
-
   handleFormSubmit = (event) => {
     event.preventDefault();
-      let flatID = this.props.user.flat
-      let item = this.state
-      console.log("formsubmit")
-      axios.post('http://localhost:5000/user/shopping/new', {flatID, item})
-        .then(response => {
-          this.props.getAllFlats()
-        });
-        //isClicked is true --> but now i have to click + twice to open popup?
-      this.setState({ name: '', amount: '', isClicked: true })
+    let flatID = this.props.user.flat
+    let item = this.state
+    shoppingService.newItem(flatID, item)
+      .then(() => { this.props.getAllFlats() });
+    this.setState({ name: '', amount: '', isClicked: true })
    }
 
-
   render() {
-    console.log(this.state.isClicked)
     return (
       this.state.isClicked ? null : 
       <div className="new-popup">
         <h2>New To-Do</h2>
-      <form className="margin30" onSubmit={this.handleFormSubmit}>
-          <div className="margin30 inputProfile">
-            <img className="icon-profile-edit" src="/shopping-black.png" width="20px" alt="Item"></img>
-            <input placeholder="Item" className="input-profile" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
-          </div>
-          <div className="margin30 inputProfile">
-            <img className="icon-profile-edit" src="/amount.png" width="20px" alt="Amount"></img>
-            <input placeholder="Responsibility" className="input-profile" value={this.state.amount} type="number" name="amount" onChange={this.handleChange} />
-          </div>
-          <div>
-            {/* butto onClick --> handleClick but then onsubmit isnt working anymore --> popup close in parent? */}
-            <button className="add-button" type="submit" value="Add">Add</button>
-          </div>
-      </form>
-
+        <form className="margin30" onSubmit={this.handleFormSubmit}>
+            <div className="margin30 inputProfile">
+              <img className="icon-profile-edit" src="/shopping-black.png" width="20px" alt="Item"></img>
+              <input placeholder="Item" className="input-profile" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
+            </div>
+            <div className="margin30 inputProfile">
+              <img className="icon-profile-edit" src="/amount.png" width="20px" alt="Amount"></img>
+              <input placeholder="Responsibility" className="input-profile" value={this.state.amount} type="number" name="amount" onChange={this.handleChange} />
+            </div>
+            <div>
+              {/* butto onClick --> handleClick but then onsubmit isnt working anymore --> popup close in parent? */}
+              <button className="add-button" type="submit" value="Add">Add</button>
+            </div>
+        </form>
       </div>
 
     );

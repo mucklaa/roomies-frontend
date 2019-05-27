@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { withAuth } from "../../lib/AuthProvider";
+import toDoService from '../../lib/todo-services'
 
 class PopupToDo extends Component {
   state = {
@@ -14,25 +14,21 @@ class PopupToDo extends Component {
     this.setState( { [name]: value } )
   }
 
-
   handleFormSubmit = (event) => {
     event.preventDefault();
-      let flatID = this.props.user.flat
-      let item = this.state
-      axios.post('http://localhost:5000/user/to-do/new', {flatID, item})
-        .then(response => {
-          this.props.getAllFlats()
-        });
-      this.setState({ name: '', user: '', isClicked: true })
+    let flatID = this.props.user.flat
+    let item = this.state
+    toDoService.newItem(flatID, item)
+      .then(() => { this.props.getAllFlats() });
+    this.setState({ name: '', user: '', isClicked: true })
    }
   
-
   render() {
     return (
       this.state.isClicked ? null : 
       <div className="new-popup">
         <h2>New To-Do</h2>
-      <form className="margin30" onSubmit={this.handleFormSubmit}>
+        <form className="margin30" onSubmit={this.handleFormSubmit}>
           <div className="margin30 inputProfile">
             <img className="icon-profile-edit" src="/task.png" width="20px" alt="Task"></img>
             <input placeholder="Job" className="input-profile"  value={this.state.name} type="text" name="name" onChange={this.handleChange} />
@@ -44,10 +40,8 @@ class PopupToDo extends Component {
           <div>
             <input className="add-button" type="submit" value="Add"/>
           </div>
-      </form>
-
+        </form>
       </div>
-
     );
   }
 }

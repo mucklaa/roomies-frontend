@@ -13,6 +13,11 @@ class ToDoAuth {
       .get(`/${flatID}`)
   }
 
+  newItem(flatID, item) {
+    return this.todo
+      .post('/new', {flatID, item})
+  }
+
   editItem(itemID, item){
     return this.todo
       .put('/edit', { itemID, item })
@@ -24,7 +29,6 @@ class ToDoAuth {
   } 
 }
   
-
 const todoAuth = new ToDoAuth();
 
 export default todoAuth;

@@ -3,10 +3,8 @@ import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter"
 import PlusButton from "./../components/buttons/PlusButton"
 import EditButton from "./../components/buttons/EditButton";
-import toDoAuth from "./../lib/todo-services";
 import Logout from "./../components/buttons/LogoutButton";
-import axios from "axios";
-import todoAuth from "./../lib/todo-services";
+import toDoService from "./../lib/todo-services";
 
 class ToDo extends Component {
   state = {
@@ -17,7 +15,7 @@ class ToDo extends Component {
 
   getAllFlats = () =>{
     const flatID = this.props.user.flat
-    toDoAuth.getFlat(flatID)
+    toDoService.getFlat(flatID)
       .then((apiResponse) => {
           this.setState({ 
             flat: apiResponse.data,
@@ -30,11 +28,10 @@ class ToDo extends Component {
   handleDeleteSubmit = (event) => {
     event.preventDefault();
       const itemID = event.target.value
-      todoAuth.deleteItem(itemID)
+      toDoService.deleteItem(itemID)
         .then(() => this.setState({state: this.getAllFlats()}));
    }
   
-
   componentDidMount() {
     this.getAllFlats()
   }
@@ -57,7 +54,7 @@ class ToDo extends Component {
                   <h4>{toDoItem.name}</h4>
                 </div>
                 <div className="flex-column">                 
-                    <EditButton getAllFlats={this.getAllFlats} id={toDoItem._id} name={toDoItem.name} user={toDoItem.user} pathPage="todo" />
+                  <EditButton getAllFlats={this.getAllFlats} id={toDoItem._id} name={toDoItem.name} user={toDoItem.user} pathPage="todo" />
                   <button className="button-transparent" onClick={this.handleDeleteSubmit} value={toDoItem._id}  type="submit"><img src="/delete2.png" width="20px" alt="Delete"></img></button>
                 </div>
               </div>

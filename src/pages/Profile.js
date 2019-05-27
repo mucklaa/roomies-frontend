@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter";
 import EditButton from "./../components/buttons/EditButton";
-import profileAuth from "./../lib/profile-services";
+import profileService from "./../lib/profile-services";
 import Logout from "./../components/buttons/LogoutButton";
 import "./../css/Profile.css"
 
@@ -15,49 +15,47 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    profileAuth.getFlat(this.props.user.flat)
+    profileService.getFlat(this.props.user.flat)
       .then((apiResponse) => {
         console.log("user", this.props.user._id)
         this.setState({ 
         flat: apiResponse.data,
         users: apiResponse.data.users
-        })}
-      )
+        })
+      }
+    )
 
-    profileAuth.getUser(this.props.user._id)
+    profileService.getUser(this.props.user._id)
       .then((apiResponse) => {
         console.log("api response user", apiResponse)
-        this.setState({ 
-        loggedInUser: apiResponse.data, 
-        })}
+        this.setState({ loggedInUser: apiResponse.data })
+        }
       )
   }
   
   updateImage = (image) =>{
     let newLoggedInUser = this.state.loggedInUser;
     newLoggedInUser.image = image;
-    this.setState({
-      loggedInUser: newLoggedInUser,
-    })
+    this.setState({ loggedInUser: newLoggedInUser })
   }
 
   updateProfile = (image, username, email) =>{
-    profileAuth.getFlat(this.props.user.flat)
+    profileService.getFlat(this.props.user.flat)
       .then((apiResponse) => {
         console.log("user", this.props.user._id)
         this.setState({ 
-        flat: apiResponse.data,
-        users: apiResponse.data.users
-        })}
-      )
+          flat: apiResponse.data,
+          users: apiResponse.data.users
+        })
+      }
+    )
 
-    profileAuth.getUser(this.props.user._id)
+    profileService.getUser(this.props.user._id)
       .then((apiResponse) => {
         console.log("api response user", apiResponse)
-        this.setState({ 
-        loggedInUser: apiResponse.data, 
-        })}
-      )
+        this.setState({ loggedInUser: apiResponse.data})
+      })
+    }
     // let newLoggedInUser = this.state.loggedInUser;
     // newLoggedInUser.image = image;
     // newLoggedInUser.username = username;
@@ -65,7 +63,8 @@ class Profile extends Component {
     // this.setState({
     //   loggedInUser: newLoggedInUser,
     // })
-  }
+
+
 
 
   render() {

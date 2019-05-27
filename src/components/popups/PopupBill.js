@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { withAuth } from "../../lib/AuthProvider";
 import profileAuth from "./../../lib/profile-services";
-import billAuth from "./../../lib/bill-services";
+import billService from "./../../lib/bill-services";
 
 
 class PopupBill extends Component {
@@ -32,10 +32,8 @@ class PopupBill extends Component {
     event.preventDefault();
       let flatID = this.props.user.flat
       let item = this.state
-      axios.post('http://localhost:5000/user/bills/new', {flatID, item})
-        .then(response => {
-          this.props.getAllFlats()
-        });
+      billService.newItem(flatID, item)
+        .then(() => { this.props.getAllFlats()});
       this.setState({ name: '', price: '', currency: this.state.currency, user: '', image: '' })
    }
 
@@ -44,11 +42,10 @@ class PopupBill extends Component {
     profileAuth.getUser(this.props.user._id)
       .then((apiResponse) => {
         console.log("api response user", apiResponse)
-        this.setState({ 
-        user: apiResponse.data.username, 
-        })}
+        this.setState({ user: apiResponse.data.username })
+        }
       )
-  }
+    }
 
   handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -71,7 +68,7 @@ class PopupBill extends Component {
   render() {
     return (
       <div>
-      <form onSubmit={this.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit}>
           <div>
             <label>Name</label>
             <input value={this.state.name} type="text" name="name" onChange={this.handleChange} />
@@ -88,15 +85,10 @@ class PopupBill extends Component {
           <input type="file" onChange={this.handleImageUpload}></input>
           <div></div>          
           <div>
-            {
-              !this.state.disable ?  <input type="submit" value="Add"/> : <input disabled type="submit" value="Add"/> 
-            }
-           
+            { !this.state.disable ?  <input type="submit" value="Add"/> : <input disabled type="submit" value="Add"/> }
           </div>
-      </form>
-
+        </form>
       </div>
-
     );
   }
 }
