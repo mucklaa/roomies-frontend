@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withAuth } from "../../lib/AuthProvider";
+import billService from '../../lib/bill-services'
 
 
 
@@ -29,16 +30,14 @@ class EditBill extends Component {
     event.preventDefault();
     let itemID = this.props.id
     let item = this.state
-    axios.put('http://localhost:5000/user/bills/edit', { itemID, item })
-      .then(response => {
-        this.props.getAllFlats()
-      });
+    billService.editBill(itemID, item)
+      .then(() => this.props.getAllFlats());
    }
 
   render() {
     return (
       <div>
-      <form onSubmit={this.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit}>
           <div>
             <label>Name</label>
             <input value={this.state.name} type="text" name="name" onChange={this.handleChange} />
@@ -54,9 +53,8 @@ class EditBill extends Component {
           <div>
             <input type="submit" value="Add"/>
           </div>
-      </form>
+        </form>
       </div>
-
     );
   }
 }

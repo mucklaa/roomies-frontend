@@ -20,6 +20,11 @@ class BillAuth {
         .then((apiResponse) => apiResponse)
   }
 
+  editBill(itemID, item) {
+    return this.bills
+      .put('http://localhost:5000/user/bills/edit', { itemID, item })
+  }
+
   deleteBill(itemID){
     return this.bills
       .delete('/delete', {data: {itemID}})

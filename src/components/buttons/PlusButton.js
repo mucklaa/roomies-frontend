@@ -9,10 +9,8 @@ class PlusButton extends Component {
     this.state = {
       isClicked: false,
       path: this.props.pathPage
-      //path: this.props.location.pathname
     }
   }
-  
 
   handleOnClick = () => {
     let isClicked = this.state.isClicked
@@ -25,19 +23,14 @@ class PlusButton extends Component {
         {this.state.isClicked && this.state.path === 'todo' ? <PopupToDo getAllFlats={this.props.getAllFlats} /> : null}
         {this.state.isClicked && this.state.path === 'shopping' ? <PopupShopping getAllFlats={this.props.getAllFlats} /> : null}
         {this.state.isClicked && this.state.path === 'bill' ? <PopupBill getAllFlats={this.props.getAllFlats}  /> : null}
-
         <div>
           {
             !this.state.isClicked ? <button className="plus-button" onClick={this.handleOnClick}>+</button> : <button className="plus-button plus-button-activated" onClick={this.handleOnClick}>X</button>
           }
         </div>
       </div>
-
     );
   }
 }
 
 export default PlusButton;
-
-
-

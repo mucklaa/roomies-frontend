@@ -14,6 +14,11 @@ class ShoppingAuth {
         .then((apiResponse) => apiResponse)
   }
 
+  editItem(itemID, name, amount){
+    return this.shopping
+      .put('http://localhost:5000/user/shopping/edit', { itemID, name, amount })
+  }
+
   deleteItem(itemID){
     return this.shopping
       .delete('http://localhost:5000/user/shopping/delete', {data: {itemID}})

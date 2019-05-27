@@ -27,6 +27,12 @@ class ProfileAuth {
       .get(`/user/${userID}`)
         .then((apiResponse) => apiResponse)
   }
+
+  editUser(userID, item){
+    return this.profile
+      .put(`/edit/${userID}`, { userID, item })
+        .then((apiResponse) => apiResponse)
+  }
 }
   
 
