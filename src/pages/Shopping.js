@@ -46,13 +46,13 @@ class Shopping extends Component {
           this.state.shoppingList.map((shoppingItem, index) => {
             return (
                 <div key={index} className="card-container to-do-card-container" key={index}>
-                  <div className="flex-column">
+                  <div className="flex-row">
                     <div className="initials">
                       <h4>{shoppingItem.amount}</h4>
                     </div>
                     <h4>{shoppingItem.name}</h4>
                   </div>
-                  <div className="flex-column">
+                  <div className="flex-row">
                     <EditButton getAllFlats={this.getAllFlats} id={shoppingItem._id} amount={shoppingItem.amount} name={shoppingItem.name} pathPage="shopping" />
                     <button onClick={this.handleDeleteSubmit} value={shoppingItem._id}  type="submit">Delete</button>
                   </div>

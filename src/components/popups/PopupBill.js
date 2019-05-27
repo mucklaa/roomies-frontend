@@ -9,7 +9,7 @@ class PopupBill extends Component {
   state = {
     name: '',
     price: '',
-    currency: '€',
+    currency: 'EUR',
     user: '',
     image: '',
     disable: false
@@ -36,7 +36,7 @@ class PopupBill extends Component {
         .then(response => {
           this.props.getAllFlats()
         });
-      this.setState({ name: '', price: '', currency: this.state.currency, user: '', image: '' })
+      this.setState({ name: '', price: '', currency: this.state.currency, user: '', image: '', isClicked: true })
    }
 
 //to get new username if user changes his name --> otherwise this.props.user (not updated) and used profileAuth so we dont have to write another service
@@ -70,30 +70,35 @@ class PopupBill extends Component {
 
   render() {
     return (
-      <div>
-      <form onSubmit={this.handleFormSubmit}>
-          <div>
-            <label>Name</label>
-            <input value={this.state.name} type="text" name="name" onChange={this.handleChange} />
+      this.state.isClicked ? null :
+      <div className="new-popup">
+        <h2>New Expense</h2>
+        <form className="margin30" onSubmit={this.handleFormSubmit}>
+          <div className="margin30 inputProfile">
+            <img className="icon-profile-edit" src="/receipt.png" width="20px" alt="Description"></img>
+            <input placeholder="Description" className="input-profile" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
           </div>
-          <div>
-            <label>Price</label>
-            <input value={this.state.price} type="number" name="price" onChange={this.handleChange} />
+          <div className="margin30 inputProfile">
+            <img className="icon-profile-edit" src="/money-black.png" width="20px" alt="Amount"></img>
+            <input placeholder="Amount" className="input-profile" value={this.state.price} type="number" name="price" onChange={this.handleChange} />
           </div>
-          <select name="currency" onChange={this.handleSelect}>
-            <option value="€">€</option>
-            <option value="$">$</option>
-          </select>
-          <label>Image</label>
-          <input type="file" onChange={this.handleImageUpload}></input>
-          <div></div>          
+          <div className="margin30 inputProfile">
+            <img className="icon-profile-edit" src="/currency.png" width="20px" alt="Currency"></img>
+            <select className="select-currency" name="currency" onChange={this.handleSelect}>
+              <option value="EUR">EUR</option>
+              <option value="USD">USD</option>
+            </select>
+          </div>
+          <div className="margin30 inputProfile">    
+            <img className="icon-profile-edit" src="/camera-black.png" width="20px" alt="Currency"></img>
+            <input className="input-profile" type="file" onChange={this.handleImageUpload}></input>
+          </div>         
           <div>
             {
-              !this.state.disable ?  <input type="submit" value="Add"/> : <input disabled type="submit" value="Add"/> 
+              !this.state.disable ?  <input className="add-button" type="submit" value="Add"/> : <input className="add-button" disabled type="submit" value="Add"/> 
             }
-           
           </div>
-      </form>
+        </form>
 
       </div>
 

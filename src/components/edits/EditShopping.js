@@ -22,6 +22,7 @@ class EditShopping extends Component {
     let {name, amount} = this.state
     shoppingService.editItem(itemID, name, amount)
       .then(() => this.props.getAllFlats());
+      this.setState({ isClicked: true })
    }
 
   render() {

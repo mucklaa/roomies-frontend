@@ -32,24 +32,30 @@ class EditBill extends Component {
     let item = this.state
     billService.editBill(itemID, item)
       .then(() => this.props.getAllFlats());
+      this.setState({ isClicked: true })
    }
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleFormSubmit}>
-          <div>
-            <label>Name</label>
-            <input value={this.state.name} type="text" name="name" onChange={this.handleChange} />
+      this.state.isClicked ? null : 
+      <div class="edit-popup">
+        <h2>Edit Expense</h2>
+        <form className="margin30" onSubmit={this.handleFormSubmit}>
+          <div className="margin30 inputProfile">
+            <img className="icon-profile-edit" src="/receipt.png" width="20px" alt="Description"></img>
+            <input className="input-profile" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
           </div>
-          <div>
-            <label>Price</label>
-            <input value={this.state.price} type="number" name="price" onChange={this.handleChange} />
+          <div className="margin30 inputProfile">
+            <img className="icon-profile-edit" src="/money-black.png" width="20px" alt="Amount"></img>
+            <input className="input-profile" value={this.state.price} type="number" name="price" onChange={this.handleChange} />
           </div>
-          <select name="currency" onChange={this.handleSelect}>
-            <option value="€">€</option>
-            <option value="$">$</option>
-          </select>          
+          <div className="margin30 inputProfile">
+          <img className="icon-profile-edit" src="/currency.png" width="20px" alt="Currency"></img>
+            <select className="select-currency" name="currency" onChange={this.handleSelect}>
+              <option value="EUR">EUR</option>
+              <option value="USD">USD</option>
+            </select>  
+          </div>       
           <div>
             <input type="submit" value="Add"/>
           </div>

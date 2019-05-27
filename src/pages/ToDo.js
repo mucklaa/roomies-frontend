@@ -5,7 +5,6 @@ import PlusButton from "./../components/buttons/PlusButton"
 import EditButton from "./../components/buttons/EditButton";
 import toDoAuth from "./../lib/todo-services";
 import Logout from "./../components/buttons/LogoutButton";
-import axios from "axios";
 import todoAuth from "./../lib/todo-services";
 
 class ToDo extends Component {
@@ -50,13 +49,13 @@ class ToDo extends Component {
           this.state.toDoList.map((toDoItem, index) => {
             return (
               <div className="card-container to-do-card-container" key={index}>
-                <div className="flex-column">
+                <div className="flex-row">
                   <div className="initials">
                     <h4 className="to-do-h4">{toDoItem.user[0]}</h4>
                   </div>
                   <h4>{toDoItem.name}</h4>
                 </div>
-                <div className="flex-column">                 
+                <div className="flex-row">                 
                     <EditButton getAllFlats={this.getAllFlats} id={toDoItem._id} name={toDoItem.name} user={toDoItem.user} pathPage="todo" />
                   <button className="button-transparent" onClick={this.handleDeleteSubmit} value={toDoItem._id}  type="submit"><img src="/delete2.png" width="20px" alt="Delete"></img></button>
                 </div>

@@ -4,6 +4,7 @@ import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter"
 import PlusButton from "./../components/buttons/PlusButton"
 import EditButton from "./../components/buttons/EditButton";
+import Logout from "./../components/buttons/LogoutButton";
 import billService from "./../lib/bill-services";
 
 
@@ -46,27 +47,37 @@ class Bill extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Expenses</h1>
+      <div id="main-body">
+      <Logout />
+        <div className="header">
+          <h1 className="header-h1">Expenses</h1>
+        </div>
         {
           this.state.billList.map((billItem, index) => {
             return (
-              <div key={index}>
-                <h3>Name: {billItem.name}</h3>
-                <h3>Price: {billItem.price}</h3>
-                <h3>Currency: {billItem.currency}</h3>
-                <h3>User: {billItem.user}</h3>
+              <div className="card-container to-do-card-container" key={index}>
+                <div className="flex-row">
+                  <div className="initials">
+                <h4 className="to-do-h4">{billItem.user[0]}</h4>
+                  </div>
+                <h4>{billItem.name}</h4>
+                </div>
+                <h4>{billItem.price} {billItem.currency}</h4>
+                <div className="flex-row">  
                 {
-                  (billItem.image === '') ? null : <Link to={{ pathname: '/bills/detail', state: { image: billItem }}}>See Image</Link>
+                  (billItem.image === '') ? null : <Link className="bill-image-link" to={{ pathname: '/bills/detail', state: { image: billItem }}}><img className="img-bill" src="/camera-black.png" height="22px" alt="See image"></img></Link>
                 }
                 <EditButton getAllFlats={this.getAllFlats} id={billItem._id} currency={billItem.currency} user={billItem.user} name={billItem.name} price={billItem.price} pathPage="bill" />
-                <button onClick={this.handleDeleteSubmit} value={billItem._id}  type="submit">Delete</button>
+                <button onClick={this.handleDeleteSubmit} value={billItem._id}  type="submit"><img src="/delete2.png" width="20px" alt="Delete"></img></button>
+              </div>
               </div>
             )
           })
         }
         <PlusButton getAllFlats={this.getAllFlats}  pathPage={this.state.pathPage} />
-        <Link to="bills/overview">See Overview</Link>
+        <div className="overview-button">
+          <Link className="overview-link" to="bills/overview">See Overview</Link>
+        </div>
         <NavbarFooter />
       </div>
     );

@@ -27,7 +27,7 @@ class EditButton extends Component {
         <div>
           {
             //edit or x
-            !this.state.isClicked ? <button onClick={this.handleOnClick}><img className="icon-logout" src="/edit.png" alt="Edit" height="20px"/></button>  : <button onClick={this.handleOnClick}>X</button>
+            !this.state.isClicked ? <button onClick={this.handleOnClick}><img src="/edit.png" alt="Edit" height="20px"/></button>  : <button onClick={this.handleOnClick}>X</button>
           }
         </div>
       </div>

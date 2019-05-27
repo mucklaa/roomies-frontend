@@ -74,6 +74,9 @@ class EditProfile extends Component {
             <div className="inputProfile">
               <img className="icon-profile-edit" src="/paypal.png" width="20px" alt="Paypal:"></img>
               <input className="input-profile" value={this.state.paypal} type="text" name="paypal" onChange={this.handleChange} />
+              <div className="info-hover" >How to create Paypal Me?
+                <span className="tooltiptext">You can find/create your paypal name here: <a className="link-edit" href="https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fpaypalme&state=%2Fmy%2Flanding%3Fentry%3Dmarketing">Paypal link</a></span>
+              </div>
             </div>
             <div className="inputProfile">
               <img className="icon-profile-edit" src="/camera.png" width="20px" alt="Paypal:"></img>

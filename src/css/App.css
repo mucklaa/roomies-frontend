@@ -188,7 +188,7 @@ div.to-do-card-container{
   margin: 0
 }
 
-.flex-column{
+.flex-row{
   display: flex;
   flex-direction: row;
   align-content: center
@@ -205,9 +205,9 @@ div.to-do-card-container{
   height: 50px;
   border: 1px solid transparent;
   border-radius: 100px;
-  -webkit-box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.75);
-  -moz-box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.75);
-  box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.575);
+  -moz-box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.575);
+  box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.575);
   position: fixed;
   bottom: 80px;
   right: 30px;
@@ -272,4 +272,85 @@ button.plus-button-activated{
   box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
   top: 15%;
   left: 0%
+}
+
+.bill-image-link{
+  align-self: center;
+  padding: 1px 6px;
+}
+
+.img-bill{
+  vertical-align: middle;
+}
+
+.select-currency{
+  background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+  height: 36px;
+  overflow: hidden;
+  background-color: #white;
+  color: black;
+  width: 60vw;
+  font-size: 12px;
+  border-radius: 0;
+  padding-left: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.add-button:disabled{
+  background-color: grey;
+}
+
+.info-hover{
+  position: relative;
+  display: inline-block;
+  font-size: 10px;
+}
+
+.info-hover .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.info-hover:hover .tooltiptext {
+  visibility: visible;
+}
+
+.link-edit {
+  text-decoration: underline;
+  color: white;
+}
+
+.overview-button{
+  background-color: rgb(89, 214, 231);
+  width: 130px;
+  height: 50px;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  -webkit-box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.575);
+  -moz-box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.575);
+  box-shadow: 3px 3px 16px -1px rgba(0, 0, 0, 0.575);
+  position: fixed;
+  bottom: 80px;
+  left: 30px;
+  padding: 14px 5px;
+}
+
+a.overview-link{
+  vertical-align: middle;
+  height: 20px;
+  color: white;
+  text-decoration: none;
 }
