@@ -32,7 +32,7 @@ class PopupBill extends Component {
     event.preventDefault();
       let flatID = this.props.user.flat
       let item = this.state
-      billService.newItem(flatID, item)
+      billService.newBill(flatID, item)
         .then(() => { this.props.getAllFlats()});
       this.setState({ name: '', price: '', currency: this.state.currency, user: '', image: '' })
    }
