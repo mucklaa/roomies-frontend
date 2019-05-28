@@ -7,7 +7,6 @@ class PopupShopping extends Component {
   state = {
     name: '',
     amount: '',
-    isClicked: false
   }
 
   handleChange = (event) => {
@@ -27,7 +26,10 @@ class PopupShopping extends Component {
     let flatID = this.props.user.flat
     let item = this.state
     shoppingService.newItem(flatID, item)
-      .then(() => { this.props.getAllFlats() });
+      .then(() => { 
+        this.props.getAllFlats();
+        this.props.closeButton();
+       });
     this.setState({ name: '', amount: '', isClicked: true })
    }
 

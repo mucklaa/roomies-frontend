@@ -19,7 +19,10 @@ class PopupToDo extends Component {
     let flatID = this.props.user.flat
     let item = this.state
     toDoService.newItem(flatID, item)
-      .then(() => { this.props.getAllFlats() });
+      .then(() => { 
+        this.props.getAllFlats();
+        this.props.closeButton();
+       });
     this.setState({ name: '', user: '', isClicked: true })
    }
   

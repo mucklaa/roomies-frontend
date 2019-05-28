@@ -20,6 +20,7 @@
   /* margin-left: 20px; */
   background-color: white;
   color: black;
+  overflow: scroll
 }
 
 .profile-inner-container p{
@@ -86,4 +87,8 @@
 
 .update-button:disabled{
   background-color: grey;
+}
+
+.black{
+  color: black;
 }

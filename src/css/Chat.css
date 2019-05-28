@@ -15,7 +15,7 @@
 }
 
 .message-button{
-  background-color: #86B0D8;
+  background-color: rgb(170, 76, 173);
   width: 60px;
   height: 40px;
   border: none;
@@ -32,27 +32,64 @@
   width: 80vw;
   height: 40px;
   border: 1px solid black;
-  border-radius: 10px
+  border-radius: 10px;
+  font-size: 15px;
+  padding-left: 20px;
 }
 
 .message-box{
   height: 75vh;
   overflow: scroll;
   margin: 5px 20px;
+  
+  transform:rotateX(180deg);
+                -moz-transform:rotateX(180deg); /* Mozilla */
+                -webkit-transform:rotateX(180deg); /* Safari and Chrome */
+                -ms-transform:rotateX(180deg); /* IE 9+ */
+                -o-transform:rotateX(180deg); /* Opera */
+}
+
+.message-box-scroll{
+  display: flex;
+  flex-direction: column;
+  transform:rotateX(180deg);
+               -moz-transform:rotateX(180deg); /* Mozilla */
+               -webkit-transform:rotateX(180deg); /* Safari and Chrome */
+               -ms-transform:rotateX(180deg); /* IE 9+ */
+               -o-transform:rotateX(180deg); /* Opera */
 }
 
 .left-message{
-  background-color: rgb(231, 250, 247);
+  background-color: #d9e9f8;
   margin-top: 10px;
   width: 60vw;
   padding: 10px;
   border-radius: 30px 30px 30px 0;
+  text-align: start;
+  display: flex;
+  justify-content: space-between;
 }
 
 .right-message{
-  background-color: rgb(253, 206, 255);
+  background-color: rgb(168, 197, 224);
   margin-top: 10px;
   width: 60vw;
   padding: 10px;
   border-radius: 30px 30px 0 30px;
+  text-align: end;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.align-message-right{
+  align-self: flex-end;
+}
+
+.margin-null{
+  margin: 0;
+}
+
+.initials-light{
+  background-color: #d9e9f8;
 }

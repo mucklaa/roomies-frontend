@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Switch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import './css/App.css';
 import Profile from "./pages/Profile"
 import Signup from "./pages/Signup";
@@ -8,6 +8,7 @@ import ToDo from "./pages/ToDo";
 import Shopping from "./pages/Shopping";
 import Chat from "./pages/Chat";
 import Bill from "./pages/Bill";
+import Error from "./pages/Error"
 import BillDetail from "./pages/BillDetail";
 import BillOverview from "./pages/BillOverview";
 
@@ -32,6 +33,7 @@ class App extends Component {
             <PrivateRoute exact path="/bills" component={Bill} />
             <PrivateRoute exact path="/bills/detail" component={BillDetail} />            
             <PrivateRoute exact path="/bills/overview" component={BillOverview} />
+            <Route component={Error}/>
           </Switch>
         </div>
       </AuthProvider>

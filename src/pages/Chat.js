@@ -56,17 +56,20 @@ class Chat extends Component {
       const formatedMessages = this.state.messageList.map((message, index) => {
       if (message.user === this.props.user.username) {
         return (
-          <div key={index}>
+          <div className="align-message-right" key={index}>
             <div className="right-message">
               <p>{message.text}</p>
-              <p>{message.user[0]}</p>
+              <p className="initials initials-light margin-null">{message.user[0]}</p>
             </div>
           </div>
         )
       } else {
         return (
           <div key={index}>
-            <p className="left-message">{message.user}: {message.text}</p>
+            <div className="left-message">
+              <p className="initials margin-null">{message.user[0]}</p>
+              <p>{message.text}</p>
+              </div>
           </div>
         )
       }
@@ -78,7 +81,7 @@ class Chat extends Component {
         </nav>
         <div className="fixed-bottom">
         <div>
-          <div className="message-box">{formatedMessages}</div>
+          <div className="message-box"><div class="message-box-scroll">{formatedMessages}</div></div>
         </div>
         <form onSubmit={this.handleSendMessage} className="message-form">
           <input autoComplete="off" className="input message-input" placeholder="Write a message" type="text" name="message" onChange={this.handleChange} value={this.state.message}/>

@@ -245,11 +245,8 @@ button.plus-button-activated{
 
 .add-button{
   background-color: rgb(123, 209, 123);
-  border: 1px, solid, transparent;
+  border: none;
   border-radius: 5px;
-  -webkit-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
-  -moz-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
-  box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
   color: white;
   margin-top: 60px;
   padding: 10px;
