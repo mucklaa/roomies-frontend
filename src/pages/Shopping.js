@@ -45,7 +45,7 @@ class Shopping extends Component {
         {
           this.state.shoppingList.map((shoppingItem, index) => {
             return (
-                <div key={index} className="card-container to-do-card-container" key={index}>
+                <div key={index} className="card-container to-do-card-container">
                   <div className="flex-row">
                     <div className="initials">
                       <h4>{shoppingItem.amount}</h4>

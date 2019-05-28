@@ -40,7 +40,7 @@ class Signup extends Component {
           <h1 className="login-h1">Join your flat!</h1>
             <form onSubmit={this.handleFormSubmit}>
             <div className="inputLogin">
-              <label className="labelIcon"><img className="icon-login" src="/mail_login.png" height="20px"/></label>
+              <label className="labelIcon"><img className="icon-login" src="/mail_login.png" alt="Email" height="20px"/></label>
                 <input className="input-login"
                   type="email"
                   name="email"
@@ -51,7 +51,7 @@ class Signup extends Component {
               </div>
               <br />
               <div className="inputLogin">
-              <label className="labelIcon"><img className="icon-login" src="/User_Login.png" height="20px"/></label>
+              <label className="labelIcon"><img className="icon-login" src="/User_Login.png" alt="Username" height="20px"/></label>
               <input className="input-login"
                 type="text"
                 name="username"
@@ -62,7 +62,7 @@ class Signup extends Component {
               </div>
               <br />
               <div className="inputLogin">
-              <label className="labelIcon"><img className="icon-login" src="/lock_login.png" height="20px"/></label>
+              <label className="labelIcon"><img className="icon-login" src="/lock_login.png" alt="Password" height="20px"/></label>
               <input className="input-login"
                 type="password"
                 name="password"
@@ -83,7 +83,7 @@ class Signup extends Component {
                 <div>
                   <h5 className="signup-h5">Flatname:</h5>
                   <div className="inputLogin">
-                  <label className="labelIcon"><img className="icon-login" src="/house-login.png" height="20px"/></label>
+                  <label className="labelIcon"><img className="icon-login" src="/house-login.png" alt="Flatname" height="20px"/></label>
                   <input className="input-login"
                     type="text"
                     name="flatAttribute"
@@ -97,7 +97,7 @@ class Signup extends Component {
                 <div>
                   <h5 className="signup-h5">Invitation Code:</h5>
                   <div className="inputLogin">
-                  <label className="labelIcon"><img className="icon-login" src="/house-login.png" height="20px"/></label>
+                  <label className="labelIcon"><img className="icon-login" src="/house-login.png" alt="Invitation Code" height="20px"/></label>
                   <input className="input-login"
                     type="text"
                     name="flatAttribute"
