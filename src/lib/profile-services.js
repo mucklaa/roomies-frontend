@@ -3,7 +3,7 @@ import axios from "axios";
 class ProfileAuth {
   constructor() {
     this.profile = axios.create({
-      baseURL: "http://localhost:5000/user/profile",
+      baseURL: `${process.env.REACT_APP_API_URL}/user/profile`,
       withCredentials: true
     });
   }

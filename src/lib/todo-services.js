@@ -3,7 +3,7 @@ import axios from "axios";
 class ToDoAuth {
   constructor() {
     this.todo = axios.create({
-      baseURL: "http://localhost:5000/user/to-do",
+      baseURL: `${process.env.REACT_APP_API_URL}/user/to-do`,
       withCredentials: true
     });
   }

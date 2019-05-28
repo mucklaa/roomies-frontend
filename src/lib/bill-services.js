@@ -3,7 +3,7 @@ import axios from "axios";
 class BillAuth {
   constructor() {
     this.bills = axios.create({
-      baseURL: "http://localhost:5000/user/bills",
+      baseURL: `${process.env.REACT_APP_API_URL}/user/bills`,
       withCredentials: true
     });
   }

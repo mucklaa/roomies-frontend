@@ -3,7 +3,7 @@ import axios from "axios";
 class ShoppingAuth {
   constructor() {
     this.shopping = axios.create({
-      baseURL: "http://localhost:5000/user/shopping",
+      baseURL: `${process.env.REACT_APP_API_URL}/user/shopping`,
       withCredentials: true
     });
   }
