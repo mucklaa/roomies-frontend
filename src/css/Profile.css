@@ -36,14 +36,14 @@
   -webkit-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
   -moz-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
   box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
-  background-color: #86B0D8;
-  color: white;
+  background-color: white;
+  color: #5875C4;
   flex-direction: column;
   padding: 5px 30px
 }
 
 .edit-profile-popup{
-  position: absolute;
+  position: fixed;
   background-color: white;
   min-height: 60vh;
   width: 80vw;
@@ -51,7 +51,8 @@
   -webkit-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
   -moz-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
   box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
-  top: 12%
+  top: 13vh;
+  z-index: 2;
 }
 
 .input-profile {
@@ -91,4 +92,9 @@
 
 .black{
   color: black;
+}
+
+.background-blue{
+  background-color: #5875C4;
+  color: white
 }

@@ -15,11 +15,11 @@ class PopupShopping extends Component {
     this.setState( { [name]: value } )
   }
 
-//how can we put this into parent to close popup if item was added?
-  handleClick = (event) => {
-    event.preventDefault();
-    this.setState( { isClicked: !this.state.isClicked } )
-  }
+// //how can we put this into parent to close popup if item was added?
+//   handleClick = (event) => {
+//     event.preventDefault();
+//     this.setState( { isClicked: !this.state.isClicked } )
+//   }
 
   handleFormSubmit = (event) => {
     event.preventDefault();

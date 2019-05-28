@@ -3,7 +3,9 @@ import { withAuth } from "../../lib/AuthProvider";
 import profileService from '../../lib/profile-services'
 
 class EditProfile extends Component {
-  state = {
+  constructor(props){
+    super(props);
+    this.state = {
     username: this.props.username,
     email: this.props.email,
     phone: this.props.phone,
@@ -11,6 +13,7 @@ class EditProfile extends Component {
     image: this.props.image, 
     disable: false
   }
+}
 
   handleChange = (event) => {
     event.preventDefault();
@@ -28,8 +31,13 @@ class EditProfile extends Component {
         console.log("formSubmit", response);
         this.props.authMe();
         this.props.updateProfile(this.state.image, this.state.username, this.state.email, this.state.phone);
+        this.props.closeButton();
       });
       this.setState({ isClicked: true })
+   }
+
+   closePopup = () => {
+    this.props.closeButton();
    }
 
    handleImageUpload = (event) => {
@@ -85,6 +93,7 @@ class EditProfile extends Component {
             }
             </div>
         </form>
+        <button className="close-button" onClick={this.closePopup} value="close">X</button>
       </div>
 
     );

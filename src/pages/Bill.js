@@ -80,7 +80,7 @@ class Bill extends Component {
         <div className="overview-button">
           <Link className="overview-link" to="bills/overview">See Overview</Link>
         </div>
-        <NavbarFooter />
+        <NavbarFooter pathPage={this.state.pathPage} />
       </div>
     );
   }

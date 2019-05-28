@@ -64,7 +64,7 @@ class ToDo extends Component {
         }
         </div>
         <PlusButton getAllFlats={this.getAllFlats}  pathPage={this.state.pathPage} />
-        <NavbarFooter />
+        <NavbarFooter pathPage={this.state.pathPage} />
       </div>
     );
   }

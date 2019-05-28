@@ -8,11 +8,7 @@
   bottom: 60px;
 }
 
-.navbar-chat{
-  background-color:#86B0D8;
-  height: 40px;
-  position: fixed;
-}
+
 
 .message-button{
   background-color: rgb(170, 76, 173);
@@ -37,8 +33,12 @@
   padding-left: 20px;
 }
 
+.message-text{
+  margin: auto 0;
+}
+
 .message-box{
-  height: 75vh;
+  height: 65vh;
   overflow: scroll;
   margin: 5px 20px;
   
@@ -92,4 +92,14 @@
 
 .initials-light{
   background-color: #d9e9f8;
+}
+
+.chat-time{
+  font-size: 10px;
+  color: rgba(128, 128, 128, 0.842); 
+  text-align:right;
+}
+
+.text-align-left{
+  text-align: left;
 }

@@ -25,12 +25,19 @@ class EditBill extends Component {
     this.setState({[name]: value})
   }
 
+  closePopup = () => {
+    this.props.closeButton();
+   }
+
   handleFormSubmit = (event) => {
     event.preventDefault();
     let itemID = this.props.id
     let item = this.state
     billService.editBill(itemID, item)
-      .then(() => this.props.getAllFlats());
+      .then(() => {
+        this.props.getAllFlats()
+        this.props.closeButton();
+      });
       this.setState({ isClicked: true })
    }
 
@@ -56,9 +63,10 @@ class EditBill extends Component {
             </select>  
           </div>       
           <div>
-            <input type="submit" value="Add"/>
+            <input className="update-button" type="submit" value="Update"/>
           </div>
         </form>
+        <button className="close-button" onClick={this.closePopup} value="close">X</button>
       </div>
     );
   }

@@ -15,12 +15,19 @@ class EditShopping extends Component {
     this.setState( { [name]: value } )
   }
 
+  closePopup = () => {
+    this.props.closeButton();
+   }
+
   handleFormSubmit = (event) => {
     event.preventDefault();
     let itemID = this.props.id
     let {name, amount} = this.state
     shoppingService.editItem(itemID, name, amount)
-      .then(() => this.props.getAllFlats());
+      .then(() => {
+        this.props.getAllFlats();
+        this.props.closeButton();
+      });
       this.setState({ isClicked: true })
    }
 
@@ -39,9 +46,10 @@ class EditShopping extends Component {
             <input className="input-profile" value={this.state.amount} type="number" name="amount" onChange={this.handleChange} />
           </div>
             <div>
-              <input className="add-button" type="submit" value="Add"/>
+              <input className="update-button" type="submit" value="Update"/>
             </div>
         </form>
+        <button className="close-button" onClick={this.closePopup} value="close">X</button>
       </div>
 
     );

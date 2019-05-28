@@ -14,12 +14,19 @@ class EditToDo extends Component {
     this.setState( { [name]: value } )
   }
 
+  closePopup = () => {
+    this.props.closeButton();
+   }
+
   handleFormSubmit = (event) => {
     event.preventDefault();
     let itemID = this.props.id
     let item = this.state
     toDoService.editItem(itemID, item)
-      .then(() => this.props.getAllFlats());
+      .then(() => {
+        this.props.getAllFlats();
+        this.props.closeButton();
+      });
       this.setState({ name: '', user: '', isClicked: true })
    }
 
@@ -38,9 +45,10 @@ class EditToDo extends Component {
               <input placeholder={this.state.user} className="input-profile" value={this.state.user} type="text" name="user" onChange={this.handleChange} />
             </div>
             <div>
-              <input className="add-button" type="submit" value="Update"/>
+              <input className="update-button" type="submit" value="Update"/>
             </div>
         </form>
+        <button className="close-button" onClick={this.closePopup} value="close">X</button>
       </div>
 
     );

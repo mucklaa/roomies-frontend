@@ -11,7 +11,8 @@ class Chat extends Component {
   state = {
     message: '',
     messageList: [],
-    socket: io('http://localhost:5000/user/chat/'+this.props.user.flat)
+    socket: io('http://localhost:5000/user/chat/'+this.props.user.flat),
+    pathPage: "chat",
   }
 
   componentDidMount(){
@@ -58,9 +59,10 @@ class Chat extends Component {
         return (
           <div className="align-message-right" key={index}>
             <div className="right-message">
-              <p>{message.text}</p>
+              <p className="message-text">{message.text}</p>
               <p className="initials initials-light margin-null">{message.user[0]}</p>
             </div>
+              {<p class="chat-time">{`${(message.createdAt).split('T')[0]} ${(message.createdAt).split('T')[1].split('.')[0]}`}</p>}
           </div>
         )
       } else {
@@ -68,17 +70,21 @@ class Chat extends Component {
           <div key={index}>
             <div className="left-message">
               <p className="initials margin-null">{message.user[0]}</p>
-              <p>{message.text}</p>
-              </div>
+              <p className="message-text">{message.text}</p>
+            </div>
+            {<p class="chat-time text-align-left">{`${(message.createdAt).split('T')[0]} ${(message.createdAt).split('T')[1].split('.')[0]}`}</p>}
+
           </div>
         )
       }
     })
     return (
-      <div id="chat-body">
-        <nav className="navbar-chat">
-        <Logout />
-        </nav>
+     <div id="main-body">
+      <Logout />
+        <div className="header">
+          <h1 className="header-h1">Chat</h1>
+        </div>
+        <div className="margin-from-fixed-header">
         <div className="fixed-bottom">
         <div>
           <div className="message-box"><div class="message-box-scroll">{formatedMessages}</div></div>
@@ -88,7 +94,8 @@ class Chat extends Component {
           <button className="button message-button" type="submit"><img src="/send.png" alt="Send" width="20px"/></button>
         </form>
       </div>
-      <NavbarFooter />
+      </div>
+      <NavbarFooter pathPage={this.state.pathPage}/>
       </div>
     )
   }

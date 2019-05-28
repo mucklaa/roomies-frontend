@@ -12,6 +12,7 @@ class Profile extends Component {
     flat: {},
     users: [],
     loggedInUser: '',
+    pathPage: "profile",
   };
 
   componentDidMount() {
@@ -102,7 +103,7 @@ class Profile extends Component {
         </div>
         <div className="invitation-div">
           <h2>Your Flatmates</h2>
-          { this.props.user.isAdmin ? <h4 className="card-container">Invitation Code: {this.props.user.flatCode}</h4> : null }
+          { this.props.user.isAdmin ? <h4 className="card-container background-blue">Invitation Code: {this.props.user.flatCode}</h4> : null }
         </div>
         {
           users.map((element, index) => {
@@ -132,7 +133,7 @@ class Profile extends Component {
           })
         }
         </div>
-        <NavbarFooter />
+        <NavbarFooter pathPage={this.state.pathPage} />
       </div>
 
     );

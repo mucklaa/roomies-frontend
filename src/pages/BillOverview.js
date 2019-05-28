@@ -58,12 +58,13 @@ class Overview extends Component {
         <div className="header">
           <h1 className="header-h1">Invoice Overview</h1>
         </div>
+        <div className="margin-from-fixed-header">
         <div className="card-container to-do-card-container">
         <h2>Total</h2>
         <h2>{this.state.totalSpent} €</h2>
         </div>
         { this.state.isVisible ? <DoughnutParent datasets={this.state.datasets} labels={this.state.labels} /> : null }
-        <NavbarFooter />
+        
         
         <div className="card-container to-do-card-container overflow">
         <div className="flex-column">
@@ -83,8 +84,6 @@ class Overview extends Component {
                   :
                   null
                 }
-                
-                <NavbarFooter />
               </div>
               ) 
             })
@@ -105,12 +104,12 @@ class Overview extends Component {
                   </div>
                   </div>
                 }
-                
-                <NavbarFooter />
               </div>
               ) 
             })
           }
+          </div>
+          <NavbarFooter />
 
           </div>
           </div>
