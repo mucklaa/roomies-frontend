@@ -100,32 +100,34 @@ class Profile extends Component {
           </div>
         </div>
         <div className="invitation-div">
-        <h2>Your Flatmates</h2>
-        {
-          this.props.user.isAdmin ? <h4 className="card-container">Invitation Code: {this.props.user.flatCode}</h4> : null
-        }
+          <h2>Your Flatmates</h2>
+          { this.props.user.isAdmin ? <h4 className="card-container">Invitation Code: {this.props.user.flatCode}</h4> : null }
         </div>
         {
           users.map((element, index) => {
-            return (
-              <div key={index}>
-                <div className="card-container">
-                  <div className="profile-inner-container">
-                    <img className="profile-image" src={element.image} width="90px" alt=""/>
-                  </div>
-                  <div className="profile-inner-container">
-                    <div className="profile-icon-container">
-                      <img className="icon-profile" src="/user-profile.png" width="20px" alt="Username:"></img>
-                      <p>{element.username}</p>
+            if (element.username === this.props.user.username) {
+              return null
+            } else {
+              return (
+                <div key={index}>
+                  <div className="card-container">
+                    <div className="profile-inner-container">
+                      <img className="profile-image" src={element.image} width="90px" alt=""/>
                     </div>
-                    <div className="profile-icon-container">
-                      <img className="icon-profile" src="/phone-profile.png" width="20px" alt="Phone:"></img>
-                      <p>{element.phoneNumber}</p>
+                    <div className="profile-inner-container">
+                      <div className="profile-icon-container">
+                        <img className="icon-profile" src="/user-profile.png" width="20px" alt="Username:"></img>
+                        <p>{element.username}</p>
+                      </div>
+                      <div className="profile-icon-container">
+                        <img className="icon-profile" src="/phone-profile.png" width="20px" alt="Phone:"></img>
+                        <p>{element.phoneNumber}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              )
+                )
+            }
           })
         }
         <NavbarFooter />
