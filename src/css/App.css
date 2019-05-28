@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Mukta+Vaani&display=swap');
 /* ---- reset ---- */
+*{
+  font-family: 'Comfortaa', cursive;
+}
 
 html {
   box-sizing: border-box;
@@ -18,7 +23,6 @@ body {
 
 body {
   color: #111;
-  font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 147%;
 }
@@ -91,7 +95,6 @@ section.testimonials .button {
 
 body {
   background-color: white;
-  font-family: 'Comfortaa', cursive;
   margin: 0;
 }
 

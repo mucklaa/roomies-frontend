@@ -10,6 +10,7 @@ class Overview extends Component {
   state = { 
     usersInfo: {},
     totalSpent: 0,
+    pathPage: "bill-overview",
     debtDatas: [],
     flatmates: [],
     labels: [],
@@ -109,7 +110,7 @@ class Overview extends Component {
             })
           }
           </div>
-          <NavbarFooter />
+          <NavbarFooter pathPage={this.state.pathPage} />
 
           </div>
           </div>

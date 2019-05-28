@@ -11,7 +11,8 @@ class BillDetail extends Component {
   constructor(props){
     super(props);
     this.state={
-     image: props.location.state.image.image
+     image: props.location.state.image.image,
+     pathPage: "bill-detail"
       }
     }
   
@@ -25,7 +26,7 @@ class BillDetail extends Component {
         </div>
         <div class="align-center">
         <img class="invoice-image" src={this.state.image} alt="img"/>
-        <NavbarFooter />
+        <NavbarFooter pathPage={this.state.pathPage} />
       </div>
       </div>
     );
