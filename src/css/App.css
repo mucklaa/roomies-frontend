@@ -92,7 +92,7 @@ section.testimonials .button {
 body {
   background-color: white;
   font-family: 'Comfortaa', cursive;
-  margin: 0
+  margin: 0;
 }
 
 .header{
@@ -104,7 +104,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center
+  text-align: center;
+  position: fixed;
+}
+
+.margin-from-fixed-header{
+  margin-top: 23vh;
+  margin-bottom: 10vh;
 }
 
 .logoutButton{
@@ -142,6 +148,7 @@ body {
   left: 0;
   bottom: 0;
   width: 100vw;
+  height: 8vh;
 }
 
 .nav-icon{
@@ -392,6 +399,3 @@ div.bills-overview-container{
   width: 90vw
 }
 
-#root{
-  padding-bottom: 25px;
-}

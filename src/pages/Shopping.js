@@ -42,6 +42,7 @@ class Shopping extends Component {
         <div className="header">
           <h1 className="header-h1">Shopping</h1>
         </div>
+        <div className="margin-from-fixed-header">
         {
           this.state.shoppingList.map((shoppingItem, index) => {
             return (
@@ -60,6 +61,7 @@ class Shopping extends Component {
             )
           })
         }
+        </div>
         <PlusButton getAllFlats={this.getAllFlats} pathPage={this.state.pathPage}/>
         <NavbarFooter />
       </div>

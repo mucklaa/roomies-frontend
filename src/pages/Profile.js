@@ -75,6 +75,7 @@ class Profile extends Component {
         <div className="header">
         <h1 className="header-h1">Profile</h1>
         </div>
+        <div className="margin-from-fixed-header">
         <div className="card-container">
           <div className="profile-inner-container">
             <img className="profile-image" src={this.state.loggedInUser.image} width="90px" alt=""/>
@@ -130,6 +131,7 @@ class Profile extends Component {
             }
           })
         }
+        </div>
         <NavbarFooter />
       </div>
 

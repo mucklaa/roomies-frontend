@@ -43,6 +43,7 @@ class ToDo extends Component {
         <div className="header">
           <h1 className="header-h1">To-Do's</h1>
         </div>
+        <div className="margin-from-fixed-header">
         {
           this.state.toDoList.map((toDoItem, index) => {
             return (
@@ -61,6 +62,7 @@ class ToDo extends Component {
             )
           })
         }
+        </div>
         <PlusButton getAllFlats={this.getAllFlats}  pathPage={this.state.pathPage} />
         <NavbarFooter />
       </div>

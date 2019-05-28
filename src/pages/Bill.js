@@ -52,6 +52,7 @@ class Bill extends Component {
         <div className="header">
           <h1 className="header-h1">Expenses</h1>
         </div>
+        <div className="margin-from-fixed-header">
         {
           this.state.billList.map((billItem, index) => {
             return (
@@ -74,6 +75,7 @@ class Bill extends Component {
             )
           })
         }
+        </div>
         <PlusButton getAllFlats={this.getAllFlats}  pathPage={this.state.pathPage} />
         <div className="overview-button">
           <Link className="overview-link" to="bills/overview">See Overview</Link>
