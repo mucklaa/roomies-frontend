@@ -11,7 +11,7 @@ class Logout extends Component {
       <div>
         { isLoggedin ? (
           <div className="logout-container">
-            <button className="logoutButton" onClick={logout}><img className="icon-logout" src="/logout-button.png" height="20px"/></button>
+            <button className="logoutButton" onClick={logout}><img className="icon-logout" src="/logout-button.png" height="20px" alt="Logout"/></button>
           </div>
         ) : null
         }

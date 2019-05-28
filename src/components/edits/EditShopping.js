@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { withAuth } from "../../lib/AuthProvider";
 import shoppingService from '../../lib/shopping-services'
 

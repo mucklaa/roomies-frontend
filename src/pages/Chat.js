@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { withAuth } from '../../src/lib/AuthProvider';
 import chatService from "./../lib/chat-service";
 import io from 'socket.io-client';
+import NavbarFooter from "./../components/NavbarFooter";
+import './../css/Chat.css'
+import Logout from "./../components/buttons/LogoutButton";
 
 class Chat extends Component {
 
@@ -50,11 +53,14 @@ class Chat extends Component {
   }
 
   render() {
-    const formatedMessages = this.state.messageList.map((message, index) => {
+      const formatedMessages = this.state.messageList.map((message, index) => {
       if (message.user === this.props.user.username) {
         return (
           <div key={index}>
-            <p className="right-message">{message.user}: {message.text}</p>
+            <div className="right-message">
+              <p>{message.text}</p>
+              <p>{message.user[0]}</p>
+            </div>
           </div>
         )
       } else {
@@ -66,14 +72,20 @@ class Chat extends Component {
       }
     })
     return (
-      <div>
+      <div id="chat-body">
+        <nav className="navbar-chat">
+        <Logout />
+        </nav>
+        <div className="fixed-bottom">
         <div>
           <div className="message-box">{formatedMessages}</div>
         </div>
         <form onSubmit={this.handleSendMessage} className="message-form">
           <input autoComplete="off" className="input message-input" placeholder="Write a message" type="text" name="message" onChange={this.handleChange} value={this.state.message}/>
-          <input className="button message-button" type="submit" value="Send" />
+          <button className="button message-button" type="submit"><img src="/send.png" alt="Send" width="20px"/></button>
         </form>
+      </div>
+      <NavbarFooter />
       </div>
     )
   }

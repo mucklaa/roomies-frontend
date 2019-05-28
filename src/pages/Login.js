@@ -28,7 +28,7 @@ class Login extends Component {
         <h1 className="login-h1">Join your flat!</h1>
         <form onSubmit={this.handleFormSubmit}>
           <div className="inputLogin">
-            <label className="labelIcon"><img className="icon-login" src="/User_Login.png" height="20px"/></label>
+            <label className="labelIcon"><img className="icon-login" src="/User_Login.png" height="20px" alt="Username"/></label>
             <input className="input-login"
               type="text"
               name="username"
@@ -39,7 +39,7 @@ class Login extends Component {
           </div>
           <br />
           <div className="inputLogin">
-            <label className="labelIcon"><img className="icon-login" src="/lock_login.png" alt="login-icon" height="20px"/></label>
+            <label className="labelIcon"><img className="icon-login" src="/lock_login.png" alt="Password" height="20px"/></label>
             <input className="input-login"
               type="password"
               name="password"

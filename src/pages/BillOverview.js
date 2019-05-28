@@ -3,6 +3,8 @@ import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter";
 import DoughnutParent from './../components/DoughnutParent';
 import billService from "./../lib/bill-services";
+import { Link } from "react-router-dom";
+import Logout from "./../components/buttons/LogoutButton";
 
 class Overview extends Component {
   state = { 
@@ -51,30 +53,67 @@ class Overview extends Component {
   render() {
     return (
       <div>
-        <h1>Overview</h1>
+        <Link class="back-button" to={"/bills"}><img src="/back-button.png" alt="back" width="20px"/></Link>
+        <Logout />
+        <div className="header">
+          <h1 className="header-h1">Invoice Overview</h1>
+        </div>
+        <div className="card-container to-do-card-container">
         <h2>Total</h2>
-        <h2>{this.state.totalSpent}</h2>
+        <h2>{this.state.totalSpent} €</h2>
+        </div>
+        { this.state.isVisible ? <DoughnutParent datasets={this.state.datasets} labels={this.state.labels} /> : null }
+        <NavbarFooter />
+        
+        <div className="card-container to-do-card-container overflow">
+        <div className="flex-column">
+        <h4>Pays</h4>
           {
             Object.keys(this.state.usersInfo).map((key, index) => {
               const { amount, currency, hasToPay, payPalMeUsername } =  this.state.usersInfo[key]
               return (
-              <div key={index}>
+              <div>
                 {
                   hasToPay ?
+                  <div className="card-container bills-overview-container" key={index}>
                   <div>
-                    <p id="user-pays">{key} pays: {amount} { payPalMeUsername ? <button onClick={ () => { this.goToPayPal(payPalMeUsername, currency, amount) } }>Pay</button> : <button disabled>Pay</button> }</p>
+                    <p id="user-pays">{key} <br/> {amount} {currency} <br/> { payPalMeUsername ? <button onClick={ () => { this.goToPayPal(payPalMeUsername, currency, amount) } }>Pay</button> : <button disabled>Pay</button> }</p>
+                  </div>
                   </div>
                   :
-                  <div>
-                    <p id="user-gets">{key} gets: {amount}</p>
-                  </div>
+                  null
                 }
+                
+                <NavbarFooter />
               </div>
               ) 
             })
           }
-        { this.state.isVisible ? <DoughnutParent datasets={this.state.datasets} labels={this.state.labels} /> : null }
-        <NavbarFooter />
+          <h4>Gets</h4>
+          {
+            Object.keys(this.state.usersInfo).map((key, index) => {
+              const { amount, currency, hasToPay, payPalMeUsername } =  this.state.usersInfo[key]
+              return (
+              <div>
+                {
+                  hasToPay ?
+                  null
+                  :
+                  <div className="card-container bills-overview-container" key={index}>
+                  <div>
+                    <p id="user-gets">{key}<br/> {amount} {currency}</p>
+                  </div>
+                  </div>
+                }
+                
+                <NavbarFooter />
+              </div>
+              ) 
+            })
+          }
+
+          </div>
+          </div>
       </div>
     );
   }

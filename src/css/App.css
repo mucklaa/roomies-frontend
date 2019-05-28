@@ -369,3 +369,32 @@ a.overview-link{
 .align-center{
   text-align: center;
 }
+
+*:focus{
+  outline: none;
+}
+
+div.bills-overview-container{
+  width: 70vw;
+  height: 20vh;
+  margin: 15px auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.overflow{
+  overflow: scroll;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 90vw
+}
+
+#root{
+  padding-bottom: 25px;
+}
