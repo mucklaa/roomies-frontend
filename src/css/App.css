@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ---- typography ---- */
+
+body {
+  color: #111;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 147%;
+}
+
+h1 {}
+
+h2 {}
+
+h3 {}
+
+p {
+  margin: 0;
+}
+
+
+
+/* ---- layout ---- */
+
+
+#site-header {
+  padding: 30px 0;
+  color: white;
+  background: #111;
+}
+
+#site-footer {
+  color: white;
+  padding: 60px 0;
+  background: #111;
+}
+
+#site-main {
+  margin-bottom: 60px;
+}
+
+.container {
+  margin: 0
+}
+
+.section {
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+
+
+
+
+
+/* ---- components ---- */
+
+.button {
+  width: 100%;
+  background-color: blue;
+  color: #fff;
+  border: 1px solid #fff
+}
+
+.button-alt {
+  color: blue;
+  background-color: #fff;
+}
+
+/* ---- section ---- */
+
+
+section.testimonials .button {
+  margin-bottom: 10px;
+}
+
+body {
+  background-color: white;
+  font-family: 'Comfortaa', cursive;
+  margin: 0
+}
+
+.header{
+  background-color: #86B0D8;
+  height: 20vh;
+  width: 100vw;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center
+}
+
+.logoutButton{
+  position: absolute;
+  background-color: transparent;
+  border:none
+}
+
+.logout-container{
+  width: 100vw;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-h1{
+  width: 100vw
+}
+
+.icon-logout{
+  vertical-align: middle;
+  margin: 10px 7px
+}
+
+#root{
+  margin: 0
+}
+
+.navbar-container{
+  display: flex;
+  justify-content: space-around;
+  background-color: #86B0D8;
+  padding: 10px;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+}
+
+.nav-icon{
+  vertical-align: middle;
+}
+
+.update-button{
+  background-color: #86B0D8;
+  height: 30px;
+  width: 80px;
+  margin: 50px;
+  border-radius: 5px;
+  color: white;
+  border: white;
+  font-size: 15px;
+}
+
+#main-body{
+  text-align: center;
+  position: relative;
+}
+
+.flex-column-container{
+  flex-direction: column;
+}
+
+.initials{
+  background-color: #86B0D8;
+  border-radius: 100px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto 25px auto 0
+}
+
+div.to-do-card-container{
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.to-do-h4{
+  margin: 0
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  align-content: center
+}
+
+.button-transparent{
+  background-color: transparent;
+  border:none
+}
+
+.plus-button{
+  background-color: rgb(123, 209, 123);
+  width: 50px;
+  height: 50px;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  -webkit-box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.575);
+  -moz-box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.575);
+  box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.575);
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+}
+
+button.plus-button-activated{
+  background-color: crimson;
+}
+
+.new-popup{
+  position: fixed;
+  background-color: white;
+  min-height: 60vh;
+  width: 90vw;
+  margin: 0 5vw;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  -moz-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  top: 15%
+}
+
+.input-profile::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: grey;
+  opacity: 1; /* Firefox */
+}
+
+.input-profile:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+.input-profile::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}
+
+.add-button{
+  background-color: rgb(123, 209, 123);
+  border: 1px, solid, transparent;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  -moz-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  color: white;
+  margin-top: 60px;
+  padding: 10px;
+  font-size: 18px
+}
+
+.margin30{
+  margin-top: 50px
+}
+
+.edit-popup{
+  position: fixed;
+  background-color: white;
+  min-height: 60vh;
+  width: 90vw;
+  margin: 0 5vw;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  -moz-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  top: 15%;
+  left: 0%
+}
+
+.bill-image-link{
+  align-self: center;
+  padding: 1px 6px;
+}
+
+.img-bill{
+  vertical-align: middle;
+}
+
+.select-currency{
+  background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+  height: 36px;
+  overflow: hidden;
+  background-color: #white;
+  color: black;
+  width: 60vw;
+  font-size: 12px;
+  border-radius: 0;
+  padding-left: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.add-button:disabled{
+  background-color: grey;
+}
+
+.info-hover{
+  position: relative;
+  display: inline-block;
+  font-size: 10px;
+}
+
+.info-hover .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.info-hover:hover .tooltiptext {
+  visibility: visible;
+}
+
+.link-edit {
+  text-decoration: underline;
+  color: white;
+}
+
+.overview-button{
+  background-color: rgb(89, 214, 231);
+  width: 130px;
+  height: 50px;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  -webkit-box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.575);
+  -moz-box-shadow: 3px 3px 16px -1px rgba(0,0,0,0.575);
+  box-shadow: 3px 3px 16px -1px rgba(0, 0, 0, 0.575);
+  position: fixed;
+  bottom: 80px;
+  left: 30px;
+  padding: 14px 5px;
+}
+
+a.overview-link{
+  vertical-align: middle;
+  height: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.back-button{
+  position: absolute;
+  margin: 10px
+}
+
+.invoice-image{
+  max-width: 80vw;
+  max-height: 70vh;
+  margin: auto
+}
+
+.align-center{
+  text-align: center;
+}

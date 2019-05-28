@@ -60,23 +60,36 @@ In the app, users can jointly create, edit and delete a to-do list, shopping lis
 ## Components:
 
 - NavbarComponent:
-- function component
+  - function component
+  - Component
 - ShoppingComponent
-- class component
+  - class component
+  - Page
 - ToDoComponent
-- class component
+  - class component
+  - Page
 - BillsComponent
-- class component
+  - class component
+  - Page
 - ButtonsComponent
-- class component
+  - class component
+  - Component
 - ChatComponent
-- class component
+  - class component
+  - Page
+- ProfileComponent
+  - Page
+  - class component
 - PopupComponent
-- class component
+  - class component
+  - Component
 - ErrorComponent
-- function component
+  - function component
+  - Page
 - LoadingComponent
-- function component
+  - function component 
+  - Component
+
 
 
 ## Services
@@ -169,109 +182,122 @@ itemName: {type: String, required: true}
 
 ## API Endpoints
 - GET/auth/me
-- 200 with user object
-- 404 if no user in session
+  - 200 with user object
+  - 404 if no user in session
 - POST /auth/signup
-- 200 with user object
-- 401 if user logged in
-- body:
-- email
-- username
-- password
-- image (not required)
-- validation
-- fields not empty (422)
-- user already exists (409)
-- create user with encrypted password
-- store user in session
+  - 200 with user object
+  - 401 if user logged in
+  - body:
+    - email
+    - username
+    - password
+    - image (not required)
+  - validation
+    - fields not empty (422)
+    - user already exists (409)
+    - create user with encrypted password
+    - store user in session
 - POST /auth/login
-- 200 with user object
-- 401 if user logged in
-- body:
-- username
-- password
-- validation
-- fields not empty (422)
-- user doesn't exists (404)
-- password doesn't match (403)
-- store user in session
+  - 200 with user object
+  - 401 if user logged in
+  - body:
+    - username
+    - password
+    - validation
+    - fields not empty (422)
+    - user doesn't exists (404)
+    - password doesn't match (403)
+    - store user in session
 - POST/auth/logout
-- 204
+  - 204
 
 - GET /shopping
-- 200: return shopping list
-- 401: if user is not logged in
+  - 200: return shopping list
+  - 401: if user is not logged in
 - POST /shopping/edit/:id
-- 401: if user is not logged in
-- body:
-- item object
+  - 401: if user is not logged in
+  - validation:
+    - id is valid
+    - 422: if id is not valid
+  - body:
+    -  item object
 - POST/shopping/new
-- 401: if user is not logged in
-- body:
-- Item object
-- Add Item to shopping list
+  - 401: if user is not logged in
+  - body:
+    - Item object
+    - Add Item to shopping list
 - DELETE/shopping/delete/:id
-- 401: if user is not logged in
-- validation:
-- id is valid
-- body:
-- item id
-- remove one item
+  - 401: if user is not logged in
+  - validation:
+    - id is valid
+    - 422: if id is not valid
+  - body:
+    - item id
+    - remove one item
 
 - GET /to-do
-- 401: if user is not logged in
-- 200: return to-do list
+  - 401: if user is not logged in
+  - 200: return to-do list
 - POST /to-do/new
-- 401: if user is not logged in
-- body:
-- Item object
-- Add Item to to-do list
+  - 401: if user is not logged in
+  - body:
+    - Item object
+    - Add Item to to-do list
 - POST /to-do/edit/:id
-- 401: if user is not logged in
-- body:
-- item object
+  - 401: if user is not logged in
+  - validation:
+    - id is valid
+    - 422: if id is not valid
+  - body:
+    - item object
 - DELETE /to-do/delete/:id
-- 401: if user is not logged in
-- validation:
-- id is valid
-- body:
-- item id
-- remove one item
+  - 401: if user is not logged in
+  - validation:
+    - id is valid
+    - 422: if id is not valid
+  - body:
+    - item id
+    - remove one item
 
 - GET /bills
-- 401: if user is not logged in
-- 200: return bills list
+  - 401: if user is not logged in
+  - 200: return bills list
 - POST /bills/new
-- 401: if user is not logged in
-- body:
-- Item object
-- Add Item to bills list
+  - 401: if user is not logged in
+  - body:
+  - Item object
+  - Add Item to bills list
 - POST /bills/edit/:id
-- 401: if user is not logged in
-- body:
-- item object
+  - 401: if user is not logged in
+  - body:
+    - item object
+  - validation:
+    - 422: if id is not valid
+    - id is valid
 - DELETE /bills/delete/:id
-- 401: if user is not logged in
-- validation:
-- id is valid
-- body:
-- item id
-- remove one item
+  - 401: if user is not logged in
+  - validation:
+    - id is valid
+    - 422: if id is not valid
+  - body:
+    - item id
+    - remove one item
 - DELETE /bills/delete-all
-- 401: if user is not logged in
-- remove all items
+  - 401: if user is not logged in
+  - remove all items
 - GET /bills/overview
-- 401: if user is not logged in
-- 200: show overview
+  - 401: if user is not logged in
+  - 200: show overview
 
 - GET /profile
-- 401: if user is not logged in
-- 200: returns profile page
-- POST/profile/edit/:id
-- 401: if user is not logged in
-- body:
-- user object
-- update user info
+  - 401: if user is not logged in
+  - 200: returns profile page
+  - POST/profile/edit/:id
+    - 401: if user is not logged in
+    - 422: if id is not valid
+  - body:
+  - user object
+  - update user info
 
 
 

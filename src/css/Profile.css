@@ -1,0 +1,89 @@
+
+
+.profile-icon-container{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.card-container{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 30px;
+  -webkit-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  -moz-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  margin: 10px;
+  border-radius: 5px;
+  margin-left: 20px;
+  background-color: white;
+  color: black;
+}
+
+.profile-inner-container p{
+  padding-left: 15px;
+  overflow: scroll;
+}
+
+.profile-inner-container {
+  margin-right: 30px
+}
+
+.invitation-div{
+  -webkit-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  -moz-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  background-color: #86B0D8;
+  color: white;
+  flex-direction: column;
+  padding: 5px 30px
+}
+
+.edit-profile-popup{
+  position: absolute;
+  background-color: white;
+  min-height: 60vh;
+  width: 80vw;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  -moz-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
+  top: 12%
+}
+
+.input-profile {
+  height: 40px;
+  background: white;
+  border: 1px solid grey;
+  color: black;
+  width: 60vw;
+  padding-left: 10px;
+}
+
+.inputProfile{
+  width: 70vw;
+  vertical-align: middle;
+  margin: auto;
+}
+
+.icon-profile-edit{
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.input-profile-file{
+  margin: auto;
+  padding-top: 10px;
+}
+
+.profile-image{
+  border-radius: 100px;
+  height: 90px;
+  background-size: cover;
+}
+
+.update-button:disabled{
+  background-color: grey;
+}

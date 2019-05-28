@@ -1,0 +1,63 @@
+#body-signup{
+  background-image: linear-gradient(to bottom, #87b1d8, #7faad9, #78a3d9, #739cd9, #7094d9, #6d8ed7, #6a88d4, #6882d1, #637dcc, #5e78c7, #5874c3, #536fbe);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  padding: 20px 0 0 15px;
+}
+
+#signup-flex-column{ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center
+}
+
+.select-signup{
+  /* background: white;
+   border-radius: 5px;
+   display: inline-block;
+   font: inherit;
+   line-height: 1em;
+   padding: 0.5em 3.5em 0.5em 1em;
+   margin: 0;      
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+
+   background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1em;
+  background-repeat: no-repeat; */
+
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 80vw;
+   background-color: #5874c3;
+   color: white;
+   font-size: 12px;
+   padding-left: 10px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   margin-bottom: 10px;
+}
+
+.signup-h5{
+  margin: 5px;
+}

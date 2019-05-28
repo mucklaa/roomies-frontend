@@ -17,6 +17,7 @@ export const withAuth = Comp => {
                 user={authStore.user}
                 logout={authStore.logout}
                 isLoggedin={authStore.isLoggedin}
+                authMe={authStore.authMe}
                 {...this.props}
               />
             );
@@ -35,6 +36,28 @@ class AuthProvider extends Component {
   };
 
   componentDidMount() {
+    
+    auth
+      .me()
+      .then(user => {
+        this.setState({
+          isLoggedin: true,
+          user,
+          isLoading: false
+        });
+        console.log(user)
+      })
+      .catch(() => {
+        this.setState({
+          isLoggedin: false,
+          user: null,
+          isLoading: false
+        });
+      });
+  }
+
+  authMe = () => {
+    console.log("test")
     auth
       .me()
       .then(user => {
@@ -54,9 +77,9 @@ class AuthProvider extends Component {
   }
 
   signup = user => {
-    const { username, password } = user;
+    const { email, username, password, isAdmin, flatAttribute } = user;
     auth
-      .signup({ username, password })
+      .signup({ email, username, password, isAdmin, flatAttribute })
       .then(user => {
         this.setState({
           isLoggedin: true,
@@ -105,7 +128,8 @@ class AuthProvider extends Component {
           user,
           login: this.login,
           logout: this.logout,
-          signup: this.signup
+          signup: this.signup,
+          authMe: this.authMe
         }}
       >
         {this.props.children}

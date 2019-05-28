@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import { Switch } from "react-router-dom";
-
-import Navbar from "./components/Navbar";
-import Private from "./pages/Private";
+import './css/App.css';
+import Logout from "./components/buttons/LogoutButton";
+import Profile from "./pages/Profile"
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import ToDo from "./pages/ToDo";
+import Shopping from "./pages/Shopping";
+import Chat from "./pages/Chat";
+import Bill from "./pages/Bill";
+import BillDetail from "./pages/BillDetail";
+import BillOverview from "./pages/BillOverview";
 
 import PrivateRoute from "./components/PrivateRoute";
 import AnonRoute from "./components/AnonRoute";
@@ -15,12 +21,18 @@ class App extends Component {
     return (
       <AuthProvider>
         <div className="container">
-          <h1>Basic React Authentication</h1>
-          <Navbar />
+          {/* <Navbar /> */}
           <Switch>
-            <AnonRoute path="/signup" component={Signup} />
-            <AnonRoute path="/login" component={Login} />
-            <PrivateRoute path="/private" component={Private} />
+            <AnonRoute exact path="/" component={Login} />
+            <AnonRoute exact path="/signup" component={Signup} />
+            <AnonRoute exact path="/login" component={Login} />
+            <PrivateRoute exact path="/profile" component={Profile} />
+            <PrivateRoute exact path="/to-do" component={ToDo} />
+            <PrivateRoute exact path="/shopping" component={Shopping} />
+            <PrivateRoute exact path="/chat" component={Chat} />
+            <PrivateRoute exact path="/bills" component={Bill} />
+            <PrivateRoute exact path="/bills/detail" component={BillDetail} />            
+            <PrivateRoute exact path="/bills/overview" component={BillOverview} />
           </Switch>
         </div>
       </AuthProvider>

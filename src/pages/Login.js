@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
+import { Link } from "react-router-dom";
+import './../css/Login.css';
 
 class Login extends Component {
   state = {
@@ -21,23 +23,38 @@ class Login extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <form onSubmit={this.handleFormSubmit}>
-        <label>Username:</label>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={this.handleChange}
-        />
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={this.handleChange}
-        />
-        <input type="submit" value="Login" />
-      </form>
+      <div id="body-login">
+        <img className="logo-login" src="/logo-login.png" alt=""/>
+        <h1 className="login-h1">Join your flat!</h1>
+        <form onSubmit={this.handleFormSubmit}>
+          <div className="inputLogin">
+            <label className="labelIcon"><img className="icon-login" src="/User_Login.png" height="20px"/></label>
+            <input className="input-login"
+              type="text"
+              name="username"
+              placeholder= "Username"
+              value={username}
+              onChange={this.handleChange}
+            />
+          </div>
+          <br />
+          <div className="inputLogin">
+            <label className="labelIcon"><img className="icon-login" src="/lock_login.png" alt="login-icon" height="20px"/></label>
+            <input className="input-login"
+              type="password"
+              name="password"
+              placeholder= "Password"
+              value={password}
+              onChange={this.handleChange}
+            />
+          </div>
+          <button className="button-login" type="submit" value="Login">Login</button>
+        </form>
+        <div class="login-flex-row">
+          <p className="login-p">Don't have an account?</p>
+          <Link className="login-link" to="/signup">Sign Up</Link>
+        </div>
+      </div>
     );
   }
 }
