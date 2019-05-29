@@ -11,21 +11,24 @@ class BillDetail extends Component {
   constructor(props){
     super(props);
     this.state={
-     image: props.location.state.image.image
+     image: props.location.state.image.image,
+     pathPage: "bill-detail"
       }
     }
   
   render() {
     return (
       <div>
-        <Link class="back-button" to={"/bills"}><img src="/back-button.png" alt="back" width="20px"/></Link>
+        <Link className="back-button" to={"/bills"}><img src="/back-button.png" alt="back" width="20px"/></Link>
         <Logout />
         <div className="header">
           <h1 className="header-h1">Invoice</h1>
         </div>
-        <div class="align-center">
-        <img class="invoice-image" src={this.state.image} alt="img"/>
-        <NavbarFooter />
+        <div className="margin-from-fixed-header">
+        <div className="align-center">
+        <img className="invoice-image" src={this.state.image} alt="img"/>
+        </div>
+        <NavbarFooter pathPage={this.state.pathPage} />
       </div>
       </div>
     );

@@ -60,19 +60,19 @@ class Chat extends Component {
           <div className="align-message-right" key={index}>
             <div className="right-message">
               <p className="message-text">{message.text}</p>
-              <p className="initials initials-light margin-null">{message.user[0]}</p>
+              <p className="initials-chat initials-light margin-null">{message.user[0]}</p>
             </div>
-              {<p class="chat-time">{`${(message.createdAt).split('T')[0]} ${(message.createdAt).split('T')[1].split('.')[0]}`}</p>}
+              {<p className="chat-time">{`${(message.createdAt).split('T')[0]} ${(message.createdAt).split('T')[1].split('.')[0]}`}</p>}
           </div>
         )
       } else {
         return (
           <div key={index}>
             <div className="left-message">
-              <p className="initials margin-null">{message.user[0]}</p>
+              <p className="initials-chat margin-null">{message.user[0]}</p>
               <p className="message-text">{message.text}</p>
             </div>
-            {<p class="chat-time text-align-left">{`${(message.createdAt).split('T')[0]} ${(message.createdAt).split('T')[1].split('.')[0]}`}</p>}
+            {<p className="chat-time text-align-left">{`${(message.createdAt).split('T')[0]} ${(message.createdAt).split('T')[1].split('.')[0]}`}</p>}
 
           </div>
         )
@@ -87,7 +87,7 @@ class Chat extends Component {
         <div className="margin-from-fixed-header">
         <div className="fixed-bottom">
         <div>
-          <div className="message-box"><div class="message-box-scroll">{formatedMessages}</div></div>
+          <div className="message-box"><div className="message-box-scroll">{formatedMessages}</div></div>
         </div>
         <form onSubmit={this.handleSendMessage} className="message-form">
           <input autoComplete="off" className="input message-input" placeholder="Write a message" type="text" name="message" onChange={this.handleChange} value={this.state.message}/>

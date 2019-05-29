@@ -8,8 +8,8 @@ class EditProfile extends Component {
     this.state = {
     username: this.props.username,
     email: this.props.email,
-    phoneNumber: this.props.phone,
-    paypal: this.props.paypal,
+    phoneNumber: this.props.phoneNumber,
+    payPalMeUsername: this.props.paypal,
     image: this.props.image, 
     disable: false
   }
@@ -30,7 +30,7 @@ class EditProfile extends Component {
       .then(response => {
         console.log("formSubmit", response);
         this.props.authMe();
-        this.props.updateProfile(this.state.image, this.state.username, this.state.email, this.state.phone);
+        this.props.updateProfile(this.state.image, this.state.username, this.state.email, this.state.phoneNumber, this.state.payPalMeUsername);
         this.props.closeButton();
       });
       this.setState({ isClicked: true })
@@ -59,6 +59,8 @@ class EditProfile extends Component {
    }
 
   render() {
+    console.log("paypal", this.state)
+    console.log("props", this.props.paypal)
     return (
       this.state.isClicked ? null : 
       <div className="edit-profile-popup">
@@ -78,7 +80,7 @@ class EditProfile extends Component {
             </div>
             <div className="inputProfile">
               <img className="icon-profile-edit" src="/paypal.png" width="20px" alt="Paypal:"></img>
-              <input className="input-profile" value={this.state.paypal} type="text" name="paypal" onChange={this.handleChange} />
+              <input className="input-profile" value={this.state.payPalMeUsername} type="text" name="payPalMeUsername" onChange={this.handleChange} />
               <div className="info-hover" >How to create Paypal Me?
                 <span className="tooltiptext">You can find/create your paypal name here: <a className="link-edit" href="https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fpaypalme&state=%2Fmy%2Flanding%3Fentry%3Dmarketing">Paypal link</a></span>
               </div>
@@ -93,7 +95,7 @@ class EditProfile extends Component {
             }
             </div>
         </form>
-        <button className="close-button" onClick={this.closePopup} value="close">X</button>
+        <button className="close-button" onClick={this.closePopup} value="close"><img src="/close.png" alt="X" width="10px"/></button>
       </div>
 
     );

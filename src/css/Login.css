@@ -1,4 +1,4 @@
-#body-login {
+.body-blue {
   background-image: linear-gradient(to bottom, #87b1d8, #7faad9, #78a3d9, #739cd9, #7094d9, #6d8ed7, #6a88d4, #6882d1, #637dcc, #5e78c7, #5874c3, #536fbe);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -18,8 +18,24 @@ margin: 30px
 
 .logo-login{
   width: 40vw;
-  margin-top: 20px
+  margin-top: 20px;
+  animation-name: logoAnimation;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
 }
+
+@keyframes logoAnimation {
+  0%, 100% {
+      opacity: 1; 
+      transform: scale(1.0);
+      -webkit-transform: scale(1.0);
+  }
+  50% {
+      opacity: 0.5; 
+      transform: scale(1.4);
+      -webkit-transform: scale(1.4);
+  }
+  }
 
 .icon-login{
   vertical-align: middle;

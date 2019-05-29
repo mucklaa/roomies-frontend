@@ -10,6 +10,7 @@ class Overview extends Component {
   state = { 
     usersInfo: {},
     totalSpent: 0,
+    pathPage: "bill-overview",
     debtDatas: [],
     flatmates: [],
     labels: [],
@@ -53,7 +54,7 @@ class Overview extends Component {
   render() {
     return (
       <div>
-        <Link class="back-button" to={"/bills"}><img src="/back-button.png" alt="back" width="20px"/></Link>
+        <Link className="back-button" to={"/bills"}><img src="/back-button.png" alt="back" width="20px"/></Link>
         <Logout />
         <div className="header">
           <h1 className="header-h1">Invoice Overview</h1>
@@ -68,15 +69,15 @@ class Overview extends Component {
         
         <div className="card-container to-do-card-container overflow">
         <div className="flex-column">
-        <h4>Pays</h4>
+        <h3>Pays</h3>
           {
             Object.keys(this.state.usersInfo).map((key, index) => {
               const { amount, currency, hasToPay, payPalMeUsername } =  this.state.usersInfo[key]
               return (
-              <div>
+              <div key={index}>
                 {
                   hasToPay ?
-                  <div className="card-container bills-overview-container" key={index}>
+                  <div className="card-container bills-overview-container">
                   <div>
                     <p id="user-pays">{key} <br/> {amount} {currency} <br/> { payPalMeUsername ? <button onClick={ () => { this.goToPayPal(payPalMeUsername, currency, amount) } }>Pay</button> : <button disabled>Pay</button> }</p>
                   </div>
@@ -88,17 +89,17 @@ class Overview extends Component {
               ) 
             })
           }
-          <h4>Gets</h4>
+          <h3>Gets</h3>
           {
             Object.keys(this.state.usersInfo).map((key, index) => {
               const { amount, currency, hasToPay, payPalMeUsername } =  this.state.usersInfo[key]
               return (
-              <div>
+              <div key={index}>
                 {
                   hasToPay ?
                   null
                   :
-                  <div className="card-container bills-overview-container" key={index}>
+                  <div className="card-container bills-overview-container">
                   <div>
                     <p id="user-gets">{key}<br/> {amount} {currency}</p>
                   </div>
@@ -109,7 +110,7 @@ class Overview extends Component {
             })
           }
           </div>
-          <NavbarFooter />
+          <NavbarFooter pathPage={this.state.pathPage} />
 
           </div>
           </div>

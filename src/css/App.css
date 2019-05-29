@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Mukta+Vaani&display=swap');
 /* ---- reset ---- */
+*{
+  font-family: 'Comfortaa', cursive;
+}
 
 html {
   box-sizing: border-box;
@@ -18,7 +23,6 @@ body {
 
 body {
   color: #111;
-  font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 147%;
 }
@@ -91,7 +95,6 @@ section.testimonials .button {
 
 body {
   background-color: white;
-  font-family: 'Comfortaa', cursive;
   margin: 0;
 }
 
@@ -115,10 +118,11 @@ body {
 }
 
 .logoutButton{
-  position: absolute;
+  position: fixed;
   background-color: transparent;
   border:none;
   z-index: 2
+
 }
 
 .logout-container{
@@ -181,13 +185,16 @@ body {
 .initials{
   background-color: #5875C4;
   border-radius: 100px;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto 25px auto 0
+  margin: auto 25px auto 0;
+  color: white;
 }
+
+
 
 div.to-do-card-container{
   padding: 10px;
@@ -210,7 +217,7 @@ div.to-do-card-container{
 }
 
 .plus-button{
-  background-color: rgb(123, 209, 123);
+  background-color: #26C196;
   width: 50px;
   height: 50px;
   border: 1px solid transparent;
@@ -224,7 +231,7 @@ div.to-do-card-container{
 }
 
 button.plus-button-activated{
-  background-color: crimson;
+  background-color: #D4435F;
 }
 
 .new-popup{
@@ -261,7 +268,7 @@ button.plus-button-activated{
 }
 
 .update-button, .add-button{
-  background-color: rgb(123, 209, 123);
+  background-color: #26C196;
   border: none;
   border-radius: 5px;
   color: white;
@@ -350,7 +357,7 @@ button.plus-button-activated{
 }
 
 .overview-button{
-  background-color: rgb(89, 214, 231);
+  background-color: #26C196;
   width: 130px;
   height: 50px;
   border: 1px solid transparent;
@@ -373,7 +380,8 @@ a.overview-link{
 
 .back-button{
   position: absolute;
-  margin: 10px
+  margin: 10px;
+  z-index: 2
 }
 
 .invoice-image{
@@ -412,7 +420,7 @@ div.bills-overview-container{
 }
 
 .close-button{
-  background-color: crimson;
+  background-color: #D4435F;
   border: none;
   width: 40px;
   height: 40px;
@@ -421,3 +429,12 @@ div.bills-overview-container{
   margin: 20px 0;
 }
 
+.link-errorpage{
+  text-decoration: underline;
+  color: white;
+  font-size: 20px
+}
+
+@media only screen and (min-width: 900px) {
+  
+}
