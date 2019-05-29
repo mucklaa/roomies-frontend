@@ -76,7 +76,7 @@ class EditProfile extends Component {
             </div>
             <div className="inputProfile">
               <img className="icon-profile-edit" src="/phone-profile.png" width="20px" alt="Phone:"></img>
-              <input className="input-profile" value={this.state.phone} type="number" name="phone" onChange={this.handleChange} />
+              <input className="input-profile" value={this.state.phoneNumber} type="number" name="phone" onChange={this.handleChange} />
             </div>
             <div className="inputProfile">
               <img className="icon-profile-edit" src="/paypal.png" width="20px" alt="Paypal:"></img>

@@ -8,7 +8,7 @@ import ToDo from "./pages/ToDo";
 import Shopping from "./pages/Shopping";
 import Chat from "./pages/Chat";
 import Bill from "./pages/Bill";
-import Error from "./pages/Error"
+import ErrorPage from "./pages/Error"
 import BillDetail from "./pages/BillDetail";
 import BillOverview from "./pages/BillOverview";
 
@@ -33,7 +33,7 @@ class App extends Component {
             <PrivateRoute exact path="/bills" component={Bill} />
             <PrivateRoute exact path="/bills/detail" component={BillDetail} />            
             <PrivateRoute exact path="/bills/overview" component={BillOverview} />
-            <Route component={Error}/>
+            {/* <PrivateRoute path="/*" component={ErrorPage}/> */}
           </Switch>
         </div>
       </AuthProvider>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 
-function Error() {
+function ErrorPage() {
   return (
     <div className="body-blue">
       <h1>Page not found</h1>
@@ -11,4 +11,4 @@ function Error() {
   )
 }
 
-export default Error;
+export default ErrorPage;
