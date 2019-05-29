@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter";
 import EditButton from "./../components/buttons/EditButton";
-import profileService from "./../lib/profile-services";
 import Logout from "./../components/buttons/LogoutButton";
+import profileService from "./../lib/profile-services";
 import "./../css/Profile.css"
-import {CopyToClipboard} from 'react-copy-to-clipboard';
-
-
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 class Profile extends Component {
   state = { 
@@ -21,7 +19,6 @@ class Profile extends Component {
   componentDidMount() {
     profileService.getFlat(this.props.user.flat)
       .then((apiResponse) => {
-        console.log("user", this.props.user._id)
         this.setState({ 
         flat: apiResponse.data,
         users: apiResponse.data.users
@@ -43,7 +40,7 @@ class Profile extends Component {
     this.setState({ loggedInUser: newLoggedInUser })
   }
 
-  updateProfile = (image, username, email, payPalMeUsername) =>{
+  updateProfile = () =>{
     profileService.getFlat(this.props.user.flat)
       .then((apiResponse) => {
         console.log("user", this.props.user._id)
@@ -60,6 +57,7 @@ class Profile extends Component {
         this.setState({ loggedInUser: apiResponse.data})
       })
     }
+
     // let newLoggedInUser = this.state.loggedInUser;
     // newLoggedInUser.image = image;
     // newLoggedInUser.username = username;
@@ -68,12 +66,9 @@ class Profile extends Component {
     //   loggedInUser: newLoggedInUser,
     // })
 
-
-
-
   render() {
     const { users } = this.state;
-    console.log("loggedin:", this.state.loggedInUser.payPalMeUsername)
+    console.log("loggedin:", this.state.loggedInUser)
     return (
       <div id="main-body">
         <Logout />
@@ -146,8 +141,8 @@ class Profile extends Component {
                     </div>
                   </div>
                 </div>
-                )
-              }
+              )
+            }
           })
         }
         </div>

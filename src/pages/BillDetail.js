@@ -6,12 +6,9 @@ import Logout from "./../components/buttons/LogoutButton";
 
 
 class BillDetail extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-     image: props.location.state.image.image,
+    state = {
+     image: this.props.location.state.image.image,
      pathPage: "bill-detail"
-      }
     }
   
   render() {
@@ -26,7 +23,7 @@ class BillDetail extends Component {
           <div className="align-center">
             <img className="invoice-image" src={this.state.image} alt="img"/>
           </div>
-          <NavbarFooter />
+          <NavbarFooter pathPage={this.state.pathPage} />
         </div>
       </div>
     );

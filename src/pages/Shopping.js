@@ -3,8 +3,8 @@ import { withAuth } from "../lib/AuthProvider";
 import NavbarFooter from "./../components/NavbarFooter";
 import PlusButton from "./../components/buttons/PlusButton";
 import EditButton from "./../components/buttons/EditButton";
-import shoppingService from "./../lib/shopping-services";
 import Logout from "./../components/buttons/LogoutButton";
+import shoppingService from "./../lib/shopping-services";
 
 class Shopping extends Component {
   state = {
@@ -13,7 +13,7 @@ class Shopping extends Component {
     shoppingList: []
   }
 
-  getAllFlats = () =>{
+  getAllFlats = () => {
     shoppingService.getFlat(this.props.user.flat)
       .then((apiResponse) => {
         this.setState({ 
@@ -24,7 +24,7 @@ class Shopping extends Component {
       })
   }
 
-  handleDeleteSubmit = (event) => {
+  handleDeleteSubmit = event => {
     event.preventDefault();
     const itemID = event.target.value
     shoppingService.deleteItem(itemID)
@@ -38,7 +38,7 @@ class Shopping extends Component {
   render() {
     return (
       <div id="main-body">
-      <Logout />
+        <Logout />
         <div className="header">
           <h1 className="header-h1">Shopping</h1>
         </div>

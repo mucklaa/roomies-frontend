@@ -6,9 +6,9 @@ class EditProfile extends Component {
   state = {
     username: this.props.username,
     email: this.props.email,
-    phoneNumber: this.props.phoneNumber,
-    payPalMeUsername: this.props.paypal,
+    phoneNumber: this.props.phone,
     image: this.props.image, 
+    payPalMeUsername: this.props.paypal,
     disable: false
   }
 
@@ -27,7 +27,7 @@ class EditProfile extends Component {
       .then(response => {
         console.log("formSubmit", response);
         this.props.authMe();
-        this.props.updateProfile(this.state.image, this.state.username, this.state.email, this.state.phoneNumber, this.state.payPalMeUsername);
+        this.props.updateProfile();
         this.props.closeButton();
       });
       this.setState({ isClicked: true })
@@ -39,10 +39,8 @@ class EditProfile extends Component {
 
    handleImageUpload = (event) => {
     const file = event.target.files[0];
-    console.log('file', file)
     const uploadFile = new FormData();
     uploadFile.append('photo', file)
-    console.log("this.props.id", this.props.id)
     this.setState({disable: true})
     profileService.imageUpload(this.props.id, uploadFile)
       .then((image) => {
@@ -73,13 +71,13 @@ class EditProfile extends Component {
             </div>
             <div className="inputProfile">
               <img className="icon-profile-edit" src="/phone-profile.png" width="20px" alt="Phone:"></img>
-              <input className="input-profile" value={this.state.phoneNumber} type="number" name="phone" onChange={this.handleChange} />
+              <input className="input-profile" value={this.state.phoneNumber} type="number" name="phoneNumber" onChange={this.handleChange} />
             </div>
             <div className="inputProfile">
               <img className="icon-profile-edit" src="/paypal.png" width="20px" alt="Paypal:"></img>
               <input className="input-profile" value={this.state.payPalMeUsername} type="text" name="payPalMeUsername" onChange={this.handleChange} />
-              <div className="info-hover" >How to create Paypal Me?
-                <span className="tooltiptext">You can find/create your paypal name here: <a className="link-edit" href="https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fpaypalme&state=%2Fmy%2Flanding%3Fentry%3Dmarketing">Paypal link</a></span>
+              <div className="info-hover">How to create Paypal Me?
+                <span className="tooltiptext">You can find/create your paypal name here: <a className="link-edit" href="https://www.paypal.com/signin">Paypal link</a></span>
               </div>
             </div>
             <div className="inputProfile">
@@ -87,14 +85,11 @@ class EditProfile extends Component {
               <input className="input-profile-file input-profile" type="file" onChange={this.handleImageUpload}></input>
             </div>
             <div>
-            {
-              !this.state.disable ? <button className="update-button" type="submit" value="Add">Update</button> : <button disabled className="update-button" type="submit" value="Add">Update</button>  
-            }
+              { !this.state.disable ? <button className="update-button" type="submit" value="Add">Update</button> : <button disabled className="update-button" type="submit" value="Add">Update</button> }
             </div>
         </form>
         <button className="close-button" onClick={this.closePopup} value="close"><img src="/close.png" alt="X" width="10px"/></button>
       </div>
-
     );
   }
 }

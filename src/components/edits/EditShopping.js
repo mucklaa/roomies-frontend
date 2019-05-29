@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { withAuth } from "../../lib/AuthProvider";
 import shoppingService from '../../lib/shopping-services'
 
-
 class EditShopping extends Component {
   state = {
     name: this.props.name,
@@ -22,8 +21,8 @@ class EditShopping extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     let itemID = this.props.id
-    let {name, amount} = this.state
-    shoppingService.editItem(itemID, name, amount)
+    let item = this.state
+    shoppingService.editItem(itemID, item)
       .then(() => {
         this.props.getAllFlats();
         this.props.closeButton();

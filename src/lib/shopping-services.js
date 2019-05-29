@@ -16,16 +16,17 @@ class ShoppingAuth {
 
   newItem(flatID, item){
     return this.shopping
-      .post('/new', {flatID, item})
+      .post('/new', { flatID, item })
   }
-  editItem(itemID, name, amount){
+
+  editItem(itemID, item){
     return this.shopping
-      .put('/edit', { itemID, name, amount })
+      .put('/edit', { itemID, item })
   }
 
   deleteItem(itemID){
     return this.shopping
-      .delete('/delete', {data: {itemID}})
+      .delete('/delete', { data: { itemID } })
   }
 }
   

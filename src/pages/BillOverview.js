@@ -8,6 +8,7 @@ import Logout from "./../components/buttons/LogoutButton";
 
 class Overview extends Component {
   state = { 
+    payers: 0,
     usersInfo: {},
     totalSpent: 0,
     pathPage: "bill-overview",
@@ -33,11 +34,12 @@ class Overview extends Component {
   };
 
   goToPayPal(payPalMeUsername, currency, amount) {
-    window.location.href = `https://www.paypal.com/myaccount/transfer/send/external/ppme?profile=${payPalMeUsername}&currencyCode=${currency}&amount=${amount}&flowType=send`
+   // window.location.href = `https://www.paypal.com/myaccount/transfer/send/external/ppme?profile=${payPalMeUsername}&currencyCode=${currency}&amount=${amount}&flowType=send`
+   window.location.href = `https://www.paypal.com/myaccount/transfer/send/external/ppme?profile=${payPalMeUsername}&currencyCode=${currency}&flowType=send`
   }
 
   componentDidMount() {
-    billService.getAllBills(this.props.user.flat)
+    billService.getOverview(this.props.user.flat)
       .then((apiResponse) => {
         const { usersInfo, totalSpent } = apiResponse.data
         this.setState({ usersInfo, totalSpent, isVisible: true }, () => {
@@ -78,7 +80,7 @@ class Overview extends Component {
                     hasToPay ?
                     <div className="card-container bills-overview-container">
                       <div>
-                        <p id="user-pays">{key} <br/> {amount} {currency} <br/> { payPalMeUsername ? <button onClick={ () => { this.goToPayPal(payPalMeUsername, currency, amount) } }>Pay</button> : <button disabled>Pay</button> }</p>
+                        <p id="user-pays">{key} <br/> {amount} {currency}</p>
                       </div>
                     </div>
                     :
@@ -95,22 +97,21 @@ class Overview extends Component {
                 return (
                 <div key={index}>
                   {
-                    hasToPay ?
-                    null
-                    :
+                    !hasToPay ?
                     <div className="card-container bills-overview-container">
                       <div>
-                        <p id="user-gets">{key}<br/> {amount} {currency}</p>
+                        <p id="user-gets">{key}<br/> {amount} {currency} <br/> { payPalMeUsername ? <button onClick={ () => { this.goToPayPal(payPalMeUsername, currency, amount) } }>Pay</button> : <button disabled>Pay</button> } </p>
                       </div>
                     </div>
+                    :
+                    null
                   }
                 </div>
                 ) 
               })
             }
             </div>
-            <NavbarFooter />
-
+            <NavbarFooter pathPage={this.state.pathPage} />
             </div>
           </div>
       </div>

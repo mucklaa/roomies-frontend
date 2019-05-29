@@ -13,7 +13,7 @@ class ToDo extends Component {
     toDoList: [],
   }
 
-  getAllFlats = () =>{
+  getAllFlats = () => {
     const flatID = this.props.user.flat
     toDoService.getFlat(flatID)
       .then((apiResponse) => {
@@ -39,7 +39,7 @@ class ToDo extends Component {
   render() {
     return (
       <div id="main-body">
-      <Logout />
+        <Logout />
         <div className="header">
           <h1 className="header-h1">To-Do's</h1>
         </div>

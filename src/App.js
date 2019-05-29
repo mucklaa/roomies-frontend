@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
-import './css/App.css';
+import { Switch } from "react-router-dom";
 import Profile from "./pages/Profile"
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -11,6 +10,7 @@ import Bill from "./pages/Bill";
 import ErrorPage from "./pages/Error"
 import BillDetail from "./pages/BillDetail";
 import BillOverview from "./pages/BillOverview";
+import './css/App.css';
 
 import PrivateRoute from "./components/PrivateRoute";
 import AnonRoute from "./components/AnonRoute";

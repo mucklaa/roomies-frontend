@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { withAuth } from "../../lib/AuthProvider";
 import billService from '../../lib/bill-services'
 
-
-
 class EditBill extends Component {
   state = {
     name: this.props.name,
@@ -15,21 +13,21 @@ class EditBill extends Component {
   handleChange = (event) => {
     event.preventDefault();
     let { name, value } = event.target;
-    this.setState( { [name]: value } )
+    this.setState({ [name]: value })
   }
 
   handleSelect = event => {
     event.preventDefault();
     event.persist()
     const { name, value } = event.target;
-    this.setState({[name]: value})
+    this.setState({ [name]: value })
   }
 
   closePopup = () => {
     this.props.closeButton();
    }
 
-  handleFormSubmit = (event) => {
+  handleFormSubmit = event => {
     event.preventDefault();
     let itemID = this.props.id
     let item = this.state
