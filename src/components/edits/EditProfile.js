@@ -6,7 +6,7 @@ class EditProfile extends Component {
   state = {
     username: this.props.username,
     email: this.props.email,
-    phoneNumber: this.props.phoneNumber,
+    phone: this.props.phone,
     payPalMeUsername: this.props.paypal,
     image: this.props.image, 
     disable: false
@@ -27,7 +27,7 @@ class EditProfile extends Component {
       .then(response => {
         console.log("formSubmit", response);
         this.props.authMe();
-        this.props.updateProfile(this.state.image, this.state.username, this.state.email, this.state.phoneNumber, this.state.payPalMeUsername);
+        this.props.updateProfile();
         this.props.closeButton();
       });
       this.setState({ isClicked: true })
@@ -73,7 +73,7 @@ class EditProfile extends Component {
             </div>
             <div className="inputProfile">
               <img className="icon-profile-edit" src="/phone-profile.png" width="20px" alt="Phone:"></img>
-              <input className="input-profile" value={this.state.phoneNumber} type="number" name="phone" onChange={this.handleChange} />
+              <input className="input-profile" value={this.state.phone} type="number" name="phone" onChange={this.handleChange} />
             </div>
             <div className="inputProfile">
               <img className="icon-profile-edit" src="/paypal.png" width="20px" alt="Paypal:"></img>

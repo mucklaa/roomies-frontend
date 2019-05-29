@@ -109,7 +109,7 @@ class Overview extends Component {
               })
             }
             </div>
-            <NavbarFooter />
+            <NavbarFooter pathPage={this.state.pathPage}/>
 
             </div>
           </div>

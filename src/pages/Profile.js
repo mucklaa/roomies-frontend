@@ -43,7 +43,7 @@ class Profile extends Component {
     this.setState({ loggedInUser: newLoggedInUser })
   }
 
-  updateProfile = (image, username, email, payPalMeUsername) =>{
+  updateProfile = () =>{
     profileService.getFlat(this.props.user.flat)
       .then((apiResponse) => {
         console.log("user", this.props.user._id)
@@ -73,7 +73,7 @@ class Profile extends Component {
 
   render() {
     const { users } = this.state;
-    console.log("loggedin:", this.state.loggedInUser.payPalMeUsername)
+    console.log("loggedin:", this.state.loggedInUser)
     return (
       <div id="main-body">
         <Logout />

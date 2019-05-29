@@ -26,7 +26,7 @@ class BillDetail extends Component {
           <div className="align-center">
             <img className="invoice-image" src={this.state.image} alt="img"/>
           </div>
-          <NavbarFooter />
+          <NavbarFooter pathPage={this.state.pathPage} />
         </div>
       </div>
     );

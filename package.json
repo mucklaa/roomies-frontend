@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "chart.js": "^2.8.0",
     "react": "^16.5.2",
     "react-chartjs-2": "^2.7.6",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.5.2",
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.0.4",
