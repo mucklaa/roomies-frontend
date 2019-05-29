@@ -8,13 +8,14 @@ class BillAuth {
     });
   }
 
+  // getBills
   getFlat(flatID){
     return this.bills
       .get(`/${flatID}`)
         .then((apiResponse) => apiResponse)
   } 
 
-  getAllBills(flatID) {
+  getOverview(flatID) {
     return this.bills
       .get(`/${flatID}/overview`)
         .then((apiResponse) => apiResponse)

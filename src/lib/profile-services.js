@@ -14,17 +14,17 @@ class ProfileAuth {
         .then((apiResponse) => apiResponse)
   }
 
-  imageUpload(user, file) {
-    return this.profile
-    .post('/edit/image', file)
-      .then(({data}) => data)
-  }
-
   getUser(userID){
     return this.profile
       .get(`/user/${userID}`)
       
         .then((apiResponse) => apiResponse)
+  }
+
+  imageUpload(user, file) {
+    return this.profile
+    .post('/edit/image', file)
+      .then(({data}) => data)
   }
 
   editUser(userID, item){
@@ -34,7 +34,6 @@ class ProfileAuth {
   }
 }
   
-
 const profileAuth = new ProfileAuth();
 
 export default profileAuth;

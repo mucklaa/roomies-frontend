@@ -39,7 +39,7 @@ class PopupBill extends Component {
       this.setState({ name: '', price: '', currency: this.state.currency, user: '', image: '' })
    }
 
-//to get new username if user changes his name --> otherwise this.props.user (not updated) and used profileAuth so we dont have to write another service
+// to get new username if user changes his name --> otherwise this.props.user (not updated) and used profileAuth so we dont have to write another service
    componentDidMount() {
     profileAuth.getUser(this.props.user._id)
       .then((apiResponse) => {

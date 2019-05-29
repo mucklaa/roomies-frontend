@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { withAuth } from '../../src/lib/AuthProvider';
 import chatService from "./../lib/chat-service";
-import io from 'socket.io-client';
 import NavbarFooter from "./../components/NavbarFooter";
-import './../css/Chat.css'
 import Logout from "./../components/buttons/LogoutButton";
+import io from 'socket.io-client';
+import './../css/Chat.css'
 
 class Chat extends Component {
 
   state = {
     message: '',
     messageList: [],
-    socket: io('http://localhost:5000/user/chat/'+this.props.user.flat),
+    socket: io(`${process.env.REACT_APP_API_URL}/user/chat/${this.props.user.flat}`),
     pathPage: "chat",
   }
 
@@ -72,30 +72,29 @@ class Chat extends Component {
               <p className="initials-chat margin-null">{message.user[0]}</p>
               <p className="message-text">{message.text}</p>
             </div>
-            {<p className="chat-time text-align-left">{`${(message.createdAt).split('T')[0]} ${(message.createdAt).split('T')[1].split('.')[0]}`}</p>}
-
+            { <p className="chat-time text-align-left">{`${(message.createdAt).split('T')[0]} ${(message.createdAt).split('T')[1].split('.')[0]}`}</p> }
           </div>
         )
       }
     })
     return (
-     <div id="main-body">
-      <Logout />
+      <div id="main-body">
+        <Logout />
         <div className="header">
           <h1 className="header-h1">Chat</h1>
         </div>
         <div className="margin-from-fixed-header">
         <div className="fixed-bottom">
-        <div>
-          <div className="message-box"><div className="message-box-scroll">{formatedMessages}</div></div>
+          <div>
+            <div className="message-box"><div className="message-box-scroll">{formatedMessages}</div></div>
+          </div>
+          <form onSubmit={this.handleSendMessage} className="message-form">
+            <input autoComplete="off" className="input message-input" placeholder="Write a message" type="text" name="message" onChange={this.handleChange} value={this.state.message}/>
+            <button className="button message-button" type="submit"><img src="/send.png" alt="Send" width="20px"/></button>
+          </form>
         </div>
-        <form onSubmit={this.handleSendMessage} className="message-form">
-          <input autoComplete="off" className="input message-input" placeholder="Write a message" type="text" name="message" onChange={this.handleChange} value={this.state.message}/>
-          <button className="button message-button" type="submit"><img src="/send.png" alt="Send" width="20px"/></button>
-        </form>
-      </div>
-      </div>
-      <NavbarFooter pathPage={this.state.pathPage}/>
+        </div>
+        <NavbarFooter pathPage={this.state.pathPage}/>
       </div>
     )
   }
