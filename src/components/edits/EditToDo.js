@@ -33,7 +33,7 @@ class EditToDo extends Component {
   render() {
     return (
         this.state.isClicked ? null : 
-        <div class="edit-popup">
+        <div className="edit-popup">
           <h2>Edit To-Do</h2>
           <form className="margin30" onSubmit={this.handleFormSubmit}>
             <div className="margin30 inputProfile">
@@ -41,14 +41,14 @@ class EditToDo extends Component {
               <input placeholder={this.state.name} className="input-profile" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
             </div>
             <div className="margin30 inputProfile">
-            <img className="icon-profile-edit" src="/task.png" width="20px" alt="Responsibility"></img>
+            <img className="icon-profile-edit" src="/person.png" width="20px" alt="Responsibility:"></img>
               <input placeholder={this.state.user} className="input-profile" value={this.state.user} type="text" name="user" onChange={this.handleChange} />
             </div>
             <div>
               <input className="update-button" type="submit" value="Update"/>
             </div>
         </form>
-        <button className="close-button" onClick={this.closePopup} value="close">X</button>
+        <button className="close-button" onClick={this.closePopup} value="close"><img src="/close.png" alt="X" width="10px"/></button>
       </div>
 
     );

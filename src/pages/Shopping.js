@@ -55,7 +55,7 @@ class Shopping extends Component {
                   </div>
                   <div className="flex-row">
                     <EditButton getAllFlats={this.getAllFlats} id={shoppingItem._id} amount={shoppingItem.amount} name={shoppingItem.name} pathPage="shopping" />
-                    <button onClick={this.handleDeleteSubmit} value={shoppingItem._id}  type="submit">Delete</button>
+                    <button className="button-transparent" onClick={this.handleDeleteSubmit} value={shoppingItem._id}  type="submit"><img src="/delete2.png" width="20px" alt="Delete" /></button>
                   </div>
               </div>
             )

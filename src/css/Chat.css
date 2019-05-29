@@ -5,13 +5,13 @@
 
 .fixed-bottom{
   position: fixed;
-  bottom: 60px;
+  bottom: 10vh;
 }
 
 
 
 .message-button{
-  background-color: rgb(170, 76, 173);
+  background-color: #FF9887;
   width: 60px;
   height: 40px;
   border: none;
@@ -27,7 +27,7 @@
 .message-input{
   width: 80vw;
   height: 40px;
-  border: 1px solid black;
+  border: 1px solid #FF9887;
   border-radius: 10px;
   font-size: 15px;
   padding-left: 20px;
@@ -89,6 +89,17 @@
 .margin-null{
   margin: 0;
 }
+
+.initials-chat{
+  background-color: rgb(168, 197, 224);
+  border-radius: 100px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .initials-light{
   background-color: #d9e9f8;

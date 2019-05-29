@@ -6,7 +6,7 @@ import './css/App.css';
 
 
 ReactDOM.render(
-  <Router >
+  <Router>
     <App />
   </Router>
 , document.getElementById('root'));

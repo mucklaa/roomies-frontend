@@ -90,11 +90,18 @@
   background-color: grey;
 }
 
-.black{
-  color: black;
-}
 
 .background-blue{
   background-color: #5875C4;
   color: white
+}
+
+#copy-button:active{
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  cursor: zoom-out;
+}
+
+.align-center{
+  justify-content: center;
 }

@@ -34,22 +34,22 @@ class EditShopping extends Component {
   render() {
     return (
       this.state.isClicked ? null : 
-      <div class="edit-popup">
-        <h2>Edit To-Do</h2>
+      <div className="edit-popup">
+        <h2>Edit Shopping-Item</h2>
         <form className="margin30" onSubmit={this.handleFormSubmit}>
           <div className="margin30 inputProfile">
-            <img className="icon-profile-edit" src="/task.png" width="20px" alt="Task"></img>
+          <img className="icon-profile-edit" src="/shopping-black.png" width="20px" alt="Item"></img>
             <input className="input-profile" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
           </div>
           <div className="margin30 inputProfile">
-            <img className="icon-profile-edit" src="/task.png" width="20px" alt="Responsibility"></img>
-            <input className="input-profile" value={this.state.amount} type="number" name="amount" onChange={this.handleChange} />
+          <img className="icon-profile-edit" src="/amount.png" width="20px" alt="Amount"></img>
+          <input className="input-profile" value={this.state.amount} type="number" name="amount" onChange={this.handleChange} />
           </div>
             <div>
               <input className="update-button" type="submit" value="Update"/>
             </div>
         </form>
-        <button className="close-button" onClick={this.closePopup} value="close">X</button>
+        <button className="close-button" onClick={this.closePopup} value="close"><img src="/close.png" alt="X" width="10px"/></button>
       </div>
 
     );

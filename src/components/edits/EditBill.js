@@ -44,8 +44,8 @@ class EditBill extends Component {
   render() {
     return (
       this.state.isClicked ? null : 
-      <div class="edit-popup">
-        <h2>Edit Expense</h2>
+      <div className="edit-popup">
+        <h2>Edit Invoice</h2>
         <form className="margin30" onSubmit={this.handleFormSubmit}>
           <div className="margin30 inputProfile">
             <img className="icon-profile-edit" src="/receipt.png" width="20px" alt="Description"></img>
@@ -66,7 +66,7 @@ class EditBill extends Component {
             <input className="update-button" type="submit" value="Update"/>
           </div>
         </form>
-        <button className="close-button" onClick={this.closePopup} value="close">X</button>
+        <button className="close-button" onClick={this.closePopup} value="close"><img src="/close.png" alt="X" width="10px"/></button>
       </div>
     );
   }
