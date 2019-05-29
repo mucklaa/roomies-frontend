@@ -3,11 +3,9 @@ import { withAuth } from "../lib/AuthProvider";
 import { Doughnut } from 'react-chartjs-2';
 
 class DoughnutParent extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      labels: props.labels,
-      datasets: props.datasets ,
+  state = {
+      labels: this.props.labels,
+      datasets: this.props.datasets ,
       options: {
         legend: {
             display: true,
@@ -17,22 +15,21 @@ class DoughnutParent extends Component {
         }
       }
     }
-  }
 
   componentDidMount() {
-    //console.log(this.chartReference); // returns a Chart.js instance reference
     this.setState({})
   }
 
   render() {
     return (
       <div>
-        <Doughnut ref={(reference) => this.chartReference = reference }
+        <Doughnut 
+          ref={ (reference) => this.chartReference = reference }
           data={{
             labels: this.state.labels,
             datasets: this.state.datasets
           }}
-          options={this.state.options}     
+          options={ this.state.options }     
         />  
       </div>
     );

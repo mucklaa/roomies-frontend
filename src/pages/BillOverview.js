@@ -60,59 +60,58 @@ class Overview extends Component {
           <h1 className="header-h1">Invoice Overview</h1>
         </div>
         <div className="margin-from-fixed-header">
-        <div className="card-container to-do-card-container">
-        <h2>Total</h2>
-        <h2>{this.state.totalSpent} €</h2>
-        </div>
-        { this.state.isVisible ? <DoughnutParent datasets={this.state.datasets} labels={this.state.labels} /> : null }
-        
-        
-        <div className="card-container to-do-card-container overflow">
-        <div className="flex-column">
-        <h3>Pays</h3>
-          {
-            Object.keys(this.state.usersInfo).map((key, index) => {
-              const { amount, currency, hasToPay, payPalMeUsername } =  this.state.usersInfo[key]
-              return (
-              <div key={index}>
-                {
-                  hasToPay ?
-                  <div className="card-container bills-overview-container">
-                  <div>
-                    <p id="user-pays">{key} <br/> {amount} {currency} <br/> { payPalMeUsername ? <button onClick={ () => { this.goToPayPal(payPalMeUsername, currency, amount) } }>Pay</button> : <button disabled>Pay</button> }</p>
-                  </div>
-                  </div>
-                  :
-                  null
-                }
-              </div>
-              ) 
-            })
-          }
-          <h3>Gets</h3>
-          {
-            Object.keys(this.state.usersInfo).map((key, index) => {
-              const { amount, currency, hasToPay, payPalMeUsername } =  this.state.usersInfo[key]
-              return (
-              <div key={index}>
-                {
-                  hasToPay ?
-                  null
-                  :
-                  <div className="card-container bills-overview-container">
-                  <div>
-                    <p id="user-gets">{key}<br/> {amount} {currency}</p>
-                  </div>
-                  </div>
-                }
-              </div>
-              ) 
-            })
-          }
+          <div className="card-container to-do-card-container">
+          <h2>Total</h2>
+          <h2>{this.state.totalSpent} €</h2>
           </div>
-          <NavbarFooter pathPage={this.state.pathPage} />
+          { this.state.isVisible ? <DoughnutParent datasets={this.state.datasets} labels={this.state.labels} /> : null }
+          
+          <div className="card-container to-do-card-container overflow">
+          <div className="flex-column">
+          <h3>Pays</h3>
+            {
+              Object.keys(this.state.usersInfo).map((key, index) => {
+                const { amount, currency, hasToPay, payPalMeUsername } =  this.state.usersInfo[key]
+                return (
+                <div key={index}>
+                  {
+                    hasToPay ?
+                    <div className="card-container bills-overview-container">
+                      <div>
+                        <p id="user-pays">{key} <br/> {amount} {currency} <br/> { payPalMeUsername ? <button onClick={ () => { this.goToPayPal(payPalMeUsername, currency, amount) } }>Pay</button> : <button disabled>Pay</button> }</p>
+                      </div>
+                    </div>
+                    :
+                    null
+                  }
+                </div>
+                ) 
+              })
+            }
+            <h3>Gets</h3>
+            {
+              Object.keys(this.state.usersInfo).map((key, index) => {
+                const { amount, currency, hasToPay, payPalMeUsername } =  this.state.usersInfo[key]
+                return (
+                <div key={index}>
+                  {
+                    hasToPay ?
+                    null
+                    :
+                    <div className="card-container bills-overview-container">
+                      <div>
+                        <p id="user-gets">{key}<br/> {amount} {currency}</p>
+                      </div>
+                    </div>
+                  }
+                </div>
+                ) 
+              })
+            }
+            </div>
+            <NavbarFooter />
 
-          </div>
+            </div>
           </div>
       </div>
     );

@@ -4,7 +4,6 @@ import { withAuth } from "../../lib/AuthProvider";
 //profileAuth for getting User
 class Logout extends Component {
  
-
   render() {
     const { logout, isLoggedin } = this.props;
     return (

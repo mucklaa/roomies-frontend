@@ -3,9 +3,7 @@ import { withAuth } from "../../lib/AuthProvider";
 import profileService from '../../lib/profile-services'
 
 class EditProfile extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
+  state = {
     username: this.props.username,
     email: this.props.email,
     phoneNumber: this.props.phoneNumber,
@@ -13,7 +11,6 @@ class EditProfile extends Component {
     image: this.props.image, 
     disable: false
   }
-}
 
   handleChange = (event) => {
     event.preventDefault();

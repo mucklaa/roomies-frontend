@@ -5,8 +5,6 @@ import NavbarFooter from "./../components/NavbarFooter";
 import Logout from "./../components/buttons/LogoutButton";
 
 
-
-
 class BillDetail extends Component {
   constructor(props){
     super(props);
@@ -25,11 +23,11 @@ class BillDetail extends Component {
           <h1 className="header-h1">Invoice</h1>
         </div>
         <div className="margin-from-fixed-header">
-        <div className="align-center">
-        <img className="invoice-image" src={this.state.image} alt="img"/>
+          <div className="align-center">
+            <img className="invoice-image" src={this.state.image} alt="img"/>
+          </div>
+          <NavbarFooter />
         </div>
-        <NavbarFooter pathPage={this.state.pathPage} />
-      </div>
       </div>
     );
   }
