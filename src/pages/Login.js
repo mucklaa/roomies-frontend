@@ -24,7 +24,7 @@ class Login extends Component {
     const { username, password } = this.state;
     return (
       <div className="body-blue">
-        <img className="logo-login" src="/logo-login.png" alt=""/>
+        <img className="logo-login" src="/test-logo.png" alt=""/>
         <h1 className="login-h1">Join your flat!</h1>
         <form onSubmit={this.handleFormSubmit}>
           <div className="inputLogin">
