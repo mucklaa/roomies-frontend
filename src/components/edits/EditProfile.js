@@ -8,7 +8,7 @@ class EditProfile extends Component {
     this.state = {
     username: this.props.username,
     email: this.props.email,
-    phone: this.props.phone,
+    phoneNumber: this.props.phone,
     paypal: this.props.paypal,
     image: this.props.image, 
     disable: false
