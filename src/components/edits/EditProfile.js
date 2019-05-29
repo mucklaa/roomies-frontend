@@ -25,7 +25,6 @@ class EditProfile extends Component {
     let item = this.state
     profileService.editUser(userID, item)
       .then(response => {
-        console.log("formSubmit", response);
         this.props.authMe();
         this.props.updateProfile();
         this.props.closeButton();
@@ -44,7 +43,6 @@ class EditProfile extends Component {
     this.setState({disable: true})
     profileService.imageUpload(this.props.id, uploadFile)
       .then((image) => {
-        console.log('image', image)
         this.setState({
           image,
           disable: false,
@@ -54,8 +52,6 @@ class EditProfile extends Component {
    }
 
   render() {
-    console.log("paypal", this.state)
-    console.log("props", this.props.paypal)
     return (
       this.state.isClicked ? null : 
       <div className="edit-profile-popup">

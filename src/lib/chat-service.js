@@ -15,7 +15,6 @@ class ChatService {
   }
   
   sendMessage(chatID, text){
-    console.log(text)
     return this.chat
       .post(`/${chatID}`, { text })
         .then((apiResponse) => apiResponse)

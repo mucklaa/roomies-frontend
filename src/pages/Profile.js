@@ -28,7 +28,6 @@ class Profile extends Component {
 
     profileService.getUser(this.props.user._id)
       .then((apiResponse) => {
-        console.log("api response user", apiResponse)
         this.setState({ loggedInUser: apiResponse.data })
         }
       )
@@ -43,7 +42,6 @@ class Profile extends Component {
   updateProfile = () =>{
     profileService.getFlat(this.props.user.flat)
       .then((apiResponse) => {
-        console.log("user", this.props.user._id)
         this.setState({ 
           flat: apiResponse.data,
           users: apiResponse.data.users
@@ -53,7 +51,6 @@ class Profile extends Component {
 
     profileService.getUser(this.props.user._id)
       .then((apiResponse) => {
-        console.log("api response user", apiResponse)
         this.setState({ loggedInUser: apiResponse.data})
       })
     }
@@ -68,7 +65,6 @@ class Profile extends Component {
 
   render() {
     const { users } = this.state;
-    console.log("loggedin:", this.state.loggedInUser)
     return (
       <div id="main-body">
         <Logout />

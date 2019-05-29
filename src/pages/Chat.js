@@ -17,7 +17,6 @@ class Chat extends Component {
 
   componentDidMount(){
     this.handleGetMessages(this.props.user.flat)
-    console.log('socket', this.state.socket);
     this.state.socket.on('NEW_MESSAGE', () => {
        this.handleGetMessages();
     });
@@ -36,7 +35,6 @@ class Chat extends Component {
     event.preventDefault()
     chatService.sendMessage(this.props.user.flat, this.state.message)
       .then((apiResponse) => {
-        console.log(apiResponse)
         this.setState({
           message: '',
           messageList: apiResponse.data.history
