@@ -34,6 +34,7 @@ class App extends Component {
             <PrivateRoute exact path="/bills/detail" component={BillDetail} />            
             <PrivateRoute exact path="/bills/overview" component={BillOverview} />
             <Route path="/*" component={ErrorPage}/>
+            {/* <PrivateRoute path="/*" component={ErrorPage}/> */}
           </Switch>
           </div>
       </AuthProvider>

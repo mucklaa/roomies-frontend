@@ -5,8 +5,8 @@ import './../css/Login.css';
 
 class Login extends Component {
   state = {
-    username: "",
-    password: ""
+    username: '',
+    password: ''
   };
 
   handleFormSubmit = event => {
