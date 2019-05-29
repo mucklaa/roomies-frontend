@@ -57,7 +57,6 @@ class AuthProvider extends Component {
   }
 
   authMe = () => {
-    console.log("test")
     auth
       .me()
       .then(user => {
@@ -103,7 +102,7 @@ class AuthProvider extends Component {
           user
         });
       })
-      .catch(() => {});
+      .catch((error) => {console.log(error)});
   };
 
   logout = () => {

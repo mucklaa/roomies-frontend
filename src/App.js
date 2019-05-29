@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Profile from "./pages/Profile"
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <AuthProvider>
-        <div className="container">
+      <div className="container">
           {/* <Navbar /> */}
           <Switch>
             <AnonRoute exact path="/" component={Login} />
@@ -33,9 +33,10 @@ class App extends Component {
             <PrivateRoute exact path="/bills" component={Bill} />
             <PrivateRoute exact path="/bills/detail" component={BillDetail} />            
             <PrivateRoute exact path="/bills/overview" component={BillOverview} />
+            <Route path="/*" component={ErrorPage}/>
             {/* <PrivateRoute path="/*" component={ErrorPage}/> */}
           </Switch>
-        </div>
+          </div>
       </AuthProvider>
     );
   }

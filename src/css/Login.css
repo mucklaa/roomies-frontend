@@ -13,18 +13,18 @@
 }
 
 .login-h1{
-  margin: 30px;
+margin: 30px;
+animation-name: loginAnimation;
+animation-duration: 4s;
+animation-iteration-count: infinite;
 }
 
 .logo-login{
   width: 40vw;
   margin-top: 20px;
-  animation-name: logoAnimation;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
 }
 
-@keyframes logoAnimation {
+@keyframes loginAnimation {
   0%, 100% {
       opacity: 1; 
       transform: scale(1.0);
@@ -32,8 +32,8 @@
   }
   50% {
       opacity: 0.5; 
-      transform: scale(1.4);
-      -webkit-transform: scale(1.4);
+      transform: scale(1.1);
+      -webkit-transform: scale(1.1);
   }
   }
 
@@ -88,7 +88,13 @@
   border-radius: 5px;
   color: #5874c3;
   border: #5874c3;
-  font-size: 15px
+  font-size: 15px;
+}
+
+.button-login:active{
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  cursor: zoom-out;
 }
 
 .login-p{
