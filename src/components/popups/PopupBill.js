@@ -43,7 +43,6 @@ class PopupBill extends Component {
    componentDidMount() {
     profileAuth.getUser(this.props.user._id)
       .then((apiResponse) => {
-        console.log("api response user", apiResponse)
         this.setState({ user: apiResponse.data.username })
         }
       )
@@ -51,14 +50,11 @@ class PopupBill extends Component {
 
   handleImageUpload = (event) => {
     const file = event.target.files[0];
-    console.log('file', file)
     const uploadFile = new FormData();
     uploadFile.append('photo', file)
-    console.log("this.props.id", this.props.id)
     this.setState({disable: true})
     profileAuth.imageUpload(this.props.id, uploadFile)
       .then((image) => {
-        console.log('image', image)
         this.setState({
           image,
           disable: false,
