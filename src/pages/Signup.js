@@ -36,8 +36,8 @@ class Signup extends Component {
       <div id="body-signup">
         <Link to={"/login"}><img src="/back-button.png" alt="back" width="20px"/></Link>
         <div id="signup-flex-column">
-          <img className="logo-login" src="/logo-login.png" alt=""/>
-          <h1 className="login-h1">Join your flat!</h1>
+          <img className="logo-login" src="/roomies-logo2.png" alt=""/>
+          <h1 className="h1-animation">Join your flat!</h1>
             <form onSubmit={this.handleFormSubmit}>
             <div className="inputLogin">
               <label className="labelIcon"><img className="icon-login" src="/mail_login.png" alt="Email" height="20px"/></label>

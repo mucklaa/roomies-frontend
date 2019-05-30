@@ -12,9 +12,9 @@
   text-align: center
 }
 
-.login-h1{
+.h1-animation{
 margin: 30px;
-animation-name: loginAnimation;
+animation-name: h1-animation;
 animation-duration: 4s;
 animation-iteration-count: infinite;
 }
@@ -24,7 +24,7 @@ animation-iteration-count: infinite;
   margin-top: 20px;
 }
 
-@keyframes loginAnimation {
+@keyframes h1-animation {
   0%, 100% {
       opacity: 1; 
       transform: scale(1.0);

@@ -34,11 +34,11 @@ class PopupToDo extends Component {
         <form className="margin30" onSubmit={this.handleFormSubmit}>
           <div className="margin30 inputProfile">
             <img className="icon-profile-edit" src="/task.png" width="20px" alt="Task"></img>
-            <input placeholder="Job" className="input-profile"  value={this.state.name} type="text" name="name" onChange={this.handleChange} />
+            <input placeholder="Job" className="input-field"  value={this.state.name} type="text" name="name" onChange={this.handleChange} />
           </div>
           <div className="margin30 inputProfile">
             <img className="icon-profile-edit" src="/person.png" width="20px" alt="Responsibility:"></img>
-            <input placeholder="Responsibility" className="input-profile"  value={this.state.user} type="text" name="user" onChange={this.handleChange} />
+            <input placeholder="Responsibility" className="input-field"  value={this.state.user} type="text" name="user" onChange={this.handleChange} />
           </div>
           <div>
             <input className="add-button" type="submit" value="Add"/>

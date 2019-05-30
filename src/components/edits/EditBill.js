@@ -47,11 +47,11 @@ class EditBill extends Component {
         <form className="margin30" onSubmit={this.handleFormSubmit}>
           <div className="margin30 inputProfile">
             <img className="icon-profile-edit" src="/receipt.png" width="20px" alt="Description"></img>
-            <input className="input-profile" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
+            <input className="input-field" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
           </div>
           <div className="margin30 inputProfile">
             <img className="icon-profile-edit" src="/money-black.png" width="20px" alt="Amount"></img>
-            <input className="input-profile" value={this.state.price} type="number" name="price" onChange={this.handleChange} />
+            <input className="input-field" value={this.state.price} type="number" name="price" onChange={this.handleChange} />
           </div>
           <div className="margin30 inputProfile">
           <img className="icon-profile-edit" src="/currency.png" width="20px" alt="Currency"></img>

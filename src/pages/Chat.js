@@ -17,7 +17,6 @@ class Chat extends Component {
 
   componentDidMount(){
     this.handleGetMessages(this.props.user.flat)
-    console.log('socket', this.state.socket);
     this.state.socket.on('NEW_MESSAGE', () => {
        this.handleGetMessages();
     });
@@ -36,7 +35,6 @@ class Chat extends Component {
     event.preventDefault()
     chatService.sendMessage(this.props.user.flat, this.state.message)
       .then((apiResponse) => {
-        console.log(apiResponse)
         this.setState({
           message: '',
           messageList: apiResponse.data.history
@@ -60,7 +58,10 @@ class Chat extends Component {
           <div className="align-message-right" key={index}>
             <div className="right-message">
               <p className="message-text">{message.text}</p>
-              <p className="initials-chat initials-light margin-null">{message.user[0]}</p>
+              <div>
+                <p className="initials-chat initials-light margin-null">{message.user[0]}</p>
+                <p className="chat-name">{message.user}</p>
+              </div>
             </div>
               {<p className="chat-time">{`${(message.createdAt).split('T')[0]} ${(message.createdAt).split('T')[1].split('.')[0]}`}</p>}
           </div>
@@ -69,7 +70,10 @@ class Chat extends Component {
         return (
           <div key={index}>
             <div className="left-message">
-              <p className="initials-chat margin-null">{message.user[0]}</p>
+             <div>
+                <p className="initials-chat margin-null">{message.user[0]}</p>
+                <p className="chat-name">{message.user}</p>
+              </div>
               <p className="message-text">{message.text}</p>
             </div>
             { <p className="chat-time text-align-left">{`${(message.createdAt).split('T')[0]} ${(message.createdAt).split('T')[1].split('.')[0]}`}</p> }

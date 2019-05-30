@@ -38,11 +38,11 @@ class EditToDo extends Component {
           <form className="margin30" onSubmit={this.handleFormSubmit}>
             <div className="margin30 inputProfile">
             <img className="icon-profile-edit" src="/task.png" width="20px" alt="Task"></img>
-              <input placeholder={this.state.name} className="input-profile" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
+              <input placeholder={this.state.name} className="input-field" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
             </div>
             <div className="margin30 inputProfile">
             <img className="icon-profile-edit" src="/person.png" width="20px" alt="Responsibility:"></img>
-              <input placeholder={this.state.user} className="input-profile" value={this.state.user} type="text" name="user" onChange={this.handleChange} />
+              <input placeholder={this.state.user} className="input-field" value={this.state.user} type="text" name="user" onChange={this.handleChange} />
             </div>
             <div>
               <input className="update-button" type="submit" value="Update"/>

@@ -1,26 +1,9 @@
 
-
 .profile-icon-container{
   display: flex;
   align-items: center;
   flex-direction: row;
   flex-wrap: nowrap;
-}
-
-.card-container{
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  padding: 30px;
-  -webkit-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
-  -moz-box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
-  box-shadow: 3px 3px 24px -9px rgba(156,156,156,1);
-  margin: 10px;
-  border-radius: 5px;
-  /* margin-left: 20px; */
-  background-color: white;
-  color: black;
-  overflow: scroll
 }
 
 .profile-inner-container p{
@@ -55,16 +38,7 @@
   z-index: 2;
 }
 
-.input-profile {
-  height: 40px;
-  background: white;
-  border: 1px solid grey;
-  color: black;
-  width: 60vw;
-  padding-left: 10px;
-}
-
-.inputProfile{
+.input-profile{
   width: 70vw;
   vertical-align: middle;
   margin: auto;
@@ -86,22 +60,13 @@
   background-size: cover;
 }
 
-.update-button:disabled{
-  background-color: grey;
-}
-
-
 .background-blue{
-  background-color: #5875C4;
-  color: white
+  background-color: #5875C4 !important;
+  color: white !important;
 }
 
 #copy-button:active{
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
   cursor: zoom-out;
-}
-
-.align-center{
-  justify-content: center;
 }

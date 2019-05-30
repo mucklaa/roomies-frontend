@@ -45,7 +45,6 @@ class AuthProvider extends Component {
           user,
           isLoading: false
         });
-        console.log(user)
       })
       .catch(() => {
         this.setState({

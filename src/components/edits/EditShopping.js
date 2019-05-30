@@ -38,11 +38,11 @@ class EditShopping extends Component {
         <form className="margin30" onSubmit={this.handleFormSubmit}>
           <div className="margin30 inputProfile">
           <img className="icon-profile-edit" src="/shopping-black.png" width="20px" alt="Item"></img>
-            <input className="input-profile" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
+            <input className="input-field" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
           </div>
           <div className="margin30 inputProfile">
           <img className="icon-profile-edit" src="/amount.png" width="20px" alt="Amount"></img>
-          <input className="input-profile" value={this.state.amount} type="number" name="amount" onChange={this.handleChange} />
+          <input className="input-field" value={this.state.amount} type="number" name="amount" onChange={this.handleChange} />
           </div>
             <div>
               <input className="update-button" type="submit" value="Update"/>

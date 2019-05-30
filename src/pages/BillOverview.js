@@ -100,7 +100,7 @@ class Overview extends Component {
                     !hasToPay ?
                     <div className="card-container bills-overview-container">
                       <div>
-                        <p id="user-gets">{key}<br/> {amount} {currency} <br/> { payPalMeUsername ? <button onClick={ () => { this.goToPayPal(payPalMeUsername, currency, amount) } }>Pay</button> : <button disabled>Pay</button> } </p>
+                        <p id="user-gets">{key}<br/> {amount} {currency} <br/> { payPalMeUsername ? <button className="pay-button" onClick={ () => { this.goToPayPal(payPalMeUsername, currency, amount) } }>Send money</button> : <button className="info-hover pay-button" disabled>Send money<span className="tooltiptext">No PaypalMe stored</span></button> } </p>
                       </div>
                     </div>
                     :
