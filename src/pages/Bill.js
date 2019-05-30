@@ -6,6 +6,7 @@ import PlusButton from "./../components/buttons/PlusButton"
 import EditButton from "./../components/buttons/EditButton";
 import Logout from "./../components/buttons/LogoutButton";
 import billService from "./../lib/bill-services";
+import './../css/Bills.css'
 
 class Bill extends Component {
   state = {

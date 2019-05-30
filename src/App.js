@@ -7,7 +7,7 @@ import ToDo from "./pages/ToDo";
 import Shopping from "./pages/Shopping";
 import Chat from "./pages/Chat";
 import Bill from "./pages/Bill";
-import ErrorPage from "./pages/Error"
+import ErrorPage from "./pages/Error";
 import BillDetail from "./pages/BillDetail";
 import BillOverview from "./pages/BillOverview";
 import './css/App.css';

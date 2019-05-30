@@ -111,6 +111,13 @@
   text-align:right;
 }
 
+.chat-name{
+  font-size: 10px;
+  color: rgba(128, 128, 128, 0.842); 
+  text-align:right;
+  margin: -5px 0 -10px 0; 
+}
+
 .text-align-left{
   text-align: left;
 }

@@ -75,11 +75,11 @@ class PopupBill extends Component {
         <form className="margin30" onSubmit={this.handleFormSubmit}>
           <div className="margin30 inputProfile">
             <img className="icon-profile-edit" src="/receipt.png" width="20px" alt="Description"></img>
-            <input placeholder="Description" className="input-profile" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
+            <input placeholder="Description" className="input-field" value={this.state.name} type="text" name="name" onChange={this.handleChange} />
           </div>
           <div className="margin30 inputProfile">
             <img className="icon-profile-edit" src="/money-black.png" width="20px" alt="Amount"></img>
-            <input placeholder="Amount" className="input-profile" value={this.state.price} type="number" name="price" onChange={this.handleChange} />
+            <input placeholder="Amount" className="input-field" value={this.state.price} type="number" name="price" onChange={this.handleChange} />
           </div>
           <div className="margin30 inputProfile">
             <img className="icon-profile-edit" src="/currency.png" width="20px" alt="Currency"></img>
@@ -90,7 +90,7 @@ class PopupBill extends Component {
           </div>
           <div className="margin30 inputProfile">    
             <img className="icon-profile-edit" src="/camera-black.png" width="20px" alt="Currency"></img>
-            <input className="input-profile" type="file" onChange={this.handleImageUpload}></input>
+            <input className="input-field" type="file" onChange={this.handleImageUpload}></input>
           </div>         
           <div>
             {

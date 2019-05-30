@@ -25,7 +25,7 @@ class Login extends Component {
     return (
       <div className="body-blue">
         <img className="logo-login" src="/roomies-logo2.png" alt=""/>
-        <h1 className="login-h1">Join your flat!</h1>
+        <h1 className="h1-animation">Join your flat!</h1>
         <form onSubmit={this.handleFormSubmit}>
           <div className="inputLogin">
             <label className="labelIcon"><img className="icon-login" src="/User_Login.png" height="20px" alt="Username"/></label>
