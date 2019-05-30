@@ -55,14 +55,6 @@ class Profile extends Component {
       })
     }
 
-    // let newLoggedInUser = this.state.loggedInUser;
-    // newLoggedInUser.image = image;
-    // newLoggedInUser.username = username;
-    // newLoggedInUser.email = email;
-    // this.setState({
-    //   loggedInUser: newLoggedInUser,
-    // })
-
   render() {
     const { users } = this.state;
     return (
@@ -108,7 +100,6 @@ class Profile extends Component {
           <div className="card-container align-center background-blue">
             <h4 >Invitation Code: {this.props.user.flatCode}</h4> 
             <CopyToClipboard text={this.props.user.flatCode} onCopy={() => this.setState({copied: true})}>
-              {/* <button>{this.state.copied ? <img src="/copy-bold.png" width="30px" alt="Copy"/> : <img src="/copy.png" width="30px" alt="Copy"/>}</button> */}
               <button className="button-transparent" id="copy-button"><img className="copy-button" src="/copy.png" width="30px" alt="Copy"/></button>
             </CopyToClipboard>
           </div>
