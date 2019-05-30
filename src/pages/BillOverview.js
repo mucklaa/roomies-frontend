@@ -73,7 +73,7 @@ class Overview extends Component {
           <h3>Pays</h3>
             {
               Object.keys(this.state.usersInfo).map((key, index) => {
-                const { amount, currency, hasToPay, payPalMeUsername } =  this.state.usersInfo[key]
+                const { amount, currency, hasToPay } =  this.state.usersInfo[key]
                 return (
                 <div key={index}>
                   {
