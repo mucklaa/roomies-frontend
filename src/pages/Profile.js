@@ -26,10 +26,8 @@ class Profile extends Component {
       }
     )
 
-    console.log(this.props.user._id)
     profileService.getUser(this.props.user._id)
       .then((apiResponse) => {
-        console.log(apiResponse)
         this.setState({ loggedInUser: apiResponse.data })
         }
       )
