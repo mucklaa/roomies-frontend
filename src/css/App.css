@@ -397,7 +397,7 @@ div.to-do-card-container{
 }
 
 .img-edit{
-  margin-bottom: -6px
+  margin-bottom: -5px
 }
 
 .card-container{
@@ -415,3 +415,4 @@ div.to-do-card-container{
   color: black;
   overflow: scroll
 }
+

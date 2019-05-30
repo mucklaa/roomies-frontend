@@ -66,7 +66,7 @@ class Bill extends Component {
                   <div className="flex-row">  
                     { (billItem.image === '') ? null : <Link className="bill-image-link" to={{ pathname: '/bills/detail', state: { image: billItem }}}><img className="img-bill" src="/camera-black.png" height="22px" alt="Invoice" /></Link> }
                     <EditButton getAllFlats={this.getAllFlats} id={billItem._id} currency={billItem.currency} user={billItem.user} name={billItem.name} price={billItem.price} pathPage="bill" />
-                    <button onClick={this.handleDeleteSubmit} value={billItem._id}  type="submit"><img src="/delete2.png" width="20px" alt="Delete"></img></button>
+                    <button className="button-transparent" onClick={this.handleDeleteSubmit} value={billItem._id}  type="submit"><img src="/delete2.png" width="20px" alt="Delete"></img></button>
                   </div>
                 </div>
               )
